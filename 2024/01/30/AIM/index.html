@@ -20,18 +20,23 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="Lecture01">
+  <meta name="description" content="Lecture01Definition – Decision Support (决策支持) This term is used often and in a variety of contexts related to decision making.  Multidisciplinary:   Artificial Intelligence, Operations Research, Dec">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AIM">
 <meta property="og:url" content="http://example.com/2024/01/30/AIM/index.html">
 <meta property="og:site_name" content="Caihao&#39;s Blog">
-<meta property="og:description" content="Lecture01">
+<meta property="og:description" content="Lecture01Definition – Decision Support (决策支持) This term is used often and in a variety of contexts related to decision making.  Multidisciplinary:   Artificial Intelligence, Operations Research, Dec">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/AIM/lec01/01.png">
+<meta property="og:image" content="http://example.com/images/AIM/lec01/02.png">
+<meta property="og:image" content="http://example.com/images/AIM/lec01/03.png">
+<meta property="og:image" content="http://example.com/images/AIM/lec01/04.png">
 <meta property="article:published_time" content="2024-01-30T17:53:44.000Z">
-<meta property="article:modified_time" content="2024-01-30T18:22:41.817Z">
+<meta property="article:modified_time" content="2024-01-30T20:46:59.270Z">
 <meta property="article:author" content="Caihao">
 <meta property="article:tag" content="AIM">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/AIM/lec01/01.png">
   
     <link rel="alternate" href="/atom.xml" title="Caihao's Blog" type="application/atom+xml">
   
@@ -272,7 +277,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            9 words 
+            3.8k words 
           </div>
         </div>
         
@@ -283,7 +288,122 @@
         
           <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5TTXEcfsYLh6fTarLaevTi?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-<h1 id="Lecture01"><a href="#Lecture01" class="headerlink" title="Lecture01"></a>Lecture01</h1>
+<h1 id="Lecture01"><a href="#Lecture01" class="headerlink" title="Lecture01"></a>Lecture01</h1><h2 id="Definition-–-Decision-Support-决策支持"><a href="#Definition-–-Decision-Support-决策支持" class="headerlink" title="Definition – Decision Support (决策支持)"></a><strong>Definition – Decision Support</strong> (决策支持)</h2><ul>
+<li><p>This term is used often and in a variety of contexts related to decision making.</p>
+</li>
+<li><p>Multidisciplinary: </p>
+<ul>
+<li>Artificial Intelligence,</li>
+<li>Operations Research,</li>
+<li>Decision Theory, </li>
+<li>Decision Analysis, </li>
+<li>Statistics,…</li>
+</ul>
+</li>
+</ul>
+<h2 id="Definition-–-Systems"><a href="#Definition-–-Systems" class="headerlink" title="Definition – Systems"></a><strong>Definition – Systems</strong></h2><ul>
+<li><p>Degree of dependence of systems on the environment <strong>(系统对环境的依赖程度)</strong></p>
+<ul>
+<li>Closed systems are totally independent <strong>(封闭系统)</strong></li>
+<li>Open systems dependent on their environment <strong>(开放系统)</strong></li>
+</ul>
+</li>
+<li><p>Evaluations of systems <strong>(系统评估)</strong></p>
+<ul>
+<li><p><em>System effectiveness</em>: the degree to which goals are achieved, </p>
+<p>i.e. result, output <strong>(系统有效性)</strong></p>
+</li>
+<li><p><em>System efficiency</em>: a measure of the use of inputs (or resources) </p>
+<p>to achieve output, e.g., speed <strong>(系统效率)</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Definition-–Global-Optimisation"><a href="#Definition-–Global-Optimisation" class="headerlink" title="Definition –Global Optimisation"></a><strong>Definition –Global Optimisation</strong></h2><ul>
+<li><p>Global optimisation is the task of finding the absolutely best set of admissible conditions to achieve your objective, formulated in mathematical terms. <strong>（全局优化定义：在数学条件下寻找达到目标的最佳）</strong></p>
+</li>
+<li><p>Fundamental problem of optimisation is to arrive at the best possible (optimal) decision&#x2F;solution in any given set of circumstances. <strong>（优化的基本问题）</strong></p>
+</li>
+<li><p>In most cases “the best” (optimal) is unattainable <strong>（难以达到最优）</strong></p>
+</li>
+</ul>
+<h2 id="Global-vs-Local-Optimum"><a href="#Global-vs-Local-Optimum" class="headerlink" title="Global vs Local Optimum"></a><strong>Global vs Local Optimum</strong></h2><ul>
+<li>Global Optimum: better than all other solutions (best)</li>
+<li>Local Optimum: better than all solutions in a certain neighborhood, <strong>N</strong></li>
+</ul>
+<img src="/images/AIM/lec01/01.png" width="50%" height="50%">
+
+<h2 id="Search-in-Continuous-vs-Discrete-Space"><a href="#Search-in-Continuous-vs-Discrete-Space" class="headerlink" title="Search in Continuous vs Discrete Space"></a><strong>Search in Continuous vs Discrete Space</strong></h2><img src="/images/AIM/lec01/02.png" width="50%" height="50%">
+
+<h2 id="Definition-–-Problem-and-Problem-Instance"><a href="#Definition-–-Problem-and-Problem-Instance" class="headerlink" title="Definition – Problem and Problem Instance"></a><strong>Definition – Problem and Problem Instance</strong></h2><ul>
+<li>Problem refers to the high level question or optimisation issue to be solved. </li>
+<li>An instance of this problem is the concrete expression, which represents the input for a decision or optimisation problem.</li>
+<li>Example: Optimal assignment of groups to busses (minimising the number of busses) is an optimisation (minimisation) problem<ul>
+<li>Optimal assignment of 3 groups of 10, 15, 43 to busses, each with 45 seats and company having 10 busses at max is an instance of this problem</li>
+<li>Optimal assignment of 5 groups of 19, 25, 30, 30, 45 to busses, each with 60 seats and company having 10 busses at max is another instance of this problem</li>
+</ul>
+</li>
+</ul>
+<h2 id="Analysis-of-Algorithms-101-Problem-Classes"><a href="#Analysis-of-Algorithms-101-Problem-Classes" class="headerlink" title="Analysis of Algorithms 101: Problem Classes"></a><strong>Analysis of Algorithms 101: Problem Classes</strong></h2><img src="/images/AIM/lec01/03.png" width="50%" height="50%">
+
+<h2 id="Combinatorial-Optimisation-Problems"><a href="#Combinatorial-Optimisation-Problems" class="headerlink" title="Combinatorial Optimisation Problems"></a><strong>Combinatorial Optimisation Problems</strong></h2><h2 id="Optimisation-Search-Methods"><a href="#Optimisation-Search-Methods" class="headerlink" title="Optimisation&#x2F;Search Methods"></a><strong>Optimisation&#x2F;Search Methods</strong></h2><ul>
+<li>Optimisation methods can be broadly classified as:</li>
+<li><strong>Exact</strong>&#x2F;Exhaustive&#x2F;Systematic Methods<ul>
+<li>E.g., Dynamic Programming, Branch&amp;Bound, Constraint Satisfaction, Math programming…</li>
+</ul>
+</li>
+<li><strong>Inexact</strong>&#x2F;Approximate&#x2F;Local Search Methods<ul>
+<li>E.g., heuristics, metaheuristics, hyper-heuristics,…</li>
+</ul>
+</li>
+</ul>
+<h2 id="Search-Paradigms-I"><a href="#Search-Paradigms-I" class="headerlink" title="Search Paradigms I"></a><strong>Search Paradigms I</strong></h2><ul>
+<li><p>Single point (trajectory) based search vs. Multi-point (population) based search <strong>（单点搜索是指在解空间中沿着一条路径（或轨迹）进行搜索，而多点搜索则是在解空间中同时考虑多个点（或一组点，也称为种群）进行搜索）</strong></p>
+</li>
+<li><p>Perturbative （<strong>微扰性搜索</strong>：这是一种搜索策略，它通过对当前解进行小的、随机的改变（或微扰）来生成新的解。这种方法通常用于<strong>寻找全局最优解</strong>，特别是在解空间中存在许多局部最优解的情况下）</p>
+<ul>
+<li>complete solutions</li>
+</ul>
+</li>
+<li><p>Constructive （<strong>构造性搜索</strong>：这是一种搜索策略，它通过逐步构建解的部分来生成完全解。这种方法通常用于<strong>解决组合优化问题</strong>，如旅行商问题或者图着色问题）</p>
+<ul>
+<li>partial solutions <strong>（在搜索过程中，部分解通常被用作中间步骤，以帮助找到完全解）</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="Search-Paradigms-II"><a href="#Search-Paradigms-II" class="headerlink" title="Search Paradigms II"></a><strong>Search Paradigms II</strong></h2><img src="/images/AIM/lec01/04.png" width="50%" height="50%">
+
+<h2 id="Example-Optimisation-Techniques-I"><a href="#Example-Optimisation-Techniques-I" class="headerlink" title="Example Optimisation Techniques I"></a><strong>Example Optimisation Techniques I</strong></h2><p>Exact&#x2F;Exhaustive&#x2F;Deterministic Systematic Methods</p>
+<ul>
+<li>Dynamic Programming （动态规划：将问题分解为更小的子问题，并将子问题的解存储起来）</li>
+<li>Branch &amp; Bound （分支定界：树中搜索最优解）</li>
+<li>Constraint Satisfaction （约束满足：八皇后）</li>
+<li>Math programming （数学规划）<ul>
+<li>ILP （整数线性规划）</li>
+<li>MILP （混合整数线性规划）</li>
+</ul>
+</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Only work if the problem is structured – in many cases for small problem instances （只有在问题是结构化的情况下才有效）</li>
+<li>Quite often used to solve sub-problems （往往被用来解决子问题）</li>
+</ul>
+<h2 id="Heuristic-Search-Methods-is-a-rule-of-thumb-method"><a href="#Heuristic-Search-Methods-is-a-rule-of-thumb-method" class="headerlink" title="Heuristic Search Methods ( is a rule of thumb method)"></a><strong>Heuristic Search Methods</strong> ( is a rule of thumb method)</h2><ul>
+<li>A heuristic is a problem dependent search method which seeks good, i.e. near-optimal solutions, at a reasonable cost (e.g. speed) without being able to guarantee optimality. </li>
+<li>Good for solving ill-structured problems, or complex well-structured problems (large-scale combinatorial problems that have many potential solutions to explore) <strong>（启发式方法特别适合解决结构不良的问题，或者复杂的结构良好的问题）</strong></li>
+</ul>
+<h2 id="Deterministic-vs-Stochastic-Heuristic-Search"><a href="#Deterministic-vs-Stochastic-Heuristic-Search" class="headerlink" title="Deterministic vs Stochastic Heuristic Search"></a><strong>Deterministic vs Stochastic Heuristic Search</strong></h2><ul>
+<li>Deterministic heuristic search algorithms provide the same solution when run on the given problem instance regardless of how many times. （确定性启发式搜索算法在给定问题实例上运行时，无论运行多少次，都会提供相同的解决方案）</li>
+<li>Stochastic algorithms contain a random component and may return a different solution at each time they are run on the same instance （可能在每次在同一实例上运行时返回不同的解决方案）<ul>
+<li>Multiple trials&#x2F;runs should be performed for the experiments&#x2F;simulations</li>
+<li>Being able to repeat&#x2F;replicate those multiple trials&#x2F;runs in the experiments&#x2F;simulations is crucial in science, and</li>
+<li>This also enables average performance comparison of different stochastic heuristic search algorithms applying statistical tests</li>
+</ul>
+</li>
+</ul>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/27XLb0nRxPNOxKBL56AH2f?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
         
       </div>
 
