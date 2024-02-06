@@ -20,12 +20,12 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="记得这是初中非常喜欢的一首歌，那时还在用QQ音乐，希望大家下面的知识“All We Know”😋   Lecture01Primitive Operations  两种计数方式  Count Operations (by second way)  Exercise  Method1(常规算数)  Method2(二进制位移)  计算循环次数  Answer">
+  <meta name="description" content="记得这是初中非常喜欢的一首歌，那时还在用QQ音乐，希望大家下面的知识“All We Know”😋   Lecture01Primitive Operations  两种计数方式  Count Operations (by second way)  Exercise  Method1(常规算数)  Method2(二进制位移)  计算循环次数  Answer  Lecture02Big-Oh 表示">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ADE">
 <meta property="og:url" content="http://example.com/2024/02/04/ADE/index.html">
 <meta property="og:site_name" content="Caihao&#39;s Blog">
-<meta property="og:description" content="记得这是初中非常喜欢的一首歌，那时还在用QQ音乐，希望大家下面的知识“All We Know”😋   Lecture01Primitive Operations  两种计数方式  Count Operations (by second way)  Exercise  Method1(常规算数)  Method2(二进制位移)  计算循环次数  Answer">
+<meta property="og:description" content="记得这是初中非常喜欢的一首歌，那时还在用QQ音乐，希望大家下面的知识“All We Know”😋   Lecture01Primitive Operations  两种计数方式  Count Operations (by second way)  Exercise  Method1(常规算数)  Method2(二进制位移)  计算循环次数  Answer  Lecture02Big-Oh 表示">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/ADE/lec01/01.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec01/02.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="http://example.com/images/ADE/lec01/07.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec01/08.png">
 <meta property="article:published_time" content="2024-02-04T00:48:54.000Z">
-<meta property="article:modified_time" content="2024-02-04T01:53:03.197Z">
+<meta property="article:modified_time" content="2024-02-05T20:43:47.704Z">
 <meta property="article:author" content="Caihao">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/ADE/lec01/01.png">
@@ -286,7 +286,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            156 words 
+            1.4k words 
           </div>
         </div>
         
@@ -312,6 +312,35 @@
 
 <h2 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h2><img src="/images/ADE/lec01/08.png" width="50%" height="50%">
 
+<h1 id="Lecture02"><a href="#Lecture02" class="headerlink" title="Lecture02"></a>Lecture02</h1><p>Big-Oh 表示法是用于描述算法复杂度的一种方式，特别是在计算机科学中用来表征算法的运行时间或所需空间与输入大小之间的关系。Big-Oh 是“渐进上界”的缩写，它提供了一个算法可能的最慢运行速度的上限。重要的是要注意，Big-Oh 并不试图精确描述算法在特定情况下的表现，而是试图提供一个随着输入规模增加时，算法表现的大致趋势。</p>
+<h3 id="Big-Oh-表示法的基本概念"><a href="#Big-Oh-表示法的基本概念" class="headerlink" title="Big-Oh 表示法的基本概念"></a>Big-Oh 表示法的基本概念</h3><ul>
+<li><strong>定义</strong>：如果存在正常数 (C) 和 (n_0)，使得所有 (n &gt;&#x3D; n_0) 时，(f(n)&lt;&#x3D; C * g(n))，则我们可以说 (f(n)) 在渐进意义上小于等于 (g(n))，记为 (f(n) &#x3D; O(g(n)))。</li>
+<li><strong>直观含义</strong>：这意味着当输入规模足够大时，算法的运行时间（或空间需求）不会超过 (g(n)) 的某个常数倍。(g(n)) 提供了一个“上限”。</li>
+<li><strong>常见的Big-Oh 类别</strong>：<ul>
+<li><strong>常数时间</strong>：(O(1)) 表示算法的运行时间不随输入规模的增加而改变。</li>
+<li><strong>线性时间</strong>：(O(n)) 表示算法的运行时间与输入规模成正比。</li>
+<li><strong>二次时间</strong>：(O(n^2)) 表示算法的运行时间与输入规模的平方成正比。</li>
+<li><strong>对数时间</strong>：(O(\log n)) 表示算法的运行时间与输入规模的对数成正比。</li>
+<li><strong>线性对数时间</strong>：(O(n\log n)) 常见于某些高效的排序算法中。</li>
+<li><strong>指数时间</strong>：(O(2^n)) 表示算法的运行时间随输入规模的增加而呈指数级增长。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Big-Oh-表示法的使用"><a href="#Big-Oh-表示法的使用" class="headerlink" title="Big-Oh 表示法的使用"></a>Big-Oh 表示法的使用</h3><p>Big-Oh 表示法在分析算法时非常有用，它帮助我们理解算法在处理大量数据时可能遇到的性能瓶颈。通过比较不同算法的Big-Oh 复杂度，我们可以预测哪种算法在面对大规模输入时更加高效。</p>
+<h3 id="重要性"><a href="#重要性" class="headerlink" title="重要性"></a>重要性</h3><ul>
+<li><strong>性能预测</strong>：帮助预测算法在处理大规模数据集时的行为。</li>
+<li><strong>算法比较</strong>：提供了一种标准化的方法来比较不同算法的效率。</li>
+<li><strong>性能优化</strong>：指导开发人员识别并优化代码中的性能瓶颈。</li>
+</ul>
+<p>总之，Big-Oh 表示法是理解和比较算法性能的关键工具，它强调了算法性能随输入规模变化的趋势，而不是具体的运行时间。</p>
+<h3 id="不等式含义"><a href="#不等式含义" class="headerlink" title="不等式含义"></a>不等式含义</h3><p>在不等式 (f(n)&lt;&#x3D; c * g(n)) 中，用于描述Big-Oh 表示法的关系时：</p>
+<ul>
+<li>(f(n)) 代表算法的实际运行时间或所需资源（如操作的次数）作为输入大小 (n) 的函数。</li>
+<li>(g(n)) 是一个简化的函数，用来表示 (f(n)) 的增长率上界。</li>
+<li>(c) 是一个正常数，用于确保 (f(n)) 的值不超过 (c \cdot g(n))。</li>
+</ul>
+<p>在这个上下文中，<strong>(f(n))</strong> 通常代表算法在最坏情况下的性能。这意味着，对于所有可能的输入 (n)，算法的性能（或复杂度）不会比 (c \cdot g(n)) 更差。换句话说，(g(n))（经过适当的常数 (c) 缩放）提供了算法最坏情况性能的一个上界。</p>
+<p>因此，<strong>最坏情况</strong>是通过 (f(n)) 来表示的，而 (g(n)) 是用来量化或界定这个最坏情况性能的增长速度的函数。Big-Oh 表示法 (O(g(n))) 用来说明无论算法面临怎样的输入，其性能的增长速度都不会超过函数 (g(n)) 的某个常数倍。</p>
 
         
       </div>

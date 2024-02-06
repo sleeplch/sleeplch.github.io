@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/AIM/aimcover.png">
 <meta property="article:published_time" content="2024-01-30T17:53:44.000Z">
-<meta property="article:modified_time" content="2024-01-30T21:06:22.149Z">
+<meta property="article:modified_time" content="2024-02-06T02:09:29.930Z">
 <meta property="article:author" content="Caihao">
 <meta property="article:tag" content="AIM">
 <meta name="twitter:card" content="summary">
@@ -290,7 +290,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            3.8k words 
+            7.1k words 
           </div>
         </div>
         
@@ -415,6 +415,107 @@
 </ul>
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/27XLb0nRxPNOxKBL56AH2f?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
+<h1 id="Lecture02"><a href="#Lecture02" class="headerlink" title="Lecture02"></a>Lecture02</h1><h2 id="1-Representation"><a href="#1-Representation" class="headerlink" title="1. Representation"></a><strong>1. Representation</strong></h2><h3 id="Representation-Encoding-of-a-Solution-–-Characteristics"><a href="#Representation-Encoding-of-a-Solution-–-Characteristics" class="headerlink" title="Representation (Encoding of a Solution) – Characteristics"></a><strong>Representation (Encoding of a Solution) – Characteristics</strong></h3><ul>
+<li><p><strong>Completeness</strong>: all solutions associated with the problem must be represented. （完整性：所有可能的解被编码，确保不错过最优解）</p>
+</li>
+<li><p><strong>Connexity</strong>: a search path must exist between any two solutions of the search space. Any solution of the search space, especially the global optimum solution, can be attained. （连通性：从搜索空间中的任何一个解出发，理论上都能通过一系列操作到达任何其他解，特别是全局最优解）</p>
+</li>
+<li><p><strong>Efficiency</strong>: The representation must be easy&#x2F;fast to manipulate by the search operators.（效率：快速且容易地处理，减少计算成本）</p>
+</li>
+</ul>
+<h3 id="Representation-Type"><a href="#Representation-Type" class="headerlink" title="Representation Type"></a>Representation Type</h3><ul>
+<li><strong>Binary encoding</strong></li>
+<li><strong>Permutation encoding</strong> （旅行商问题（TSP），其中城市的访问顺序决定了总旅行距离）</li>
+<li><strong>Integer encoding</strong> （资源分配问题）</li>
+<li><strong>Value Encoding</strong></li>
+<li><strong>Nonlinear Encoding</strong>（复杂的结构，如树、图等）</li>
+</ul>
+<h3 id="Boolean-Satisfiability-SAT-Problem"><a href="#Boolean-Satisfiability-SAT-Problem" class="headerlink" title="Boolean Satisfiability(SAT) Problem"></a><strong>Boolean Satisfiability(SAT) Problem</strong></h3><p>Given <em>n</em> Boolean literals&#x2F;variables, what is the number of possible configurations (search space size)? –&gt;<strong>(2^n)</strong></p>
+<p>（每个变量有两种可能的状态：真（True）或假（False），总的配置数（搜索空间大小）是所有可能的变量状态组合）</p>
+<h2 id="2-Neighbourhoods"><a href="#2-Neighbourhoods" class="headerlink" title="2. Neighbourhoods"></a><strong>2. Neighbourhoods</strong></h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a><strong>Definition</strong></h3><p>A <em>neighbourhood</em> of a solution <em>x is a set of solutions</em> that can be reached from <em>x by a simple operator</em> (<em>move operator</em>&#x2F;<em>heuristic</em>)（一个解的<strong>邻域</strong>包含了所有与之相似且通过某种小幅度修改能够直接到达的解）</p>
+<h3 id="Example-Neighbourhood-for-Binary-Representation"><a href="#Example-Neighbourhood-for-Binary-Representation" class="headerlink" title="Example Neighbourhood for  Binary Representation"></a>Example Neighbourhood for  Binary Representation</h3><ul>
+<li><p>Bit-flip operator: flips a bit in a given solution </p>
+</li>
+<li><p>Hamming Distance between two bit strings (vectors) of equal  length is the number of positions at which the corresponding  symbols differ. E.g., HD(011,010)&#x3D;1, HD(0101,0010)&#x3D;3 （汉明距离是两个等长二进制向量（字符串）之间的差异度量，即在相同位置上数值不同的位数。它是一种衡量两个解相似度的指标）</p>
+</li>
+<li><p>If the binary string is of size n, then the neighbourhood size  is n. </p>
+</li>
+<li><p>Example: 1 0 1 0 0 0 1 1 → 0 0 1 0 0 0 1 1 </p>
+<p>Neighbourhood size: 8, Hamming distance: 1</p>
+</li>
+</ul>
+<h3 id="Example-Neighbourhood-for-Integer-Value-Representation"><a href="#Example-Neighbourhood-for-Integer-Value-Representation" class="headerlink" title="Example Neighbourhood for  Integer&#x2F;Value Representation"></a>Example Neighbourhood for  Integer&#x2F;Value Representation</h3><img src="/images/AIM/lec02/01.png" width="50%" height="50%">
+
+<p><strong>计算公式</strong>：如果解的大小是n<em>（即解中的元素数量），并且字母表的大小是k</em>（可选用的不同值的数量），那么可能的邻域大小是(k<em>−1)<em>n</em>。这是因为每个元素都可以被替换为字母表中的k</em>−1个其他值（当前值除外），且解中有n个这样的元素。</p>
+<p><strong>Example Neighbourhood for Permutation Representation</strong></p>
+<ul>
+<li>Adjacent pairwise interchange: swap adjacent entries in the permutation（相邻对换）<ul>
+<li>If permutation is of size <em>n</em>, then the neighbourhood size is <em>n</em>-1</li>
+<li>Example: <strong>5 1</strong> 4 3 2 → <strong>1 5</strong> 4 3 2</li>
+</ul>
+</li>
+<li>Insertion operator: take an entry in the permutation and insert it in another position<ul>
+<li>Neighbourhood size: <em>n</em>(<em>n</em>-1)    （每个元素有n−1个可能的新位置）</li>
+<li>Example: <strong>5</strong> 1 4 3 2 → 1 4 <strong>5</strong> 3 2</li>
+</ul>
+</li>
+<li>Exchange operator: arbitrarily selected two entries are swapped（任意交换）<ul>
+<li>Example: <strong>5</strong> 4 3 <strong>1</strong> 2 → <strong>1</strong> 4 3 <strong>5</strong> 2</li>
+</ul>
+</li>
+<li>Inversion operator: select two arbitrary entries and invert the sequence in between them（倒置）<ul>
+<li>Example: 1 <strong>4 5 3</strong> 2 → 1 <strong>3 5 4</strong> 2</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-Evaluation-Objective-Function"><a href="#3-Evaluation-Objective-Function" class="headerlink" title="3. Evaluation&#x2F;Objective Function"></a><strong>3. Evaluation&#x2F;Objective Function</strong></h2><p><strong>Evaluation Function</strong></p>
+<ul>
+<li><p>Also referred to as objective, cost, fitness, penalty, etc.</p>
+<ul>
+<li>Indicates the quality of a given solution, distinguishing between better and worse solutions</li>
+</ul>
+</li>
+<li><p>Serves as a major link between the algorithm and the problem being solved</p>
+<ul>
+<li>provides an important feedback for the search process</li>
+</ul>
+</li>
+<li><p>Many types: (non)separable, uni&#x2F;multi-modal, single&#x2F;multi objective, etc.</p>
+</li>
+<li><p>Evaluation functions could be computationally expensive</p>
+</li>
+<li><p>Exact vs. approximate</p>
+<ul>
+<li>Common approaches to constructing approximate models: polynomials, regression, SVMs, etc.</li>
+<li>Constructing a globally valid approximate model remains difficult, and so beneficial to selectively use the original evaluation function together with the approximate model</li>
+</ul>
+</li>
+</ul>
+<h3 id="MAX-SAT-Problem-–-Evaluation-function"><a href="#MAX-SAT-Problem-–-Evaluation-function" class="headerlink" title="MAX-SAT Problem – Evaluation function"></a><strong>MAX-SAT Problem – Evaluation function</strong></h3><img src="/images/AIM/lec02/02.png" width="50%" height="50%">
+
+<h3 id="TSP-–-Evaluation-function"><a href="#TSP-–-Evaluation-function" class="headerlink" title="TSP – Evaluation function"></a><strong>TSP – Evaluation function</strong></h3><img src="/images/AIM/lec02/03.png" width="50%" height="50%">
+
+<p><strong>Evaluation Function – Delta (Incremental) Evaluation</strong></p>
+<img src="/images/AIM/lec02/04.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec02/05.png" width="50%" height="50%">
+
+<h2 id="4-Hill-Climbing-Algorithms"><a href="#4-Hill-Climbing-Algorithms" class="headerlink" title="4. Hill Climbing Algorithms"></a><strong>4. Hill Climbing Algorithms</strong></h2><h3 id="Pseudocode-of-a-Generic-Hill-Climbing-Algorithm"><a href="#Pseudocode-of-a-Generic-Hill-Climbing-Algorithm" class="headerlink" title="Pseudocode of a Generic Hill Climbing Algorithm"></a><strong>Pseudocode of a Generic Hill Climbing Algorithm</strong></h3><ol>
+<li><p>Pick an initial starting point (current state) in the search space</p>
+</li>
+<li><p>Repeat</p>
+<ol>
+<li>Consider the neighbors of the current state</li>
+<li>Compare new point(s) in the <em>neighborhood</em> of the current state with the current state using an evaluation function and choose a new point with the best quality (among them) and move to that state</li>
+</ol>
+</li>
+<li><p>Until there is no more improvement or when a predefined number of iterations is reached</p>
+</li>
+<li><p>Return the current state as the solution state</p>
+</li>
+</ol>
+<p><strong>…….WDNMD怎么这么多</strong></p>
+<h2 id="5-Performance-Analysis-of-Stochastic-Local-Search-Methods-Preliminaries-READING"><a href="#5-Performance-Analysis-of-Stochastic-Local-Search-Methods-Preliminaries-READING" class="headerlink" title="5.Performance Analysis of Stochastic Local Search Methods Preliminaries (READING)"></a><strong>5.Performance Analysis of Stochastic Local Search Methods Preliminaries</strong> (READING)</h2>
         
       </div>
 
