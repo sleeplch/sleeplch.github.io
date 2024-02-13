@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/AIM/aimcover.png">
 <meta property="article:published_time" content="2024-01-30T17:53:44.000Z">
-<meta property="article:modified_time" content="2024-02-07T21:33:33.516Z">
+<meta property="article:modified_time" content="2024-02-13T19:04:24.635Z">
 <meta property="article:author" content="Caihao">
 <meta property="article:tag" content="AIM">
 <meta name="twitter:card" content="summary">
@@ -290,7 +290,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            9.1k words 
+            12k words 
           </div>
         </div>
         
@@ -552,7 +552,97 @@
 </ul>
 </li>
 </ul>
-<h2 id="5-Performance-Analysis-of-Stochastic-Local-Search-Methods-Preliminaries-READING"><a href="#5-Performance-Analysis-of-Stochastic-Local-Search-Methods-Preliminaries-READING" class="headerlink" title="5.Performance Analysis of Stochastic Local Search Methods Preliminaries (READING)"></a><strong>5.Performance Analysis of Stochastic Local Search Methods Preliminaries</strong> (READING)</h2>
+<h2 id="5-Performance-Analysis-of-Stochastic-Local-Search-Methods-Preliminaries-READING"><a href="#5-Performance-Analysis-of-Stochastic-Local-Search-Methods-Preliminaries-READING" class="headerlink" title="5.Performance Analysis of Stochastic Local Search Methods Preliminaries (READING)"></a><strong>5.Performance Analysis of Stochastic Local Search Methods Preliminaries</strong> (READING)</h2><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7yO48FWUkqsrdxrwkGcnwl?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+<h1 id="Lecture03"><a href="#Lecture03" class="headerlink" title="Lecture03"></a>Lecture03</h1><h2 id="1-Performance-Comparison-of-Stochastic-Search-Algorithms"><a href="#1-Performance-Comparison-of-Stochastic-Search-Algorithms" class="headerlink" title="1. Performance Comparison of Stochastic Search Algorithms"></a><strong>1. Performance Comparison of Stochastic Search Algorithms</strong></h2><img src="/images/AIM/lec03/00.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec03/01.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec03/02.png" width="50%" height="50%">
+
+<h2 id="2-Metaheuristics"><a href="#2-Metaheuristics" class="headerlink" title="2. Metaheuristics"></a><strong>2. Metaheuristics</strong></h2><h3 id="Main-Components-of-a-Metaheuristic-Search-Method-r-v"><a href="#Main-Components-of-a-Metaheuristic-Search-Method-r-v" class="headerlink" title="Main Components of a Metaheuristic Search Method (r.v.)"></a><strong>Main Components of a Metaheuristic Search Method (r.v.)</strong></h3><img src="/images/AIM/lec03/04.png" width="50%" height="50%">
+
+<h3 id="Mechanisms-for-Escaping-from-Local-Optima"><a href="#Mechanisms-for-Escaping-from-Local-Optima" class="headerlink" title="Mechanisms for Escaping from Local Optima"></a><strong>Mechanisms for Escaping from Local Optima</strong></h3><ul>
+<li>Iterate with different solutions, or restart *(*re-initialise search whenever a local optimum is encountered). （尝试不同的解决方案，或者在遇到局部最优解时重新开始）<ul>
+<li>Initialisation could be costly</li>
+<li>E.g., Iterated Local Search, GRASP</li>
+</ul>
+</li>
+<li>Change the search landscape<ul>
+<li>Change the objective function (E.g., Guided Local Search)</li>
+<li>Use (mix) different neighbourhoods (E.g., Variable Neighbourhood Search, Hyper-heuristics)</li>
+</ul>
+</li>
+<li>Use Memory (e.g., tabu search)（通过记录一定历史搜索信息来避免重复搜索）</li>
+<li>Accept non-improving moves: allow search using candidate solutions with equal or worse evaluation function value than the one in hand（允许使用评估函数值等于或低于当前解的候选解进行搜索）<ul>
+<li>Could lead to long walks on plateaus (neutral regions) during the search process, potentially causing cycles – visiting of the same states</li>
+</ul>
+</li>
+<li>None of the mechanisms is guaranteed to always escape effectively from local optima</li>
+</ul>
+<h3 id="Termination-Criteria-Stopping-Conditions-–-Examples"><a href="#Termination-Criteria-Stopping-Conditions-–-Examples" class="headerlink" title="Termination Criteria (Stopping Conditions) – Examples"></a><strong>Termination Criteria (Stopping Conditions) – Examples</strong></h3><ul>
+<li>Stop if<ul>
+<li>a fixed maximum number of iterations, or moves, objective function evaluations), or a fixed amount of CPU time is exceeded.（达到了预设的最大迭代次数、移动次数、目标函数评估次数，或者超过了固定的CPU时间）</li>
+<li>consecutive number of iterations since the last improvement in the best objective function value is larger than a specified number. （自上次目标函数最佳值改进以来，连续迭代次数超过了指定的数量）</li>
+<li>evidence can be given than an optimum solution has been obtained. (i.e. optimum objective value is known)（可以证明已经获得了最优解）</li>
+<li>no feasible solution can be obtained for a fixed number of steps&#x2F;time. (a solution is <em>feasible</em> if it satisfies all constraints in an optimisation problem) （在固定的步数&#x2F;时间内无法获得可行解）</li>
+</ul>
+</li>
+</ul>
+<h3 id="Feasibility-Example-0-1-Knapsack-Problem"><a href="#Feasibility-Example-0-1-Knapsack-Problem" class="headerlink" title="Feasibility Example: 0&#x2F;1 Knapsack Problem"></a><strong>Feasibility Example: 0&#x2F;1 Knapsack Problem</strong></h3><h4 id="How-to-Deal-with-Infeasible-Solutions"><a href="#How-to-Deal-with-Infeasible-Solutions" class="headerlink" title="How to Deal with Infeasible Solutions"></a><strong>How to Deal with Infeasible Solutions</strong></h4><img src="/images/AIM/lec03/05.png" width="50%" height="50%">
+
+<ul>
+<li>通过设定一个固定的（死亡）惩罚值，确保不可行解的评估结果不会好于给定实例中最差的可行解。例如，可以设定一个比最差可行解还差的惩罚值，如示例中的不可行解（价值为1美元时的惩罚值设为0.5美元），无论其违反了多少约束。</li>
+<li>进一步区分解的不可行级别，可以通过与违反的程度相关的惩罚来实现。例如，如果解不可行，则将其惩罚值设为最小的pi除以（2*（总重量-容量）），这样不仅惩罚了不可行解，还根据不可行的程度（即超出容量的量）区分了不同的惩罚级别，使得超重更多的解受到更大的惩罚。</li>
+</ul>
+<h2 id="3-Local-Search-Metaheuristics-and-Iterated-Local-Search"><a href="#3-Local-Search-Metaheuristics-and-Iterated-Local-Search" class="headerlink" title="3. Local Search Metaheuristics and Iterated Local Search"></a><strong>3. Local Search Metaheuristics and Iterated Local Search</strong></h2><h3 id="The-Art-of-Searching"><a href="#The-Art-of-Searching" class="headerlink" title="The Art of Searching"></a><strong>The Art of Searching</strong></h3><ul>
+<li>Effective search techniques provide a mechanism to balance <em>exploration</em> and <em>exploitation</em><ul>
+<li>Exploration aims to prevent stagnation of search process getting trapped at a local optimum （避免搜索过程仅仅局限于局部最优解）</li>
+<li>Exploitation aims to greedily increase solution quality or probability, e.g., by exploiting the evaluation function（贪婪地提高解决方案的质量或概率）</li>
+</ul>
+</li>
+<li>Aim is to design search algorithms&#x2F;metaheuristics that can<ul>
+<li>escape local optima</li>
+<li>balance exploration and exploitation</li>
+<li>make the search independent from the initial configuration（性能不应严重依赖于初始解的选择）</li>
+</ul>
+</li>
+</ul>
+<h3 id="Iterated-Local-Search"><a href="#Iterated-Local-Search" class="headerlink" title="Iterated Local Search"></a><strong>Iterated Local Search</strong></h3><ul>
+<li>Based on visiting a sequence of locally optimal solutions by:<ul>
+<li>perturbing the current local optimum (exploration);（扰动的目的是使算法跳出当前局部最优，以便探索解空间中的其他区域）</li>
+<li>applying local search&#x2F;hill climbing (exploitation) after starting from the modified solution.（扰动之后深入挖掘当前区域，寻找新的局部最优解）</li>
+</ul>
+</li>
+<li>A perturbation phase might consist of one or more steps</li>
+<li>The perturbation strength is crucial<ul>
+<li>Too small (weak): may generate cycles（算法容易陷入循环）</li>
+<li>Too big (strong): good properties of the local optima are lost.（可能会完全失去当前局部最优解的有用属性）</li>
+</ul>
+</li>
+<li>Acceptance criteria<ul>
+<li>Extreme in terms of exploitation: accept only improving solutions</li>
+<li>Extreme in terms of exploration: accept any solution</li>
+<li>Other: deterministic (like threshold), probabilistic (like Simulated Annealing)</li>
+</ul>
+</li>
+<li>Memory<ul>
+<li>Very simple use: restart search if for a number of iterations no improved solution is found（在发现多次迭代没有找到改进的解决方案后，重启搜索）</li>
+</ul>
+</li>
+</ul>
+<img src="/images/AIM/lec03/03.png" width="50%" height="50%">
+
+<p>ILS就是先随机翻转一个，然后再翻转基础上再去找的邻居</p>
+<h2 id="4-Tabu-Search"><a href="#4-Tabu-Search" class="headerlink" title="4. Tabu Search"></a><strong>4. Tabu Search</strong></h2><h3 id="Tabu-Search-–-Overview"><a href="#Tabu-Search-–-Overview" class="headerlink" title="Tabu Search – Overview"></a><strong>Tabu Search – Overview</strong></h3><img src="/images/AIM/lec03/06.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec03/07.png" width="50%" height="50%">
+
+<p>tabu会检查邻居是不是自己前n步厉遍过的</p>
+<h2 id="5-Introduction-to-Scheduling"><a href="#5-Introduction-to-Scheduling" class="headerlink" title="5. Introduction to Scheduling"></a><strong>5. Introduction to Scheduling</strong></h2><h2 id="Overall-Summary"><a href="#Overall-Summary" class="headerlink" title="Overall Summary"></a><strong>Overall Summary</strong></h2><img src="/images/AIM/lec03/09.png" width="50%" height="50%">
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3dDLEwHUOwLQ3Mdl6aNPt2?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
         
       </div>
 
