@@ -68,8 +68,11 @@
 <meta property="og:image" content="http://example.com/images/ADE/lec04/09.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec04/10.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec04/11.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec04/14.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec04/13.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec04/12.png">
 <meta property="article:published_time" content="2024-02-04T00:48:54.000Z">
-<meta property="article:modified_time" content="2024-02-14T10:57:42.585Z">
+<meta property="article:modified_time" content="2024-02-20T02:19:11.706Z">
 <meta property="article:author" content="Caihao">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/ADE/lec01/01.png">
@@ -319,7 +322,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.8k words 
+            2.2k words 
           </div>
         </div>
         
@@ -443,6 +446,21 @@
 <img src="/images/ADE/lec04/10.png" width="50%" height="50%">
 
 <h2 id="Intuition-or-‘mnemonics’-for-Asymptotic-Notation"><a href="#Intuition-or-‘mnemonics’-for-Asymptotic-Notation" class="headerlink" title="Intuition or ‘mnemonics’ for Asymptotic Notation"></a>Intuition or ‘mnemonics’ for Asymptotic Notation</h2><img src="/images/ADE/lec04/11.png" width="50%" height="50%">
+
+<h2 id="考试证明"><a href="#考试证明" class="headerlink" title="考试证明"></a>考试证明</h2><h2 id="Big-O证明"><a href="#Big-O证明" class="headerlink" title="Big-O证明"></a>Big-O证明</h2><h3 id="O-n-​证明"><a href="#O-n-​证明" class="headerlink" title="$O(n)$​证明"></a>$O(n)$​证明</h3><img src="/images/ADE/lec04/14.png" width="50%" height="50%">
+
+<p>或者</p>
+<ol>
+<li>choosing $c&#x3D;3$ gives $1 \leq (3-2)n, \forall n \geq n_0$ （选择c的值，写出式子和n范围）</li>
+<li>which simplifies to $1 \leq n, \forall n \geq n_0$ （简化式子得到n的范围）</li>
+<li>From this we can see that $n_0 \geq 1$ （给$n_0$取范围）</li>
+<li>which gives $1 \leq n, \forall n \geq 1$​ which is trivially true (得到n的取值范围，然后所有在这个范围的n都能成立)</li>
+<li>$\therefore 2n+1 \text{ is } O(n)$​ using $c&#x3D;3$​ and $n_0 &#x3D; 1$​. （告诉他这个属于O(?)，当$c&#x3D;?, n_0$​​​&#x3D;?）</li>
+</ol>
+<h3 id="Disprove-Big-O"><a href="#Disprove-Big-O" class="headerlink" title="Disprove Big-O"></a>Disprove Big-O</h3><img src="/images/ADE/lec04/13.png" width="50%" height="50%">
+
+<h3 id="Drop-Smaller证明"><a href="#Drop-Smaller证明" class="headerlink" title="Drop Smaller证明"></a>Drop Smaller证明</h3><img src="/images/ADE/lec04/12.png" width="50%" height="50%">
+
 
         
       </div>
