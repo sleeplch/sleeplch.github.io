@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/AIM/aimcover.png">
 <meta property="article:published_time" content="2024-01-30T17:53:44.000Z">
-<meta property="article:modified_time" content="2024-03-08T22:58:39.452Z">
+<meta property="article:modified_time" content="2024-05-05T20:27:40.629Z">
 <meta property="article:author" content="Caihao">
 <meta property="article:tag" content="AIM">
 <meta name="twitter:card" content="summary">
@@ -290,7 +290,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            14k words 
+            27k words 
           </div>
         </div>
         
@@ -860,6 +860,633 @@
 <img src="/images/AIM/lec06/32.png" width="50%" height="50%">
 
 <img src="/images/AIM/lec06/30.png" width="50%" height="50%">
+
+<h1 id="Lecture07"><a href="#Lecture07" class="headerlink" title="Lecture07"></a>Lecture07</h1><img src="/images/AIM/lec07/00.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了在(元)启发式优化中的最新技术。主题包括：</p>
+<ol>
+<li><p><strong>试错法</strong>:</p>
+<ul>
+<li>设计并实现算法组件</li>
+<li>配置算法并调整参数：在选定的实例上测试（重新审视设计选项）</li>
+<li>性能分析（重新审视设计选项）</li>
+</ul>
+</li>
+<li><p>**流程调度 (Flowshop Scheduling)**：</p>
+<ul>
+<li>展示了一个流程调度问题，其中包含多个机器（M1, M2, M3, M4）和不同的任务（编号为1到5），每个任务在不同的机器上处理的时间都不相同。</li>
+</ul>
+</li>
+<li><p>**车辆路径规划 (Vehicle Routing)**：</p>
+<ul>
+<li>展示了从一个分配中心出发的车辆路径图，说明了如何优化货物配送路线。</li>
+</ul>
+</li>
+<li><p>**护士排班 (Nurse Rostering)**：</p>
+<ul>
+<li>为两位护士（John和Gem）展示了一周的工作班次安排，每天的班次有不同的时间和强度等级（如0-9分）。</li>
+</ul>
+</li>
+</ol>
+<p>这张幻灯片的目的是展示如何通过使用启发式和元启发式方法解决不同的优化问题，包括生产调度、物流和人员排班等。</p>
+<img src="/images/AIM/lec07/01.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了<strong>超启发式</strong>这一概念，并比较了不同的搜索空间。</p>
+<h3 id="超启发式"><a href="#超启发式" class="headerlink" title="超启发式"></a>超启发式</h3><ul>
+<li><strong>定义</strong>：超启发式是一种搜索方法或学习机制，用于选择或生成启发式方法以解决计算上困难的问题。</li>
+<li><strong>应用</strong>：它被描述为一种跨领域搜索的方法类。</li>
+</ul>
+<img src="/images/AIM/lec07/02.png" width="50%" height="50%">
+
+<h3 id="不同的搜索空间"><a href="#不同的搜索空间" class="headerlink" title="不同的搜索空间"></a>不同的搜索空间</h3><ul>
+<li><strong>标准启发式</strong>：操作在潜在解决方案上。</li>
+<li><strong>超启发式</strong>：<ul>
+<li>操作在低级启发式上，这些启发式又操作在潜在解决方案上。</li>
+<li>可以结合元启发式来提升搜索效果。</li>
+</ul>
+</li>
+</ul>
+<p>这张幻灯片旨在解释超启发式的概念及其在解决复杂优化问题中的应用，通过比较传统启发式和超启发式在不同层级上的作用来展示其优势。</p>
+<img src="/images/AIM/lec07/03.png" width="50%" height="50%">
+
+<p>这张幻灯片主要介绍了跨领域搜索的动机、挑战和超启发式的起源。</p>
+<h3 id="动机-跨领域搜索"><a href="#动机-跨领域搜索" class="headerlink" title="动机 - 跨领域搜索"></a>动机 - 跨领域搜索</h3><ul>
+<li><strong>研究动机</strong>：超启发式研究的动机在于提高搜索方法的一般性和效果。研究者探索不同方法的极限，寻找更广泛适用的算法。</li>
+<li><strong>重大挑战</strong>：图表显示了从特定问题解决方案向更通用解决方案的转变，并指出尽管存在将解决方案通用化的巨大潜力，但目前还不存在一个能解决所有问题的通用求解器，这表示未来研究的重要方向。</li>
+</ul>
+<img src="/images/AIM/lec07/04.png" width="50%" height="50%">
+
+<h3 id="超启发式：起源"><a href="#超启发式：起源" class="headerlink" title="超启发式：起源"></a>超启发式：起源</h3><ul>
+<li>时间线从1961年到2001年，标出了超启发式发展历程中的关键文献。<ul>
+<li><strong>1963年</strong>：Fisher和Thompson的研究介绍了局部作业车间调度规则的概率学习组合。</li>
+<li><strong>1990-95年</strong>：这一时期出现了更多关于概率性和参数学习组合的研究。</li>
+<li><strong>1997年</strong>：进一步探索了使用多种AI方法改进ATP系统性能的可能性。</li>
+<li><strong>2001年</strong>：Cowling, Kendall和Soubeiga提出了一种超启发式方法，用于调度销售峰会，这标志着超启发式在解决实际问题中的应用。</li>
+</ul>
+</li>
+</ul>
+<p>这张幻灯片通过展示超启发式的研究历程和文献，强调了该领域从特定的问题求解向更广泛应用的发展趋势。</p>
+<img src="/images/AIM/lec07/05.png" width="50%" height="50%">
+
+<p>这张幻灯片详细介绍了超启发式用于跨领域搜索的框架以及其特点。</p>
+<h3 id="超启发式选择框架用于跨领域搜索"><a href="#超启发式选择框架用于跨领域搜索" class="headerlink" title="超启发式选择框架用于跨领域搜索"></a>超启发式选择框架用于跨领域搜索</h3><ul>
+<li><strong>无需领域特定知识</strong>：使用的是一系列简单且知识贫乏的启发式方法。</li>
+<li><strong>足够健壮</strong>：能够有效处理来自各种领域的广泛问题实例。</li>
+</ul>
+<p>图示解释了超启发式域与问题域之间的关系，强调超启发式主要操作在启发式上，而非直接在问题解决方案上。</p>
+<img src="/images/AIM/lec07/06.png" width="50%" height="50%">
+
+<h3 id="超启发式的特征（初步框架）"><a href="#超启发式的特征（初步框架）" class="headerlink" title="超启发式的特征（初步框架）"></a>超启发式的特征（初步框架）</h3><ul>
+<li><strong>操作空间</strong>：超启发式操作在启发式的搜索空间（邻域操作符）上，而不是直接在解决方案的搜索空间上。</li>
+<li><strong>目标</strong>：利用每种启发式的优势并避免其弱点。</li>
+<li><strong>无需问题特定知识</strong>：在搜索启发式（操作符）空间期间，不需要具体问题的知识。</li>
+<li><strong>易于实施和部署</strong>：实现简单，部署实用（成本低，快速）。</li>
+<li><strong>现有或计算生成的启发式</strong>：可以在超启发式中使用现有的或计算生成的启发式（操作符）。</li>
+</ul>
+<p>这张幻灯片强调了超启发式的实用性和通用性，特别是在不依赖领域特定知识的情况下，如何有效地解决多领域的问题。</p>
+<img src="/images/AIM/lec07/07.png" width="50%" height="50%">
+
+<h3 id="相关领域"><a href="#相关领域" class="headerlink" title="相关领域"></a>相关领域</h3><ul>
+<li><strong>反应式搜索</strong>（Reactive search）</li>
+<li><strong>算法选择&#x2F;组合</strong>（Algorithm selection&#x2F;portfolios）</li>
+<li><strong>自适应算子选择</strong>（Adaptive operator selection）</li>
+<li><strong>元学习</strong>（Meta-learning）</li>
+<li><strong>共进化&#x2F;多模因算法&#x2F;模因计算</strong>（Co-evolution&#x2F;multimeme memetic algorithms&#x2F;Memetic computing）</li>
+<li><strong>变量邻域搜索</strong>（Variable Neighbourhood Search）</li>
+<li><strong>协作（分布式）搜索</strong>（Cooperative (Distributed) Search）</li>
+<li><strong>参数控制</strong>（例如在进化算法中）（Parameter control, e.g., in EAs）</li>
+<li><strong>算法配置</strong>（Algorithm configuration）</li>
+</ul>
+<p>这些领域都与超启发式有关，因为它们涉及优化搜索策略以解决复杂的问题。</p>
+<img src="/images/AIM/lec07/08.png" width="50%" height="50%">
+
+<h3 id="超启发式的分类"><a href="#超启发式的分类" class="headerlink" title="超启发式的分类"></a>超启发式的分类</h3><ul>
+<li><p><strong>超启发式</strong>分为两大类：</p>
+<ul>
+<li><strong>启发式选择</strong>：基于反馈采用在线学习或离线学习，或者不涉及学习。</li>
+<li><strong>启发式生成</strong>：同样基于不同的学习策略，用于生成启发式。</li>
+</ul>
+</li>
+<li><p>进一步细分：</p>
+<ul>
+<li><strong>选择性方法</strong>和<strong>生成性方法</strong>均可用于构建性（constructive）启发式或扰动性（perturbative）启发式。</li>
+<li>构建性启发式涉及构建解决方案的步骤，而扰动性启发式涉及修改现有解决方案的方法。</li>
+</ul>
+</li>
+<li><p>启发式的来源：</p>
+<ul>
+<li><strong>固定启发式</strong>：通常由人设计。</li>
+<li><strong>自动生成的启发式</strong>：从算法组件自动生成。</li>
+</ul>
+</li>
+</ul>
+<p>这张幻灯片通过展示超启发式的相关领域和详细分类，帮助理解如何使用不同的方法和策略在多种问题求解环境中应用超启发式，以提高搜索效率和效果。</p>
+<img src="/images/AIM/lec07/09.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec07/10.png" width="50%" height="50%">
+
+<h3 id="超启发式框架"><a href="#超启发式框架" class="headerlink" title="超启发式框架"></a>超启发式框架</h3><ul>
+<li><strong>域独立信息获取和处理</strong>：这包括候选解决方案质量的变化、低级启发式的数量（如种群大小）、应用启发式的性能、统计数据等。</li>
+<li><strong>域屏障</strong>：在超启发式和问题域之间存在一个屏障，超启发式操作在这个屏障之上，不依赖于特定问题域的信息。</li>
+<li><strong>低级启发式</strong>：从 H_1 到 H_n，表示超启发式可以操作的不同启发式方法。</li>
+<li><strong>问题域</strong>：包括问题的表示、评估函数、初始解决方案等。</li>
+</ul>
+<img src="/images/AIM/lec07/11.png" width="50%" height="50%">
+
+<h3 id="选择超启发式框架-单点搜索"><a href="#选择超启发式框架-单点搜索" class="headerlink" title="选择超启发式框架 - 单点搜索"></a>选择超启发式框架 - 单点搜索</h3><ul>
+<li><strong>启发式选择方法</strong>与<strong>移动接受标准</strong>：<ul>
+<li>框架使用启发式选择方法来选择最适合当前问题实例的启发式。</li>
+<li>移动接受标准决定了在搜索过程中是否接受一个新的解决方案。</li>
+</ul>
+</li>
+<li><strong>扰动性低级启发式</strong>：这些启发式修改现有的解决方案以探索新的可能解决方案。</li>
+</ul>
+<p>这些框架的主要特点是它们提供了一种结构化方法来处理和应用超启发式，以便在没有特定领域知识的情况下解决各种优化</p>
+<p>问题。这样的方法允许超启发式算法适用于多种不同的问题类型，通过选择和应用最适合当前问题环境的启发式来寻找最佳解决方案。这种方法在操作上不依赖于问题的具体细节，使其成为一个强大的工具，特别是在解决新的或未知类型的问题时。</p>
+<img src="/images/AIM/lec07/12.png" width="50%" height="50%">
+
+<p>这段代码是关于选择超启发式框架在单点搜索中的一个简单示例。它描述了超启发式搜索过程中的步骤，如下：</p>
+<ol>
+<li><strong>生成初始候选解决方案 p</strong>：这是搜索开始的点，所有操作都基于此初始解。</li>
+<li><strong>循环条件</strong>：循环将继续进行，直到满足终止条件（如达到最大迭代次数、找到满意的解决方案等）。</li>
+<li><strong>选择启发式 h</strong>：从启发式集合 {H₁, …, Hₙ} 中选择一个或一组启发式。这些启发式用于生成新的解决方案或改进现有的解决方案。</li>
+<li><strong>生成新的解决方案 s</strong>：通过应用选定的启发式 h 到当前候选解决方案 p 上，生成一个或多个新的解决方案。</li>
+<li><strong>决定是否接受新解决方案 s</strong>：根据某些标准（如改善的质量、成本、或其他性能指标）决定是否将新解决方案 s 作为新的候选解决方案。</li>
+<li><strong>如果接受 s</strong>：更新候选解决方案 p 为新的解决方案 s。</li>
+<li><strong>返回最终解决方案 p</strong>：当循环结束时，返回当前的候选解决方案 p，此时它是根据给定的超启发式策略找到的最优解或满意解。</li>
+</ol>
+<p>这个流程利用超启发式的优势，即不依赖特定问题领域的知识，通过智能地选择和应用多种启发式来逐步优化解决方案。这种方法特别适用于解决那些难以用传统算法解决的复杂和多变的问题。</p>
+<img src="/images/AIM/lec07/13.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec07/14.png" width="50%" height="50%">
+
+<p>这张幻灯片详细介绍了超启发式的灵活接口系统（HyFlex）。</p>
+<h3 id="超启发式灵活接口（HyFlex）"><a href="#超启发式灵活接口（HyFlex）" class="headerlink" title="超启发式灵活接口（HyFlex）"></a>超启发式灵活接口（HyFlex）</h3><p>HyFlex 是一个为超启发式搜索设计的框架，其特点是：</p>
+<ol>
+<li><p><strong>灵活性</strong>：HyFlex 提供了一个灵活的接口，定义了组件的行为并安排它们之间的交互。这允许研究者针对不同的问题域使用相同的超启发式搜索策略。</p>
+</li>
+<li><p><strong>域层与超启发式层的分离</strong>：</p>
+<ul>
+<li><strong>域层</strong>包括：<ul>
+<li>一组低级启发式（O₁, …, Oₙ）</li>
+<li>解决方案列表（S₁, …, Sₘ）</li>
+<li>评估&#x2F;目标函数（e）</li>
+<li>特定问题实例</li>
+</ul>
+</li>
+<li><strong>超启发式层</strong>则处理：<ul>
+<li>决定使用哪个低级启发式</li>
+<li>选择解决方案和存储新解决方案的位置</li>
+<li>超越“域屏障”，这意味着超启发式层在不直接涉及具体问题细节的情况下操作</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>方法论</strong>：提供了如何决定哪个低级启发式适用于哪个解决方案，以及新解决方案应如何根据已访问解决方案的历史和它们的目标值存储的方法。</p>
+</li>
+<li><p><strong>组件分离和重用</strong>：HyFlex 框架强调了问题特定部分和通用部分之间的分离，这两部分都是可重用的且可以通过 HyFlex 接口交换。</p>
+</li>
+</ol>
+<p>这种设计使得 HyFlex 成为跨领域搜索的有力工具，因为它允许研究者在不同的问题上重用相同的搜索策略，同时调整用于特定问题的启发式和评估方法。这不仅增加了研究的灵活性，还提高了研究效率，使得可以在更广泛的问题集上测试和优化超启发式方法。</p>
+<img src="/images/AIM/lec07/15.png" width="50%" height="50%">
+
+<p>这张幻灯片详细介绍了HyFlex v1.0 Java实现中涵盖的问题域和具体的例子，即一维离线装箱问题（1D Offline Bin Packing）。</p>
+<h3 id="HyFlex-v1-0-Java实现"><a href="#HyFlex-v1-0-Java实现" class="headerlink" title="HyFlex v1.0 Java实现"></a>HyFlex v1.0 Java实现</h3><ul>
+<li><strong>实现的问题域</strong>：HyFlex目前实现了六个问题域，包括MAX-SAT, Bin Packing, Flow Shop, Personnel Scheduling, TSP, 和 VRP。</li>
+<li><strong>启发式类型</strong>：包括突变型(mutational)，重新创建(ruin-recreate)，局部搜索(local search)，和交叉(crossover)。</li>
+<li><strong>搜索参数</strong>：强度和搜索深度。</li>
+</ul>
+<p>在给定的表格中，列出了各个问题域可用的启发式（标记为MU0, HC0等），这些启发式通过HyFlex框架进行调用和管理。</p>
+<img src="/images/AIM/lec07/16.png" width="50%" height="50%">
+
+<h3 id="一维离线装箱问题"><a href="#一维离线装箱问题" class="headerlink" title="一维离线装箱问题"></a>一维离线装箱问题</h3><ul>
+<li><strong>问题描述</strong>：需要将一系列大小为 ( s_i ) 的物品打包到容量为 ( C ) 的箱子中，目标是最小化使用的箱子数量。</li>
+<li><strong>约束条件</strong>：<ul>
+<li>物品大小 ( s_i ) 是整数，并且 ( 1 \leq s_i \leq C )。</li>
+<li>每个箱子的容量是固定的。</li>
+<li>确保没有一个箱子的容量被超过。</li>
+</ul>
+</li>
+</ul>
+<img src="/images/AIM/lec07/17.png" width="50%" height="50%">
+
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><ul>
+<li><p><strong>给定物品集合</strong>：共有7个物品，大小分别为 ( S &#x3D; [8, 1, 7, 6, 2, 2, 4] )。</p>
+</li>
+<li><p><strong>箱子大小</strong>：( C &#x3D; 10 )。</p>
+</li>
+<li><p><strong>目标</strong>：尽可能少地使用箱子。</p>
+</li>
+<li><p><strong>示例解决方案</strong>：在示例中，物品被分配到三个箱子中。</p>
+<ul>
+<li>箱子1：物品大小为8，2。</li>
+<li>箱子2：物品大小为1，2，7。</li>
+<li>箱子3：物品大小为6, 4。</li>
+</ul>
+<p>这个问题是一个标准的NP难问题，代表了计算中的一类重要优化问题，HyFlex工具在处理此类问题时，通过不同的启发式策略来寻求最优或近似最优解。</p>
+</li>
+</ul>
+<img src="/images/AIM/lec07/18.png" width="50%" height="50%">
+
+<p>这张幻灯片提供了关于“Bin Packing”问题域中使用的几种低级启发式算法的具体信息，这些启发式包括突变启发式和局部搜索启发式。</p>
+<h3 id="低级突变启发式"><a href="#低级突变启发式" class="headerlink" title="低级突变启发式"></a>低级突变启发式</h3><p>这些启发式主要关注通过简单修改来探索解决方案空间：</p>
+<ul>
+<li><strong>突变强度</strong>：参数“intensity of mutation”控制突变的频率，范围从0.2（重复1次）到1.0（重复5次）。</li>
+<li><strong>交换（Swap, MU₀）</strong>：随机选择两个不同的物品，并在有空间的情况下交换它们。</li>
+<li><strong>分割箱子（Split a Bin, MU₁）</strong>：随机选择一个箱子，如果其包含的物品数量多于平均数，则将该箱子分割为两个，每个新箱子包含原箱子一半的物品。</li>
+<li><strong>重新打包最低填充箱子（Repack the Lowest Filled Bin, MU₂）</strong>：移除最少填充箱子中的所有物品，并尝试使用最佳适应启发式将它们重新分配到其他箱子中。</li>
+</ul>
+<img src="/images/AIM/lec07/19.png" width="50%" height="50%">
+
+<h3 id="低级局部搜索启发式"><a href="#低级局部搜索启发式" class="headerlink" title="低级局部搜索启发式"></a>低级局部搜索启发式</h3><p>这些启发式专注于通过局部改变来改善已有解：</p>
+<ul>
+<li><strong>搜索深度</strong>：参数“depth of search”控制重复搜索的次数，范围从0.2（重复10次）到1.0（重复20次）。</li>
+<li><strong>首次改进&#x2F;交换（First-improvement&#x2F;IE – Swap, HC₀）</strong>：随机选择两个不同的物品进行交换，前提是这样做可以改善总体适应度。</li>
+<li><strong>首次改进&#x2F;从最低填充箱子中交换（First-improvement&#x2F;IE – Swap from Lowest Bin, HC₁）</strong>：从填充最少的箱子中取出最大的物品，并尝试与从随机选定的箱子中选出的较小物品交换。</li>
+</ul>
+<p>这些启发式通过不同的策略寻求解决方案的局部改进或全新构建，从而在保证不超过箱子容量的同时，尽可能减少使用的箱子数。通过这种方式，HyFlex 框架允许对“Bin Packing”这一NP难问题进行高效的搜索和优化处理。</p>
+<img src="/images/AIM/lec07/20.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了在一维装箱问题领域中使用的一些更具破坏性的启发式策略，即“破坏与重建”启发式，以及一个高级的交叉方法。</p>
+<h3 id="破坏与重建启发式"><a href="#破坏与重建启发式" class="headerlink" title="破坏与重建启发式"></a>破坏与重建启发式</h3><p>这类启发式的核心思想是通过破坏现有解的一部分来创造新的可能空间，然后重新构建以尝试找到更优的解。</p>
+<ul>
+<li><p><strong>突变强度参数</strong>（intensity of mutation）：这个参数控制破坏的程度。</p>
+<ul>
+<li>0.2: 破坏3个箱子</li>
+<li>0.4: 破坏6个箱子</li>
+<li>0.6: 破坏9个箱子</li>
+<li>0.8: 破坏12个箱子</li>
+<li>1.0: 破坏15个箱子</li>
+</ul>
+</li>
+<li><p><strong>破坏最高填充的箱子</strong>（Destroy x Highest Bins, RC₀）：选择填充最多的x个箱子，将里面的所有物品移出。</p>
+</li>
+<li><p><strong>破坏最低填充的箱子</strong>（Destroy x Lowest Bins, RC₁）：选择填充最少的x个箱子，将里面的所有物品移出。</p>
+</li>
+</ul>
+<h3 id="高级交叉方法"><a href="#高级交叉方法" class="headerlink" title="高级交叉方法"></a>高级交叉方法</h3><ul>
+<li><strong>外显子洗牌交叉</strong>（Exon Shuffling Crossover, XO₀）：<ul>
+<li>这种交叉方法通过模拟生物学中的外显子重组机制来改进解决方案。在遗传算法中，它可以帮助发现通过单一父代未能探索到的新解决方案空间。</li>
+<li>引用文献：Philip Rohlfshagen 和 John Bullinaria 在 2007 年的论文提出了这种交叉方法，专门用于解决困难的装箱问题。</li>
+</ul>
+</li>
+</ul>
+<p>通过这种类型的启发式，系统能够大幅度调整解决方案结构，可能发现比当前解更有效的新解。这些方法特别适用于寻找问题解决的全局最优解，尤其是在解空间复杂或者解决方案质量差异大的情况下。</p>
+<img src="/images/AIM/lec07/21.png" width="50%" height="50%">
+
+<p>这张幻灯片详细说明了在超启发式框架中使用的两种启发式选择策略：贪心选择（Greedy Selection）和基于强化学习的选择（Reinforcement Learning Selection）。</p>
+<h3 id="贪心选择-Greedy-GR"><a href="#贪心选择-Greedy-GR" class="headerlink" title="贪心选择 (Greedy, GR)"></a>贪心选择 (Greedy, GR)</h3><ul>
+<li><strong>操作方式</strong>：应用每一个低级启发式到候选解决方案，然后选择产生最佳目标值的启发式。</li>
+<li><strong>过程示意</strong>：<ul>
+<li>在每一步 (n)，将 (H_1) 到 (H_6) 这六个启发式分别应用于当前解决方案。</li>
+<li>每个启发式 (H_i) 生成一个目标函数值 (f_i)。</li>
+<li>选择在该步骤产生最佳目标函数值 (f_3 &lt; f_1, f_2, f_4, f_5, f_6) 的启发式 (H_3)。</li>
+</ul>
+</li>
+</ul>
+<img src="/images/AIM/lec07/22.png" width="50%" height="50%">
+
+<h3 id="强化学习选择-Reinforcement-Learning-RL"><a href="#强化学习选择-Reinforcement-Learning-RL" class="headerlink" title="强化学习选择 (Reinforcement Learning, RL)"></a>强化学习选择 (Reinforcement Learning, RL)</h3><ul>
+<li><strong>基本概念</strong>：<ul>
+<li>这是一种机器学习技术，灵感来源于心理学中的奖励与惩罚理论。</li>
+<li>关注如何在环境中采取行动以最大化长期奖励。</li>
+</ul>
+</li>
+<li><strong>操作原理</strong>：<ul>
+<li>为每个启发式维护一个得分。</li>
+<li>如果某个启发式应用后改善了解决方案（即移动是积极的），则增加其得分（例如 +1）。</li>
+<li>如果启发式应用后未改善解决方案，则减少其得分（例如 -1）。</li>
+</ul>
+</li>
+</ul>
+<p>这两种方法都是解决优化问题时常用的策略，贪心选择侧重于即时的最优解，而强化学习选择则侧重于通过不断的试错过程学习如何取得长期的最优解。在实际应用中，选择哪种方法取决于问题的具体需求和复杂性。贪心方法简单直接，适合问题相对单一且解空间不复杂的情况。而强化学习方法则适合于解空间复杂、需要适应性更强策略的问题环境。</p>
+<img src="/images/AIM/lec07/23.png" width="50%" height="50%">
+
+<p>这张幻灯片详细介绍了强化学习（RL）在启发式选择中的应用，并引入了选择函数（Choice Function, CF）作为一种更复杂的决策机制。</p>
+<h3 id="强化学习（RL）示例迭代"><a href="#强化学习（RL）示例迭代" class="headerlink" title="强化学习（RL）示例迭代"></a>强化学习（RL）示例迭代</h3><ul>
+<li><strong>上下文</strong>：在特定领域实现中有两个低级启发式 ( h_1 ) 和 ( h_2 )。</li>
+<li><strong>操作步骤</strong>：<ol>
+<li><strong>选择启发式</strong>：选择得分最高的启发式，例如 ( h_2 ) 有最高得分 5。</li>
+<li><strong>应用启发式</strong>：将 ( h_2 ) 应用到当前解决方案 ( s ) 上，生成新解 ( s’ )。</li>
+<li><strong>更新分数</strong>：<ul>
+<li>如果 ( s’ ) 是一个改善或等同的解决方案，增加 ( h_2 ) 的得分。</li>
+<li>如果 ( s’ ) 恶化了解决方案，减少 ( h_2 ) 的得分。例如，从 5 减到 4。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<img src="/images/AIM/lec07/24.png" width="50%" height="50%">
+
+<h3 id="启发式选择-选择函数（CF）"><a href="#启发式选择-选择函数（CF）" class="headerlink" title="启发式选择 - 选择函数（CF）"></a>启发式选择 - 选择函数（CF）</h3><ul>
+<li><p><strong>功能</strong>：选择函数维护每个启发式的性能记录，包括三个标准：</p>
+<ol>
+<li><strong>单独性能</strong>：启发式单独时的表现。</li>
+<li><strong>与其他启发式共同表现</strong>：在与其他启发式组合时的表现。</li>
+<li><strong>自上次调用以来的时间</strong>：距离最后一次被调用的时间。</li>
+</ol>
+</li>
+<li><p><strong>计算方法</strong>：</p>
+<ul>
+<li>( f_1(h_j) ) 代表单独性能，与每次使用后的表现变化有关。</li>
+<li>( f_2(h_k, h_j) ) 表示在组合使用时的表现。</li>
+<li>( f_3(h_j) ) 衡量自上次调用以来的时间。</li>
+</ul>
+</li>
+<li><p><strong>选择函数公式</strong>：<br>[<br>F_n(h_j) &#x3D; \alpha_n f_1(h_j) + \beta_n f_2(h_k, h_j) + \gamma_n f_3(h_j)<br>]<br>其中，( \alpha_n )，( \beta_n )，和 ( \gamma_n ) 是调节这三个因素重要性的权重参数。</p>
+</li>
+</ul>
+<p>这种启发式选择方法利用复合评价标准，不仅考虑每个启发式的直接表现，还考虑其与其他启发式的相互作用和时间因素，使得启发式选择更加精确和适应性强。这种方法特别适用于需要动态调整启发式策略的复杂优化问题，能够有效提升搜索过程的效率和解决方案的质量。</p>
+<img src="/images/AIM/lec07/25.png" width="50%" height="50%">
+
+<p>这张幻灯片详细说明了启发式选择的选择函数（Choice Function, CF）机制，并通过一个简化的示例迭代来阐释其操作方式。</p>
+<h3 id="选择函数-CF"><a href="#选择函数-CF" class="headerlink" title="选择函数 (CF)"></a>选择函数 (CF)</h3><ul>
+<li><strong>目的</strong>：选择函数用于根据多个标准评估并选择最佳启发式。</li>
+<li><strong>操作流程</strong>：<ul>
+<li>启发式 ( H_1, H_2, …, H_6 ) 产生相应的解 ( S_1, S_2, …, S_6 )。</li>
+<li>在给定步骤 ( n ) 中，比较各解的性能，并选择性能最佳的启发式进行下一步操作。</li>
+</ul>
+</li>
+</ul>
+<img src="/images/AIM/lec07/26.png" width="50%" height="50%">
+
+<h3 id="简化的选择函数-示例迭代"><a href="#简化的选择函数-示例迭代" class="headerlink" title="简化的选择函数 - 示例迭代"></a>简化的选择函数 - 示例迭代</h3><ul>
+<li><p><strong>环境设置</strong>：</p>
+<ul>
+<li>有两个低级启发式 ( h_1 ) 和 ( h_2 )。</li>
+<li>每个启发式有两个得分：( f_1 ) 和 ( f_2 )，分别表示性能分。</li>
+<li>权重 ( \alpha, \beta, \gamma ) 固定，简化计算。</li>
+</ul>
+</li>
+<li><p><strong>迭代过程</strong>：</p>
+<ol>
+<li><strong>步骤 i</strong>：( h_2 ) 在先前步骤被调用，得分如下：<ul>
+<li>( h_1: f_1 &#x3D; 3, f_2 &#x3D; 5 )</li>
+<li>( h_2: f_1 &#x3D; 5, f_2 &#x3D; 3 )</li>
+<li>选择函数 ( CF ) 用于计算得分：( F(h_1) &#x3D; \alpha f_1(h_1) + \beta f_2(h_1, h_2) ) 和 ( F(h_2) &#x3D; \alpha f_1(h_2) + \beta f_2(h_2, h_1) )。</li>
+</ul>
+</li>
+<li><strong>选择和应用</strong>：根据 ( CF ) 得分选择 ( h_2 ) 并应用到当前解决方案。</li>
+<li><strong>更新得分</strong>：如果 ( h_2 ) 提高了解决方案，则增加其得分；如果未改善，则减少。</li>
+</ol>
+</li>
+<li><p><strong>步骤 i+1 更新后</strong>：</p>
+<ul>
+<li>( h_1 ) 和 ( h_2 ) 的新分数分别调整，反映它们在最新迭代中的表现。</li>
+<li>如果 ( h_2 ) 改善了解决方案，( f_1 ) 和 ( f_2 ) 会相应增加。</li>
+</ul>
+</li>
+</ul>
+<p>这个例子展示了如何利用固定的权重参数和性能得分来动态选择最优启发式。选择函数通过综合考虑单个启发式的历史表现和与其他启发式的协同作用，实现对启发式的智能选择，这对于处理复杂的优化问题至关重要。</p>
+<img src="/images/AIM/lec07/27.png" width="50%" height="50%">
+
+<p>这张幻灯片呈现了超启发式中的“移动接受”策略以及一些关于超启发式的常见误解。</p>
+<h3 id="移动接受策略"><a href="#移动接受策略" class="headerlink" title="移动接受策略"></a>移动接受策略</h3><ul>
+<li><strong>分类</strong>：移动接受策略分为多种类型，包括：<ul>
+<li><strong>静态接受</strong>：总是接受或总是拒绝特定类型的移动。</li>
+<li><strong>动态接受</strong>：根据一定规则改变接受策略，例如基于搜索进展。</li>
+<li><strong>自适应接受</strong>：根据算法性能的历史数据自动调整接受标准。</li>
+<li><strong>其他方法</strong>：如模拟退火（Simulated Annealing, SA）、LATE Acceptance等。</li>
+</ul>
+</li>
+</ul>
+<img src="/images/AIM/lec07/28.png" width="50%" height="50%">
+
+<h3 id="关于超启发式的几个误解-个人观点"><a href="#关于超启发式的几个误解-个人观点" class="headerlink" title="关于超启发式的几个误解 - 个人观点"></a>关于超启发式的几个误解 - 个人观点</h3><ul>
+<li><strong>参数调整</strong>：超启发式不需要参数调整。这是一个误解，因为虽然超启发式旨在减少对参数调整的需求，但实际上在实现最优性能时仍可能需要调整。</li>
+<li><strong>测试公平性</strong>：所有超启发式都在公平的设置下测试（例如使用 HyFlex）。这包括为调整时间和实例分配相同的资源。</li>
+<li><strong>应用简便性</strong>：将超启发式应用到新领域很容易。这可能不总是正确的，因为每个新领域都可能需要对启发式方法进行特定调整以达到最佳效果。</li>
+<li><strong>领域特定信息</strong>：领域特定信息不应传递给超启发式。目标值不是领域特定信息，所有启发式都可以使用它。</li>
+</ul>
+<p>这些点提供了对超启发式理解和应用的深入洞察，指出了人们对其功能和性能可能存在的一些常见误区。通过阐明这些误解，可以更有效地利用超启发式解决各种优化问题。</p>
+<img src="/images/AIM/lec07/29.png" width="50%" height="50%">
+
+<p>这张幻灯片总结了最近在选择性超启发式领域的研究重点：</p>
+<h3 id="1-现有超启发式的优化与调整"><a href="#1-现有超启发式的优化与调整" class="headerlink" title="1. 现有超启发式的优化与调整"></a>1. 现有超启发式的优化与调整</h3><ul>
+<li><strong>性能优化</strong>：对现有的超启发式或元启发式进行调整和配置，以提升其在跨领域搜索中的性能。</li>
+</ul>
+<h3 id="2-超启发式的新领域应用"><a href="#2-超启发式的新领域应用" class="headerlink" title="2. 超启发式的新领域应用"></a>2. 超启发式的新领域应用</h3><ul>
+<li><strong>新问题领域</strong>：将已有的超启发式方法应用到新的问题领域，测试其适用性和效果。</li>
+</ul>
+<h3 id="3-新超启发式的创造与测试"><a href="#3-新超启发式的创造与测试" class="headerlink" title="3. 新超启发式的创造与测试"></a>3. 新超启发式的创造与测试</h3><ul>
+<li><strong>新兴超启发式</strong>：基于元启发式和数据科学技术开发的新型超启发式正在出现，这些包括：<ul>
+<li><strong>多阶段方法</strong>：迭代多个阶段的方法，每个阶段针对特定子问题或优化目标。</li>
+<li><strong>生成超启发式</strong>：通过自动生成的过程创建新的启发式方法。</li>
+<li><strong>多目标超启发式</strong>：同时考虑多个优化目标，为复杂决策问题提供解决方案。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-混合方法的出现"><a href="#4-混合方法的出现" class="headerlink" title="4. 混合方法的出现"></a>4. 混合方法的出现</h3><ul>
+<li><strong>混合方法</strong>：结合精确和近似方法，或者构造性和扰动性方法，来应对更复杂的优化问题，这些方法通常能更全面地探索解空间，提高解的质量和搜索效率。</li>
+</ul>
+<p>这些研究焦点显示了超启发式领域的动态发展，随着问题的复杂性增加和计算技术的进步，新方法不断涌现，现有方法也在不断优化中。这种进展表明，超启发式正在成为解决各种优化问题的强大工具。</p>
+<h2 id="An-Iterated-Multi-stage-Selection-Hyper-heuristic"><a href="#An-Iterated-Multi-stage-Selection-Hyper-heuristic" class="headerlink" title="An Iterated Multi-stage Selection Hyper-heuristic"></a><strong>An Iterated Multi-stage Selection Hyper-heuristic</strong></h2><img src="/images/AIM/lec07/30.png" width="50%" height="50%">
+
+<p>这张幻灯片描述了超启发式框架的一般架构，以及第一阶段超启发式的具体实现细节。</p>
+<h3 id="通用框架"><a href="#通用框架" class="headerlink" title="通用框架"></a>通用框架</h3><ul>
+<li><strong>交叉算子被忽略</strong>：在该框架中，不考虑交叉算子的应用。</li>
+<li><strong>参数的随机重置</strong>：如果低级启发式在应用后没有改善，其参数值将被随机重置；如果有改善，保持当前参数值。</li>
+<li><strong>流程图解释</strong>：<ul>
+<li>如果随机数 <code>Rand(0,1)</code> 小于某个概率阈值 <code>PS2HH</code>，则继续使用第二阶段超启发式 <code>S2HH</code>，否则切换到第一阶段超启发式 <code>S1HH</code>。</li>
+<li>如果达到终止条件，返回最佳解决方案并终止。</li>
+</ul>
+</li>
+</ul>
+<img src="/images/AIM/lec07/31.png" width="50%" height="50%">
+
+<h3 id="第一阶段超启发式"><a href="#第一阶段超启发式" class="headerlink" title="第一阶段超启发式"></a>第一阶段超启发式</h3><ul>
+<li><strong>启发式选择</strong>：选择低级启发式 <code>i</code> 的概率基于其得分，计算公式为 <code>score_i / Σ_k(score_k)</code>，其中 <code>score_k</code> 是所有启发式的得分总和。</li>
+<li><strong>启发式应用</strong>：应用选定的启发式到当前问题。</li>
+<li><strong>接受&#x2F;拒绝决策</strong>：基于一个自适应的阈值接受方法，决定是否接受由启发式产生的新解。</li>
+<li><strong>阶段结束条件</strong>：如果超过了设定的时长 <code>s_1</code> 而没有任何改进，第一阶段终止。</li>
+</ul>
+<p>这个框架和实现细节突出了超启发式方法在保持简单的同时如何有效地探索和利用搜索空间。通过动态调整和随机性的引入，它旨在适应多样的问题环境，并在没有明显进展的情况下避免过度投资于任何单一启发式。此外，通过切换不同阶段的超启发式，能够根据问题解决过程中的动态变化调整搜索策略，从而提高整体搜索效率和效果。</p>
+<img src="/images/AIM/lec07/32.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了一种自适应阈值移动接受方法，旨在动态调整超启发式中的解决方案接受标准，并提供了一个行为图示以展示这种方法的实际应用效果。</p>
+<h3 id="自适应阈值移动接受方法"><a href="#自适应阈值移动接受方法" class="headerlink" title="自适应阈值移动接受方法"></a>自适应阈值移动接受方法</h3><ul>
+<li><p><strong>接受标准</strong>：</p>
+<ul>
+<li>移动会被接受如果 <code>S_new</code>（新解）比 <code>S_current</code>（当前解）好，或者如果 <code>S_new</code> 比 <code>(1 + ε)f(S_beststage)</code> 好，其中 <code>S_beststage</code> 是某个阶段的最优解。</li>
+<li><code>ε</code> 是一个基于当前最佳解的性能变化的动态调整值，计算方式为 <code>log(f(S_beststage) / f(S_current)) + c_i</code>，其中 <code>c_i</code> 是预设的整数值列表 <code>C</code> 的元素。</li>
+</ul>
+</li>
+<li><p><strong>阈值更新</strong>：</p>
+<ul>
+<li><code>ε</code> 的值在无改进持续一段时间 <code>d</code> 后会更新。</li>
+<li><code>c_i</code> 值在阶段2之前或期间更新，在阶段1固定。</li>
+</ul>
+</li>
+</ul>
+<img src="/images/AIM/lec07/33.png" width="50%" height="50%">
+
+<h3 id="行为图示说明"><a href="#行为图示说明" class="headerlink" title="行为图示说明"></a>行为图示说明</h3><ul>
+<li><strong>图示</strong>：<ul>
+<li>展示了随着迭代进行，接受标准 <code>ε</code> 如何变化，其中不同颜色和符号代表不同的评级层级。</li>
+<li>每一层级对应一个特定的 <code>c_i</code> 值，显示随着迭代次数增加，如何调整阈值以应对算法进展。</li>
+</ul>
+</li>
+</ul>
+<p>这种自适应阈值方法允许算法在搜索过程中更灵活地接受或拒绝新解，以此提高搜索效率和解决方案的质量。通过动态调整阈值，该方法可以更好地平衡探索和利用，适应于多变的搜索环境，尤其是在解决复杂或变化快速的优化问题时。此方法的应用有助于避免过早收敛于局部最优解，从而增加找到全局最优解的可能性。</p>
+<img src="/images/AIM/lec07/34.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了一个两阶段的超启发式框架，并且展示了该框架中的参数调整策略。</p>
+<h3 id="第二阶段超启发式-Stage-2-Hyper-heuristic"><a href="#第二阶段超启发式-Stage-2-Hyper-heuristic" class="headerlink" title="第二阶段超启发式 (Stage 2 Hyper-heuristic)"></a>第二阶段超启发式 (Stage 2 Hyper-heuristic)</h3><ul>
+<li><p><strong>概述</strong>：这个阶段的目标是通过配对和重新组合现有的低级启发式 (LLHs) 来增加启发式的数量，从 N 个LLHs增加到 N+N^2 个。然后，通过一定的减少策略，将这些启发式数量减少到一个更管理的数量，例如从 6 个LLHs减少到 3 个。</p>
+</li>
+<li><p><strong>配对和增加</strong>：</p>
+<ul>
+<li>例如，从两个基础启发式 LLH1 和 LLH2 出发，通过组合形成更多的启发式，如 LLH3 &#x3D; LLH1 + LLH1, LLH4 &#x3D; LLH1 + LLH2。</li>
+</ul>
+</li>
+<li><p><strong>减少数量</strong>：</p>
+<ul>
+<li>使用一种基于概率的方法来减少启发式的数量，确保最有用的启发式被保留。</li>
+<li>例如，基于它们的性能分配概率，如 LLH1 的概率是 50%，而 LLH2 和 LLH3 的概率各为 25%。</li>
+</ul>
+</li>
+</ul>
+<img src="/images/AIM/lec07/35.png" width="50%" height="50%">
+
+<h3 id="参数调整"><a href="#参数调整" class="headerlink" title="参数调整"></a>参数调整</h3><ul>
+<li><strong>参数</strong>：提出了六个系统参数，需要根据实际应用进行调整：<ul>
+<li><code>τ</code>：时间间隔（以毫秒为单位），例如 {10, 15, 20}。</li>
+<li><code>d</code>：无改进的持续时间（以秒为单位），例如 {7, 9, 10, 12}。</li>
+<li><code>s1</code> 和 <code>s2</code>：分别为两个阶段的持续时间（以秒为单位）和步骤数（迭代数），例如 <code>s1</code> &#x3D; {10, 15, 20, 25}, <code>s2</code> &#x3D; {3, 5, 10, 15}。</li>
+<li><code>PS2HH</code>：第二阶段启发式的概率设置，例如 {0.1, 0.3, 0.6, 0.9, 1.0}。</li>
+</ul>
+</li>
+</ul>
+<p>这些参数和设置允许超启发式框架在多样化的问题环境中灵活应用，通过动态调整参数以达到更优的搜索性能。参数调整的策略确保了超启发式可以在保持高效搜索的同时，适应不同的问题和搜索条件。</p>
+<img src="/images/AIM/lec07/36.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec07/37.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec07/38.png" width="50%" height="50%">
+
+<ol>
+<li><p><strong>两种超启发式的有效结合</strong>：</p>
+<ul>
+<li>提出的使用两种超启发式的方法有效地协同作用，产生了一个易于实施、易于维护并且在跨领域搜索中成功的超启发式系统。这说明整合的方法允许在各种领域中更灵活和稳健地解决问题。</li>
+</ul>
+</li>
+<li><p><strong>自适应阈值移动接受机制</strong>：</p>
+<ul>
+<li>自适应阈值移动接受机制捕捉到了启发式可以产生的改进程度与实现这些改进所需步骤数量之间的权衡。该机制基于算法的性能动态调整其行为，帮助算法有效地平衡深入探索搜索空间和利用已知好的解决方案之间的关系。</li>
+</ul>
+</li>
+</ol>
+<p>这些结论表明，超启发式方法的应用前景广泛，能够在解决复杂的多域问题中通过动态调整性能表现出高效的适应性。</p>
+<h2 id="Parameter-Tuning-for-Cross-domain-Heuristic-Search"><a href="#Parameter-Tuning-for-Cross-domain-Heuristic-Search" class="headerlink" title="Parameter Tuning for Cross domain Heuristic Search"></a><strong>Parameter Tuning for Cross domain Heuristic Search</strong></h2><img src="/images/AIM/lec07/39.png" width="50%" height="50%">
+
+<h3 id="跨领域参数调整研究"><a href="#跨领域参数调整研究" class="headerlink" title="跨领域参数调整研究"></a>跨领域参数调整研究</h3><ul>
+<li><strong>研究背景</strong>：先前的研究表明，在HyFlex的六个问题领域中，稳态遗传算法（SSMA）表现优于其跨代版本。</li>
+<li><strong>本研究</strong>：<ul>
+<li><strong>性能调查</strong>：研究扩展到了九个问题领域，每个领域包含五个实例，以进一步验证SSMA的性能。</li>
+<li><strong>参数调整</strong>：使用田口方法（Taguchi design of experiments，一种正交数组测试方法）进行参数调整，以优化算法性能。</li>
+</ul>
+</li>
+</ul>
+<img src="/images/AIM/lec07/40.png" width="50%" height="50%">
+
+<h3 id="稳态遗传算法"><a href="#稳态遗传算法" class="headerlink" title="稳态遗传算法"></a>稳态遗传算法</h3><ul>
+<li><p><strong>算法步骤</strong>：</p>
+<ol>
+<li><strong>初始化</strong>：创建一个固定大小的种群。</li>
+<li><strong>参数设置</strong>：为突变强度（IoM）、搜索深度（DoS）和锦标赛规模（toursize）设定参数值。</li>
+<li><strong>循环过程</strong>：<ul>
+<li>选择两个父代。</li>
+<li>应用交叉和突变操作生成子代。</li>
+<li>通过局部搜索方法优化子代。</li>
+<li>将种群中最差的个体替换为新生成的子代。</li>
+<li>重复上述过程直至满足终止条件。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><strong>关键操作</strong>：</p>
+<ul>
+<li><strong>选择</strong>：通过锦标赛选择法选出父代。</li>
+<li><strong>交叉和突变</strong>：对选择的父代进行交叉和突变操作，生成子代。</li>
+<li><strong>局部搜索</strong>：对子代应用局部搜索（如爬山法）进行优化。</li>
+<li><strong>替换</strong>：将种群中的最差个体替换为优化后的子代。</li>
+</ul>
+</li>
+</ul>
+<p>这种算法结合了遗传算法的全局搜索能力和局部搜索算法的精细调优能力，通过动态调整参数和持续的优化过程，旨在解决复杂的优化问题，并在多个领域中寻找有效的解决方案。通过参数调整研究，进一步提高了算法在不同领域的适应性和效率。</p>
+<img src="/images/AIM/lec07/41.png" width="50%" height="50%">
+
+<p>这张幻灯片详细介绍了一个关于遗传算法的实验设计，采用田口方法进行参数优化，并测试了不同的参数设置以找到最佳配置。</p>
+<h3 id="实验设计"><a href="#实验设计" class="headerlink" title="实验设计"></a>实验设计</h3><ul>
+<li><p><strong>参数水平</strong>：为遗传算法设置了几个关键参数的不同水平：</p>
+<ul>
+<li><strong>突变强度（Intensity of Mutation, IoM）</strong>：从0.2到1.0不等，共六个级别。</li>
+<li><strong>搜索深度（Depth of Search, DoS）</strong>：从0.2到1.0不等，共六个级别。</li>
+<li><strong>种群大小（Population size, PopSize）</strong>：从5到80不等，共五个级别。</li>
+<li><strong>锦标赛大小（Tournament size, TourSize）</strong>：从2到5不等，共四个级别。</li>
+</ul>
+</li>
+<li><p><strong>田口正交阵列</strong>：实验通过田口正交阵列设计，列出了25组实验，每组实验中所有参数都有特定的配置水平。这种设计方法允许系统地探索和评估参数组合对算法性能的影响，同时减少所需的实验次数。</p>
+</li>
+</ul>
+<h3 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h3><ul>
+<li><strong>训练实例</strong>：选取了HyFlex的四个公开问题域中的两个实例用于训练。</li>
+<li><strong>参数调优</strong>：通过在训练实例上测试不同的参数组合，找到表现最佳的配置。</li>
+<li><strong>全面测试</strong>：将调优后的最佳配置应用于所有实例，以验证其效果和适用性。</li>
+</ul>
+<h3 id="目的和意义"><a href="#目的和意义" class="headerlink" title="目的和意义"></a>目的和意义</h3><ul>
+<li><strong>优化性能</strong>：通过田口方法的系统化参数调整，寻求在多个问题域中都表现良好的遗传算法配置。</li>
+<li><strong>减少实验负担</strong>：正交阵列设计减少了必要的实验数量，同时保证了广泛的参数覆盖，提高了实验的效率和结果的可靠性。</li>
+</ul>
+<p>这种方法的使用为遗传算法和其他可能的启发式或超启发式算法提供了一个有效的参数调优和性能评估框架，是解决复杂优化问题时一个非常实用的工具。</p>
+<img src="/images/AIM/lec07/42.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec07/43.png" width="50%" height="50%">
+
+
+
+<img src="/images/AIM/lec07/44.png" width="50%" height="50%">
+
+<p>这段文字描述了在特定设置下（锦标赛大小和种群大小都为5），稳态自适应遗传算法（SSMA）的行为及其对算法性能的影响：</p>
+<h3 id="稳态自适应遗传算法（SSMA）的设置影响"><a href="#稳态自适应遗传算法（SSMA）的设置影响" class="headerlink" title="稳态自适应遗传算法（SSMA）的设置影响"></a>稳态自适应遗传算法（SSMA）的设置影响</h3><ul>
+<li><strong>选择策略</strong>：在这个特定的设置下，SSMA选择性能最好的个体作为两个父代，进行交叉操作。</li>
+<li><strong>交叉操作后的结果</strong>：由于两个父代相同，所得到的新后代将与父代完全相同，这意味着交叉操作没有产生新的遗传变异。</li>
+<li><strong>交叉操作的影响</strong>：对于HyFlex的问题领域和实例，交叉操作似乎并没有对SSMA的总体性能产生积极的影响。这表明在这些问题领域中，通过交叉产生新的解决方案的策略可能不如其他方法有效。</li>
+</ul>
+<h3 id="SSMA的表现"><a href="#SSMA的表现" class="headerlink" title="SSMA的表现"></a>SSMA的表现</h3><ul>
+<li><strong>算法表现</strong>：在最佳设置下，SSMA实际上表现得更像是基于单点搜索的算法，而不是多点搜索，这使得整体算法更类似于迭代局部搜索。在这种搜索中，突变后通常会跟随一个局部搜索步骤，以优化每一步产生的解决方案。</li>
+</ul>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ul>
+<li>这种发现表明，对于某些问题领域，优化算法设置和选择合适的遗传操作对于提高算法效率至关重要。SSMA在特定条件下可能需要重新考虑交叉操作的实用性，以便更有效地利用计算资源进行问题求解。</li>
+<li>在实际应用中，可能需要根据问题的特性和复杂度调整算法的参数和操作策略，以确保最优或接近最优的解决方案。</li>
+</ul>
+<img src="/images/AIM/lec07/45.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec07/46.png" width="50%" height="50%">
+
+<p>这张幻灯片总结了关于稳态自适应遗传算法（SSMA-Best）的研究结论，特别强调了参数调整在跨领域搜索中的重要性和实际效用。</p>
+<h3 id="结论概述"><a href="#结论概述" class="headerlink" title="结论概述"></a>结论概述</h3><ol>
+<li><p><strong>参数调整的实际价值</strong>：</p>
+<ul>
+<li>研究强调参数调整在跨领域搜索中具有真实的价值。通过精确的参数调整，可以显著提升算法在不同问题领域中的性能。</li>
+</ul>
+</li>
+<li><p><strong>SSMA-Best的成功表现</strong>：</p>
+<ul>
+<li>调整实验显示，SSMA-Best在性能上显著超过了其他两种遗传算法变体，甚至一些在CHeSC2011竞赛中的其他搜索方法。这表明SSMA-Best具有优越的搜索能力和适应性。</li>
+</ul>
+</li>
+<li><p><strong>实证结果的关键观察</strong>：</p>
+<ul>
+<li>实证结果表明，在这种情况下应避免使用交叉操作，因为它可能不会产生有益的新解。相反，单点基于搜索的方法更为推荐，因为它更能有效地探索问题空间，避免复杂的交叉操作可能带来的效率低下问题。</li>
+</ul>
+</li>
+</ol>
+<h3 id="实际应用意义"><a href="#实际应用意义" class="headerlink" title="实际应用意义"></a>实际应用意义</h3><ul>
+<li>这些结论对于优化算法的设计和应用提供了重要的指导，尤其是在需要处理多种不同类型问题的情况下。选择正确的参数和适当的遗传操作对于实现高效和有效的搜索至关重要。</li>
+<li>研究还暗示，在进行跨领域搜索时，应根据具体问题的特性和需求来调整算法策略，而不是一味追求通用解决方案。这种方法能够更好地利用计算资源，提高问题解决的成功率和效率。</li>
+</ul>
+<p>总的来说，这项研究提供了对遗传算法在多领域应用中的深入见解，并指出了改进算法性能的具体途径。</p>
 
         
       </div>
