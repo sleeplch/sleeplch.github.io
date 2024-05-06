@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/AIM/aimcover.png">
 <meta property="article:published_time" content="2024-01-30T17:53:44.000Z">
-<meta property="article:modified_time" content="2024-05-05T20:31:24.219Z">
+<meta property="article:modified_time" content="2024-05-06T04:45:51.198Z">
 <meta property="article:author" content="Caihao">
 <meta property="article:tag" content="AIM">
 <meta name="twitter:card" content="summary">
@@ -290,7 +290,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            27k words 
+            38k words 
           </div>
         </div>
         
@@ -1488,6 +1488,643 @@
 <li>研究还暗示，在进行跨领域搜索时，应根据具体问题的特性和需求来调整算法策略，而不是一味追求通用解决方案。这种方法能够更好地利用计算资源，提高问题解决的成功率和效率。</li>
 </ul>
 <p>总的来说，这项研究提供了对遗传算法在多领域应用中的深入见解，并指出了改进算法性能的具体途径。</p>
+<h1 id="Lecture08"><a href="#Lecture08" class="headerlink" title="Lecture08"></a>Lecture08</h1><h2 id="Configuring-Tuning-of-Hyper-Metaheuristics-for-Cross-domain-Search"><a href="#Configuring-Tuning-of-Hyper-Metaheuristics-for-Cross-domain-Search" class="headerlink" title="Configuring&#x2F;Tuning of Hyper&#x2F;Metaheuristics for Cross domain Search"></a><strong>Configuring&#x2F;Tuning of Hyper&#x2F;Metaheuristics for Cross domain Search</strong></h2><img src="/images/AIM/lec08/00.png" width="50%" height="50%">
+
+<p>这幅图显示的是一篇关于如何配置或调整超启发式或元启发式算法以用于跨领域搜索的科学论文的封面和部分内容。文中提到了一个重新配置的修改版选择函数超启发式算法，这种算法控制了一元和二元运算符。图中展示了一些图表，这些图表可能是关于算法性能的比较。</p>
+<p>文档还包括了一些公式，这些公式展示了算法的数学描述，以及在不同设置（如是否包括交叉算子）下，这些函数是如何变化的。</p>
+<p>总体而言，这是一份涉及高级算法研究和应用的科学研究文件，目的在于通过调整和配置特定的算法功能来优化跨领域的搜索效率和效果。</p>
+<h2 id="A-Graph-based-Hyper-heuristic"><a href="#A-Graph-based-Hyper-heuristic" class="headerlink" title="A Graph-based Hyper-heuristic"></a><strong>A Graph-based Hyper-heuristic</strong></h2><img src="/images/AIM/lec08/01.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/02.png" width="50%" height="50%">
+
+<p>这张图是关于图着色问题的讲解材料。图着色问题是图论中一个常见的问题，涉及到如何给图的顶点着色，以满足特定的约束条件。</p>
+<p>第一部分讲述了基本的图着色概念，即给图的顶点分配标签（通常称为“颜色”），使得任何两个相邻的顶点都不共享相同的颜色。这种顶点的着色方式称为顶点着色。图中展示了一个简单的例子，其中四个顶点A、B、C、D通过边连接，展示了在没有颜色冲突的情况下如何对这些顶点进行着色。</p>
+<p>第二部分深入讨论了“k-着色问题”，即询问是否可以使用k种颜色来着色图的顶点，使得连接的顶点不会有相同的颜色。另外，还提到了最小着色问题，这是一个NP-难题，即用最少的颜色给图的顶点着色，使得相连的顶点没有相同的颜色。图中给出了一个例子，显示一个图可以用3种颜色以12种不同的方式进行着色。</p>
+<img src="/images/AIM/lec08/03.png" width="50%" height="50%">
+
+<p>这幅图展示了关于图论中顶点的度和饱和度概念，以及如何应用这些概念来解决图着色问题的讲解材料。</p>
+<p><strong>顶点的度和饱和度：</strong></p>
+<ul>
+<li><strong>度（Degree）</strong>：一个顶点的度是与该顶点相连的边的数量。例如，图中有一个顶点的度为4。</li>
+<li><strong>饱和度（Saturation Degree）</strong>：一个顶点的饱和度是与该顶点相连的、已经着色的不同颜色的顶点数量。例如，图中一个未着色的顶点与两个不同颜色（蓝色和绿色）的顶点相连，所以其饱和度为2。</li>
+</ul>
+<p>提出了一个问题：我们能否使用顶点的饱和度作为启发式方法来构建图着色问题的解决方案？</p>
+<img src="/images/AIM/lec08/04.png" width="50%" height="50%">
+
+<p><strong>图着色启发式方法：</strong></p>
+<ul>
+<li><strong>最大度法则（Largest Degree）</strong>：<ol>
+<li>计算所有顶点的度。</li>
+<li>按度从大到小对顶点排序。</li>
+<li>从列表中选取度最大的顶点，用一个与其相邻顶点不同的颜色进行着色。</li>
+<li>从列表中删除已着色的顶点，重复以上步骤，直到所有顶点都着色。</li>
+</ol>
+</li>
+</ul>
+<p>图中展示了一个例子，说明了如何按照顶点的度对它们进行排序和着色，从而解决图着色问题。这种方法试图通过优先考虑连接较多的顶点来简化问题，理论上这些顶点着色的限制条件最为复杂，因此先着色有助于减少整体的冲突可能。</p>
+<p>这些概念和方法在解决涉及网络、调度、分配问题等领域的图着色问题中非常有用，尤其是在计算机科学和数学中。</p>
+<img src="/images/AIM/lec08/05.png" width="50%" height="50%">
+
+<p>这张图解释了如何在图着色问题中使用顶点的饱和度作为一种启发式方法。饱和度启发式是一种用于选择着色顺序的技术，优先考虑那些如果未着色将有更多限制的顶点。</p>
+<p><strong>饱和度启发式的步骤如下：</strong></p>
+<ol>
+<li><strong>计算饱和度</strong>：每个顶点的饱和度是指与该顶点相连的、已经着色的不同颜色的顶点数量。</li>
+<li><strong>选择顶点着色</strong>：在每一步中，选择饱和度最高的顶点进行着色。如果饱和度相同，则可以选择任一顶点。</li>
+<li><strong>选择颜色</strong>：为选定的顶点选择最小的可用颜色，即不与相邻顶点的颜色冲突的最小编号颜色。</li>
+</ol>
+<img src="/images/AIM/lec08/06.png" width="50%" height="50%">
+
+<p>这些幻灯片涉及考试时间表的排定，包括考试的排定约束、本地搜索启发式和模拟退火算法的设计。</p>
+<h3 id="考试时间表排定"><a href="#考试时间表排定" class="headerlink" title="考试时间表排定"></a>考试时间表排定</h3><p><strong>主要内容：</strong></p>
+<ul>
+<li><strong>任务</strong>：需要为一系列的考试（( e_1, e_2, …, e_E )）安排时间和教室，考试被不同的学生（( s_1, s_2, …, s_S )）参加。</li>
+<li><strong>时间段和教室</strong>：考试必须在限定的时间段（( t_1, t_2, …, t_T )）和特定的教室（( r_1, r_2, …, r_R )）内进行。</li>
+</ul>
+<p><strong>约束条件分为两类：</strong></p>
+<ul>
+<li><strong>硬约束</strong>：例如不同考试间学生的重叠、教室容量限制。</li>
+<li><strong>软约束</strong>：如考试间的时间间隔、较大的考试应该更早安排。</li>
+</ul>
+<img src="/images/AIM/lec08/07.png" width="50%" height="50%">
+
+<h3 id="本地搜索启发式设计"><a href="#本地搜索启发式设计" class="headerlink" title="本地搜索启发式设计"></a>本地搜索启发式设计</h3><p><strong>关键要素：</strong></p>
+<ul>
+<li><strong>表示</strong>：考试的时间和地点用一组整数数组表示。</li>
+<li><strong>初始化</strong>：随机为每个考试分配时间和教室。</li>
+<li><strong>目标函数</strong>：约束违反的次数。</li>
+</ul>
+<p><strong>邻域操作（扰动）：</strong></p>
+<ul>
+<li><strong>OP1</strong>：随机选择一个考试并重新安排到另一个时间段。</li>
+<li><strong>OP2</strong>：随机选择一个考试并换到另一个教室。</li>
+<li><strong>OP3</strong>：随机选择一个考试，同时改变其时间和教室。</li>
+</ul>
+<p>这些操作可以参数化，例如选择N个事件并应用一个操作。</p>
+<img src="/images/AIM/lec08/08.png" width="50%" height="50%">
+
+<h3 id="迭代本地搜索与模拟退火"><a href="#迭代本地搜索与模拟退火" class="headerlink" title="迭代本地搜索与模拟退火"></a>迭代本地搜索与模拟退火</h3><p><strong>迭代本地搜索</strong>：</p>
+<ul>
+<li>使用OP3作为邻域操作，只接受改善或不恶化的移动。</li>
+</ul>
+<p><strong>模拟退火</strong>：</p>
+<ul>
+<li><strong>初始温度</strong>：由初始解的目标值确定。</li>
+<li><strong>冷却计划</strong>：几何冷却，降温系数 (\alpha&#x3D;0.99)。</li>
+<li><strong>终止条件</strong>：当达到固定的迭代次数或约束违规的数量未改善时停止。</li>
+</ul>
+<p>这些方法用于解决考试时间表的优化问题，特别是在复杂约束和大规模问题上表现出的效率和实用性。</p>
+<img src="/images/AIM/lec08/09.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/10.png" width="50%" height="50%">
+
+<p>这幅图展示了超启发式框架的概念，重点在于如何通过一个称为”域屏障”的抽象层将问题领域中的底层启发式与超启发式策略相结合。</p>
+<h3 id="超启发式框架-1"><a href="#超启发式框架-1" class="headerlink" title="超启发式框架"></a>超启发式框架</h3><ul>
+<li><strong>超启发式（Hyper-heuristic）</strong>：这是一种高层次的问题独立策略，用于管理和控制底层启发式算法。它们主要处理域独立的信息，如候选解的质量变化、底层启发式的数量（人口规模），以及应用启发式的性能和统计数据。</li>
+<li><strong>域屏障（Domain Barrier）</strong>：这是一个分隔层，用于区分超启发式操作的高层次决策和具体问题领域的具体实现。这个层使得超启发式能够在多个问题领域中通用，而不需要对每个具体问题进行详尽的定制。</li>
+</ul>
+<h3 id="方法选择建设性启发式"><a href="#方法选择建设性启发式" class="headerlink" title="方法选择建设性启发式"></a>方法选择建设性启发式</h3><ul>
+<li><strong>混合低级启发式（Mix low level heuristics）</strong>：这种方法涉及选择和组合多种建设性底层启发式算法。目的是利用不同启发式的独特优势来提高解决方案的质量和搜索效率。</li>
+</ul>
+<p>这种</p>
+<p>框架的主要优势在于其灵活性和广泛适用性，可以应用于多种类型的优化问题，如调度、路由或配置问题等。通过将超启发式作为一个独立于具体问题领域的策略，可以更容易地跨不同类型的问题迁移和应用相同的策略，从而降低开发针对每个新问题的专用算法的复杂性和成本。</p>
+<p>在实际应用中，超启发式通常需要调整和优化以满足特定问题的需求，例如选择合适的底层启发式组合、调整域屏障以确保信息有效传递，以及细化超启发式的控制逻辑以提高解决方案的整体质量和效率。</p>
+<p>这种框架不仅提供了一种系统化的方法来处理复杂的优化问题，还通过提供一个可扩展的结构来促进算法的创新和改进。在研究和工业应用中，超启发式被视为一种有力的工具，能够处理各种动态和静态问题，适应多变的需求和条件。</p>
+<img src="/images/AIM/lec08/11.png" width="50%" height="50%">
+
+<p>这张图展示了一个基于图的超启发式框架（GHH），这是一个使用一组底层建设性图着色启发式的通用框架。这些启发式主要用于排序和解决考试及课程时间表问题。</p>
+<h3 id="关键要素解释："><a href="#关键要素解释：" class="headerlink" title="关键要素解释："></a>关键要素解释：</h3><ul>
+<li><p><strong>基于图的超启发式（Graph-based Hyper-Heuristics, GHH）</strong>：这个框架利用图着色原理来解决排程问题，如考试或课程时间表。通过图的方式表示问题，顶点可以代表考试或课程，边则表示约束条件，如同一群学生的考试不能同时进行。</p>
+</li>
+<li><p><strong>低级启发式（Low Level Heuristics）</strong>：这些是序列方法，根据分配难度来排序事件。在此框架中，使用了五种图着色启发式，这些启发式有助于决定哪些考试或课程应该先排，以减少冲突和优化资源使用。</p>
+<ul>
+<li>例如，可以使用之前提到的最大度启发式、最大饱和度启发式等。</li>
+<li>随机排序策略也可能被包括在内，作为比较或探索解空间的一种方法。</li>
+</ul>
+</li>
+<li><p><strong>应用领域</strong>：此框架特别适用于考试和课程时间表问题，这些问题通常具有复杂的约束和多变需求。通过合理的图着色策略，可以有效地安排时间和资源，确保满足各种硬性和软性约束。</p>
+</li>
+</ul>
+<h3 id="应用效果："><a href="#应用效果：" class="headerlink" title="应用效果："></a>应用效果：</h3><p>这种基于图的超启发式框架通过将时间表问题视为图着色问题，允许研究者和实践者使用已经在图论中广泛研究的方法来寻求解决方案。这种方法不仅提高了问题解决的效率，还增强了解决方案的适应性和可扩展性，适用于从小规模学校到大型教育机构的多种教育环境。</p>
+<img src="/images/AIM/lec08/12.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/13.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了如何将考试时间表问题表示为图着色问题，以及其相关的模型和目标。</p>
+<h3 id="考试时间表问题的图表示"><a href="#考试时间表问题的图表示" class="headerlink" title="考试时间表问题的图表示"></a>考试时间表问题的图表示</h3><p><strong>问题描述</strong>：</p>
+<ul>
+<li>共有7场考试（e1到e7）。</li>
+<li>有5名学生（s1到s5），每名学生报名参加不同的考试。</li>
+</ul>
+<p><strong>如何模型化</strong>：</p>
+<ul>
+<li>考试作为图的节点。</li>
+<li>如果两场考试有共同的学生，则这两个节点之间存在边。</li>
+<li>考虑的示例图中，e1, e2, e3等节点通过边相连，表示学生的考试重叠。</li>
+</ul>
+<p><strong>忽略因素</strong>：</p>
+<ul>
+<li>幻灯片提到在这个示例中不考虑教室分配，只关注时间分配。</li>
+</ul>
+<h3 id="图着色问题"><a href="#图着色问题" class="headerlink" title="图着色问题"></a>图着色问题</h3><p><strong>基本要素</strong>：</p>
+<ul>
+<li><strong>节点</strong>：代表考试。</li>
+<li><strong>边</strong>：代表考试之间由于学生重叠的约束。</li>
+<li><strong>颜色</strong>：代表考试时间段。</li>
+</ul>
+<p><strong>目标</strong>：</p>
+<ul>
+<li>将颜色（时间段）分配给节点（考试），使得任何相邻的节点（有学生重叠的考试）都不共享同一颜色。</li>
+<li>尽量减少使用的颜色总数（时间段），从而优化整体考试安排。</li>
+</ul>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>通过将考试时间表问题转化为图着色问题，我们可以利用图着色算法来寻找最优或近似最优的解决方案。这种方法允许系统地处理学生的重叠和时间分配的问题，同时尽量减少所需的考试时间段，提高资源的利用效率。这种模型化方法适用于大学和学校等教育机构，可以帮助他们更有效地安排考试时间表。</p>
+<img src="/images/AIM/lec08/14.png" width="50%" height="50%">
+
+<p>这张幻灯片展示了一种基于图的超启发式算法中使用禁忌搜索（Tabu Search）的伪代码，并介绍了几种图着色启发式及其配套的排序策略。</p>
+<h3 id="禁忌搜索的伪代码解释："><a href="#禁忌搜索的伪代码解释：" class="headerlink" title="禁忌搜索的伪代码解释："></a>禁忌搜索的伪代码解释：</h3><ol>
+<li><strong>初始启发式列表</strong>：列出了一组可用的启发式方法 ( h_1, h_2, \ldots, h_k )。</li>
+<li><strong>禁忌列表</strong>：用于避免算法陷入局部最优，记录最近访问的启发式。</li>
+<li><strong>迭代过程</strong>：<ul>
+<li>每次迭代中，从启发式列表中选择两个启发式进行组合，如果这个组合不在禁忌列表和失败列表（记录导致不可行解的启发式组合）中，则进行尝试。</li>
+<li>使用所选的启发式方法 ( h_j ) 构建解决方案。</li>
+<li>如果找到可行解且该解的成本小于当前最佳成本，则更新最佳解。</li>
+<li>否则，将启发式方法加入失败列表。</li>
+<li>控制禁忌列表的大小，保证其不超过9个元素。</li>
+</ul>
+</li>
+<li><strong>最终步骤</strong>：对得到的最佳解进行最深层次下降搜索（Deepest Descent），以进一步优化解。</li>
+</ol>
+<img src="/images/AIM/lec08/15.png" width="50%" height="50%">
+
+<h3 id="图着色启发式及排序策略："><a href="#图着色启发式及排序策略：" class="headerlink" title="图着色启发式及排序策略："></a>图着色启发式及排序策略：</h3><ul>
+<li><p><strong>图着色启发式</strong>：</p>
+<ul>
+<li><strong>最大度（LD）</strong>：选择最多邻居的节点。</li>
+<li><strong>加权最大度（LW）</strong>：考虑节点邻居的权重。</li>
+<li><strong>最大注册量（LE）</strong>：选择学生数最多的考试。</li>
+<li><strong>饱和度（SD）</strong>：选择与最多已着色邻居相连接的节点。</li>
+<li><strong>颜色度（CD）</strong>：选择已经排定的且冲突最多的考试。</li>
+<li><strong>随机排序（RO）</strong>：随机选择事件进行排序。</li>
+</ul>
+</li>
+<li><p><strong>排序策略</strong>：</p>
+<ul>
+<li>根据事件冲突数、共同学生数、剩余有效时间段数量以及已安排事件的冲突数来排序。</li>
+</ul>
+</li>
+</ul>
+<p>这种方法的优势在于它结合了多种启发式策略，通过动态调整使用的策略，增加了解决复杂调度问题的灵活性和有效性。此外，通过禁忌列表和失败列表的运用，算法能够避免重复探索无效或次优的路径，从而提高搜索效率。</p>
+<img src="/images/AIM/lec08/16.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/17.png" width="50%" height="50%">
+
+<p>这幅图提供了两个示例，展示了如何使用最大度启发式和最大注册量启发式来构建考试时间表。</p>
+<h3 id="最大度图着色-构建-排序启发式"><a href="#最大度图着色-构建-排序启发式" class="headerlink" title="最大度图着色&#x2F;构建&#x2F;排序启发式"></a>最大度图着色&#x2F;构建&#x2F;排序启发式</h3><p>在这个示例中，各个考试（事件）的节点按它们的连接度（与其他事件的连接数）来排序：</p>
+<ul>
+<li><strong>节点及其度</strong>：e4 (5), e2 (3), e3 (3), e5 (3), e6 (2), e1 (2), e7 (0)</li>
+<li><strong>排序</strong>：根据度的大小降序排列，得到的顺序为 e4, e2, e5, e3, e6, e1, e7。</li>
+</ul>
+<p>这种方法首先处理连接最多的考试，旨在优先解决可能引起最多约束冲突的考试，以此来最小化整体冲突。</p>
+<h3 id="最大注册量图着色-构建-排序启发式"><a href="#最大注册量图着色-构建-排序启发式" class="headerlink" title="最大注册量图着色&#x2F;构建&#x2F;排序启发式"></a>最大注册量图着色&#x2F;构建&#x2F;排序启发式</h3><p>在这个示例中，考试根据学生注册量（即参加考试的学生数量）来排序：</p>
+<ul>
+<li><strong>节点及其注册量</strong>：e5 (150), e6 (110), e1 (90), e2 (90), e3 (70), e4 (70), e7 (80)</li>
+<li><strong>排序</strong>：根据注册量降序排列，得到的顺序为 e5, e6, e1, e2, e7, e4, e3。</li>
+</ul>
+<p>这种方法优先处理参与人数最多的考试，其目的是尽快安排那些影响最大学生群体的考试，从而尽可能减少因时间冲突带来的影响。</p>
+<h3 id="启发式的选择和应用"><a href="#启发式的选择和应用" class="headerlink" title="启发式的选择和应用"></a>启发式的选择和应用</h3><p>这两种启发式提供了不同的优先级策略，适用于具体问题的特定需求。选择哪一种启发式取决于问题的具体约束和优化目标。在实际应用中，可能需要根据问题的规模和复杂性调整或结合多种启发式方法，以达到最优解。通过逐个安排每个事件，并检查与已安排事件的时间冲突，这些方法帮助减少时间表中的总冲突数。</p>
+<img src="/images/AIM/lec08/18.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/19.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/20.png" width="50%" height="50%">
+
+<p>这些幻灯片展示了如何使用基于图的超启发式方法来为一系列事件进行时间安排。这个过程分为几个步骤，包括选择适当的启发式策略，为事件排序，然后根据这种排序将事件分配到时间槽中。</p>
+<h3 id="步骤解析"><a href="#步骤解析" class="headerlink" title="步骤解析"></a>步骤解析</h3><ol>
+<li><p><strong>事件和启发式列表</strong>：</p>
+<ul>
+<li>每个事件（如e1, e2, e3等）被列出。</li>
+<li>启发式方法的列表也被制定，包括饱和度（SD）、最大度（LD）、颜色度（CD）等，这些方法用于确定事件的处理顺序。</li>
+</ul>
+</li>
+<li><p><strong>事件排序</strong>：</p>
+<ul>
+<li>使用选择的启发式方法，为事件确定一个处理顺序。例如，可能首先使用饱和度启发式，然后是最大度启发式，再接着是颜色度启发式等。</li>
+<li>这些启发式方法基于各种图的属性（如节点的连接度、节点的颜色饱和度等）来优化事件的排序。</li>
+</ul>
+</li>
+<li><p><strong>分配到时间槽</strong>：</p>
+<ul>
+<li>根据事件的排序，事件被一一放置到时间槽中。每次放置过程中，都会尝试最小化时间槽的使用和避免冲突。</li>
+<li>如图所示，按照排序，选定的事件被安排到特定的时间槽中。</li>
+</ul>
+</li>
+<li><p><strong>迭代过程</strong>：</p>
+<ul>
+<li>一旦一批事件被安排后，这些事件就从总列表中删除。</li>
+<li>重新应用启发式方法为剩余的事件重新排序并分配到新的时间槽中。</li>
+<li>这个过程重复进行，直到所有事件都被安排完毕。</li>
+</ul>
+</li>
+</ol>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li>在第一个示例中，根据启发式策略安排了五个事件（e1, e3, e26, e25, e9）到时间槽中。</li>
+<li>第二个和第三个示例中继续显示了后续的迭代过程，事件如e6, e17, e28等被安排到新的时间槽中。</li>
+</ul>
+<p>这种方法有效地展示了如何动态利用不同的启发式策略来优化事件的时间安排，这对于解决复杂的调度问题（如考试时间表、会议安排等）非常有用。通过这种方式，可以确保时间表的高效利用，同时减少冲突。</p>
+<img src="/images/AIM/lec08/21.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了图基超启发式（Graph-based Hyper-heuristics, GHH）的应用，特别是使用禁忌搜索来优化启发式列表，以及比较不同的高级搜索策略。</p>
+<h3 id="禁忌搜索在超启发式中的应用"><a href="#禁忌搜索在超启发式中的应用" class="headerlink" title="禁忌搜索在超启发式中的应用"></a>禁忌搜索在超启发式中的应用</h3><ol>
+<li><p><strong>禁忌搜索（Tabu Search）</strong>：</p>
+<ul>
+<li>在高层级进行操作。</li>
+<li><strong>邻域操作</strong>：在启发式列表中随机改变两个启发式。</li>
+<li><strong>目标函数</strong>：评估对应启发式列表构建的解决方案的质量。</li>
+<li><strong>禁忌列表</strong>：阻止对相同启发式列表的重复访问。</li>
+</ul>
+</li>
+<li><p><strong>其他测试的高级搜索策略</strong>：</p>
+<ul>
+<li><strong>最陡下降（Steepest Descent）</strong></li>
+<li><strong>可变邻域搜索（Variable Neighbourhood Search）</strong> - 表现最佳。</li>
+<li><strong>迭代最陡下降（Iterated Steepest Descent）</strong></li>
+</ul>
+</li>
+</ol>
+<img src="/images/AIM/lec08/22.png" width="50%" height="50%">
+
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><ul>
+<li><strong>数据集</strong>：使用了Carter的基准数据集，这是一个经典的测试集，用于评估教育时间表问题的解决策略。</li>
+<li><strong>性能指标</strong>：展示了不同启发式组合（如饱和度、最大度、颜色度、随机排序、最大权重）对问题解决方案的成本影响。</li>
+<li><strong>结果对比</strong>：<ul>
+<li>每个问题的解决方案成本使用了不同启发式组合来计算。</li>
+<li>表格列出了不同启发式组合在各个问题上的表现，如SL（饱和度最低）、SLR（饱和度最低、随机排序）等。</li>
+</ul>
+</li>
+</ul>
+<h3 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a>结论</h3><p>幻灯片提供的信息表明，通过使用图基超启发式和禁忌搜索等高级搜索策略，可以有效地提高解决复杂调度问题的能力。可变邻域搜索在这些策略中表现最佳，表明对于某些类型的问题，改变搜索邻域可以极大提高搜索效果。这些策略和技术的有效结合为解决实际应用中的时间表问题提供了有力的工具。</p>
+<h2 id="Generation-Hyper-heuristics"><a href="#Generation-Hyper-heuristics" class="headerlink" title="Generation Hyper-heuristics"></a><strong>Generation Hyper-heuristics</strong></h2><img src="/images/AIM/lec08/23.png" width="50%" height="50%">
+
+<p>这张幻灯片详细介绍了遗传编程（Genetic Programming, GP）的概念、挑战和理由。</p>
+<h3 id="遗传编程-GP-的概念"><a href="#遗传编程-GP-的概念" class="headerlink" title="遗传编程 (GP) 的概念"></a>遗传编程 (GP) 的概念</h3><p>遗传编程是一种自动化的计算方法，旨在从高层次的问题描述自动创建出能解决该问题的计算机程序。这一过程模拟自然进化的原理，通过迭代过程不断地在程序的“种群”中选择、复制、变异和重组，以产生新一代的程序，从而优化程序的性能。</p>
+<h3 id="遗传编程的挑战"><a href="#遗传编程的挑战" class="headerlink" title="遗传编程的挑战"></a>遗传编程的挑战</h3><p>遗传编程面临的主要挑战是“让计算机去做需要做的事情，而不必告诉它具体怎么做”。这意味着系统必须能够自行理解问题并找到解决方案，而不是依赖于详细的指令。</p>
+<img src="/images/AIM/lec08/24.png" width="50%" height="50%">
+
+<h3 id="为什么选择遗传编程？"><a href="#为什么选择遗传编程？" class="headerlink" title="为什么选择遗传编程？"></a>为什么选择遗传编程？</h3><ol>
+<li><p><strong>自然表达方式</strong>：对于许多机器学习和人工智能问题，最自然的解决方案表示形式是计算机程序。这是因为程序能够灵活地表达复杂的、动态变化的数据结构和操作，这在使用固定长度的字符串或其他静态数据结构时难以实现。</p>
+</li>
+<li><p><strong>解决问题的能力</strong>：遗传编程可以解决固定格式难以应对的问题，因为它可以动态调整解决方案的结构，更好地适应问题的需求。</p>
+</li>
+<li><p><strong>解析树（Parse Tree）</strong>：在遗传编程中，程序通常用解析树来表示。解析树是一种树形数据结构，可以有效地表示和修改程序代码，非常适合用于遗传算法的操作。</p>
+</li>
+</ol>
+<p>遗传编程作为一种强大的编程范式，能够应用于多种领域，如符号回归、逻辑回归、自动设计、自动编程等，特别是在解决那些传统编程方法难以处理的复杂问题时显示出其独特的优势。通过这种方式，可以发掘出新的、有效的算法和程序，进而推动人工智能领域的发展。</p>
+<img src="/images/AIM/lec08/25.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了遗传编程（Genetic Programming, GP）在各种现实世界应用中的一些精选示例。遗传编程作为一种强大的算法，其主要优势在于能够自动生成解决复杂问题的程序，特别是在那些传统编程方法难以应对的领域。下面是一些应用实例：</p>
+<ol>
+<li><p><strong>自动化设计机电系统（由美国国家科学基金会支持）</strong>：</p>
+<ul>
+<li>利用遗传编程来创建或优化机电系统的设计，使系统更高效和适应性更强。</li>
+</ul>
+</li>
+<li><p><strong>气候学</strong>：</p>
+<ul>
+<li>估计大气与海冰之间的热通量，建模全球温度变化。</li>
+<li>这种应用利用GP模型复杂的环境系统，并预测其变化，对于理解和应对气候变化至关重要。</li>
+</ul>
+</li>
+<li><p><strong>临床决策支持系统在眼科学中的应用</strong>：</p>
+<ul>
+<li>在眼科领域，遗传编程被用来支持临床决策，例如自动诊断眼部疾病或优化治疗策略。</li>
+</ul>
+</li>
+<li><p><strong>集装箱装载优化</strong>：</p>
+<ul>
+<li>优化集装箱的装载方式，以最大化空间利用率和减少运输成本。</li>
+</ul>
+</li>
+<li><p><strong>调度和时间表编制</strong>：</p>
+<ul>
+<li>遗传编程可以解决复杂的调度和时间表问题，例如学校课程表的制定或大型工厂的生产调度。</li>
+</ul>
+</li>
+<li><p><strong>机器学习</strong>：</p>
+<ul>
+<li>在机器学习领域，GP用于自动化生成特征、模型或整个预测算法。</li>
+</ul>
+</li>
+<li><p><strong>车辆路线规划</strong>：</p>
+<ul>
+<li>优化物流和配送中的车辆路线，以减少旅行时间和燃料消耗。</li>
+</ul>
+</li>
+</ol>
+<p>这些应用显示了遗传编程在各种领域的广泛适用性和有效性，尤其是在需要创造性解决方案和自动化设计决策的场景中。遗传编程通过模拟自然选择的原理，能够探索大量潜在的解决方案，找到最适合特定问题的程序，这使得它在解决复杂的优化和设计问题中尤为有价值。</p>
+<img src="/images/AIM/lec08/26.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/27.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/28.png" width="50%" height="50%">
+
+<p>这段C语言代码中定义的函数 <code>foo</code> 根据输入的 <code>time</code> 计算一个值。下面是该函数行为的分析和预期输出：</p>
+<h3 id="函数分析"><a href="#函数分析" class="headerlink" title="函数分析"></a>函数分析</h3><ul>
+<li>函数接收一个整数参数 <code>time</code>。</li>
+<li>它声明了两个整数变量，<code>temp1</code> 和 <code>temp2</code>。</li>
+<li>如果 <code>time</code> 大于 10，<code>temp1</code> 设为 3。</li>
+<li>否则，<code>temp1</code> 设为 4。</li>
+<li>然后计算 <code>temp2</code> 为 <code>temp1 + 1 + 2</code>。</li>
+<li>函数返回 <code>temp2</code> 的值。</li>
+</ul>
+<h3 id="当-time-从-0-到-14-变化时的预期输出"><a href="#当-time-从-0-到-14-变化时的预期输出" class="headerlink" title="当 time 从 0 到 14 变化时的预期输出"></a>当 <code>time</code> 从 0 到 14 变化时的预期输出</h3><ul>
+<li><p>当 <code>time</code> 为 10 或更小时：</p>
+<ul>
+<li><code>temp1</code> 设置为 4。</li>
+<li><code>temp2</code> 计算为 <code>4 + 1 + 2 = 7</code>。</li>
+<li>因此，函数返回 7。</li>
+</ul>
+</li>
+<li><p>当 <code>time</code> 大于 10 时：</p>
+<ul>
+<li><code>temp1</code> 设置为 3。</li>
+<li><code>temp2</code> 计算为 <code>3 + 1 + 2 = 6</code>。</li>
+<li>因此，函数返回 6。</li>
+</ul>
+</li>
+</ul>
+<h3 id="每个值从-0-到-14-的输出"><a href="#每个值从-0-到-14-的输出" class="headerlink" title="每个值从 0 到 14 的输出"></a>每个值从 0 到 14 的输出</h3><ul>
+<li><strong>对于 time &#x3D; 0 到 10</strong>：输出为 7。</li>
+<li><strong>对于 time &#x3D; 11 到 14</strong>：输出为 6。</li>
+</ul>
+<p>这个函数明确展示了基于输入的条件逻辑，并且根据输入是否大于 10 有两个不同的输出值。</p>
+<img src="/images/AIM/lec08/29.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了遗传编程（Genetic Programming, GP）中的遗传操作。遗传编程是一种进化算法，包含以下主要的算法组成部分：</p>
+<ol>
+<li><p><strong>随机生成初始解的种群</strong>：</p>
+<ul>
+<li>在遗传编程的开始，随机生成一组可能的解（程序），作为初始种群。</li>
+</ul>
+</li>
+<li><p><strong>遗传交叉</strong>：</p>
+<ul>
+<li>选取两个有前途的解（程序），通过遗传交叉操作生成新的可能解。交叉操作通常涉及在两个程序的相应部分之间交换信息，从而创造出含有两个父本特征的新程序。</li>
+</ul>
+</li>
+<li><p><strong>突变</strong>：</p>
+<ul>
+<li>对有前途的解进行突变，以创造新的可能解。突变操作可能是随机改变程序中的某个部分，比如改变一个操作符或者插入一个新的函数调用，目的是探索解空间中未被现有种群覆盖的区域。</li>
+</ul>
+</li>
+</ol>
+<p>这些操作共同作用，使得程序的种群能够进化，逐步改善解决特定问题的能力。通过不断的迭代这些遗传操作，遗传编程旨在发现效率高、性能好的程序，从而解决复杂的问题。</p>
+<img src="/images/AIM/lec08/30.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/31.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/32.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/33.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/34.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/35.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/36.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/37.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/38.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/39.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/40.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/41.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/42.png" width="50%" height="50%">
+
+<p>这些幻灯片展示了在遗传编程中随机生成程序的过程，特别是如何通过递归地构建表达式树来生成程序。</p>
+<h3 id="随机生成程序的步骤解析"><a href="#随机生成程序的步骤解析" class="headerlink" title="随机生成程序的步骤解析"></a>随机生成程序的步骤解析</h3><ol>
+<li><p><strong>初始化</strong>：</p>
+<ul>
+<li>随机选择一个运算符（如乘法<code>*</code>）作为根节点。</li>
+</ul>
+</li>
+<li><p><strong>生成参数</strong>：</p>
+<ul>
+<li>对于根节点的每个参数位置，随机决定是放置一个终端（如变量<code>X</code>或常数<code>4</code>）还是另一个函数（如加法<code>+</code>或减法<code>-</code>）。</li>
+<li>如果选择了函数，将递归执行此步骤，为该函数生成参数。</li>
+</ul>
+</li>
+<li><p><strong>递归构建</strong>：</p>
+<ul>
+<li>每当选择函数作为参数时，递归地为该函数的参数生成新的子树。</li>
+<li>当决定使用终端作为参数时，递归停止。</li>
+</ul>
+</li>
+<li><p><strong>完整表达式的构建</strong>：</p>
+<ul>
+<li>这个过程最终生成一个完整的表达式树，其中包含多层嵌套的函数和终端。</li>
+</ul>
+</li>
+</ol>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><ol>
+<li><p><strong>乘法函数</strong>：</p>
+<ul>
+<li>例如，根节点为乘法<code>*</code>，它的参数可能是变量<code>X</code>、常数<code>4</code>，以及其他通过加法或减法生成的表达式。</li>
+<li>加法<code>+</code>可能连接常数<code>2</code>和变量<code>Y</code>。</li>
+<li>减法<code>-</code>可能从变量<code>X</code>中减去常数<code>9</code>。</li>
+</ul>
+</li>
+<li><p><strong>交叉和突变操作</strong>：</p>
+<ul>
+<li><strong>交叉</strong>：选取两个程序的随机节点（包括其子树），并交换这些子树，生成新的程序候选。</li>
+<li><strong>突变</strong>：在一个程序的随机节点进行修改，如改变节点的运算符，或用新生成的子树替换现有子树。</li>
+</ul>
+</li>
+</ol>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><ul>
+<li>通过这种方式，遗传编程不仅能够探索解空间中的现有点，还能发现新的可能性，进而优化和改进程序。这种方法使得程序能够适应复杂的问题环境，通过自然选择和遗传变异机制持续进化。</li>
+</ul>
+<img src="/images/AIM/lec08/43.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/44.png" width="50%" height="50%">
+
+<p>这两张幻灯片介绍了超启发式框架及其在遗传编程中的应用。超启发式是一种高级别的启发式方法，用于控制和指导底层启发式的选择和应用。下面是详细的解释：</p>
+<h3 id="超启发式框架重访"><a href="#超启发式框架重访" class="headerlink" title="超启发式框架重访"></a>超启发式框架重访</h3><ol>
+<li><p><strong>超启发式层</strong>：</p>
+<ul>
+<li>负责收集和处理域独立的信息，例如候选解的质量变化、底层启发式的数量（种群大小）、应用启发式的性能、统计数据等。</li>
+</ul>
+</li>
+<li><p><strong>域屏障</strong>：</p>
+<ul>
+<li>作为一个抽象层，它隔离了超启发式和问题域的具体实现。这使得超启发式能够在不同的问题域之间进行通用和灵活的应用。</li>
+</ul>
+</li>
+<li><p><strong>底层启发式</strong>：</p>
+<ul>
+<li>这些是直接与问题域相关的启发式方法，包括具体问题的表示、评估函数、初始解等。</li>
+</ul>
+</li>
+</ol>
+<h3 id="生成型超启发式框架"><a href="#生成型超启发式框架" class="headerlink" title="生成型超启发式框架"></a>生成型超启发式框架</h3><ol>
+<li><p><strong>遗传编程超启发式</strong>：</p>
+<ul>
+<li>该框架利用遗传编程的技术来生成和优化启发式。通过模拟自然选择和遗传机制，逐代进化出更适应问题的启发式。</li>
+</ul>
+</li>
+<li><p><strong>域屏障</strong>：</p>
+<ul>
+<li>同样存在于这个框架中，确保超启发式的通用性和可迁移性。</li>
+</ul>
+</li>
+<li><p><strong>底层启发式在生成 i</strong>：</p>
+<ul>
+<li>代表每一代中遗传编程产生的底层启发式集合。这些启发式通过遗传编程的操作（如选择、交叉和突变）不断进化。</li>
+</ul>
+</li>
+<li><p><strong>问题域组件</strong>：</p>
+<ul>
+<li>包括函数集、终端集、适应度函数、初始解等，这些是遗传编程在特定问题域内操作的基础。</li>
+</ul>
+</li>
+</ol>
+<p>这些框架展示了如何将超启发式方法应用于复杂问题解决中，特别是如何通过遗传编程来动态生成和优化用于具体问题解决的启发式。通过这种方法，可以在保持高度灵活性和适应性的同时，提高问题解决的效率和效果。</p>
+<h2 id="Genetic-Programming-for-Packing"><a href="#Genetic-Programming-for-Packing" class="headerlink" title="Genetic Programming for Packing"></a><strong>Genetic Programming for Packing</strong></h2><img src="/images/AIM/lec08/45.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了一维离线装箱问题（1D Offline Bin Packing），这是一个标准的NP难题。</p>
+<h3 id="一维离线装箱问题简介："><a href="#一维离线装箱问题简介：" class="headerlink" title="一维离线装箱问题简介："></a>一维离线装箱问题简介：</h3><ol>
+<li><p><strong>问题定义</strong>：</p>
+<ul>
+<li>任务是将一组大小为 (s_i)（对于 i &#x3D; 1, …, n）的物品打包到若干个容量为 (C) 的箱子中。</li>
+<li>每个物品的大小都是整数，并且每个物品的大小 (s_i) 满足 (1 \leq s_i \leq C)。</li>
+</ul>
+</li>
+<li><p><strong>目标</strong>：</p>
+<ul>
+<li>确保每个箱子的总装载量不超过其容量 (C)。</li>
+<li>使用尽可能少的箱子来装载所有物品。</li>
+</ul>
+</li>
+<li><p><strong>挑战</strong>：</p>
+<ul>
+<li>一维离线装箱问题是一个NP难题，意味着没有已知的多项式时间算法可以解决所有实例。</li>
+</ul>
+</li>
+</ol>
+<h3 id="解决策略："><a href="#解决策略：" class="headerlink" title="解决策略："></a>解决策略：</h3><ul>
+<li>在解决此问题时，通常采用各种启发式算法，如最先适应（First Fit）、最佳适应（Best Fit）等，这些算法尽管不能保证找到最优解，但在实践中表现出了相对较好的性能。</li>
+<li>此外，也可以通过更复杂的算法如遗传算法、线性编程或者混合整数编程等来寻求更接近最优的解决方案。</li>
+<li>遗传算法等进化算法特别适用于此类问题，因为它们可以通过模拟自然选择的过程来探索解空间，不断优化候选解决方案。</li>
+</ul>
+<p>这类问题在工业和商业领域有广泛的应用，例如在仓库物流、货运装载以及资源优化等方面。通过有效的解决方案，可以显著减少资源的浪费，提高效率。</p>
+<img src="/images/AIM/lec08/46.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/47.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/48.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/49.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/50.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/51.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/52.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/53.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/54.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/55.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/56png" width="50%" height="50%">
+
+<p>这幅幻灯片展示了一系列关于装箱和背包问题的实验及其结果。实验设计旨在对比来自18篇论文的结果，并涵盖了一维、二维和三维的问题。</p>
+<h3 id="实验概述："><a href="#实验概述：" class="headerlink" title="实验概述："></a>实验概述：</h3><ol>
+<li><p><strong>实验对比</strong>：</p>
+<ul>
+<li>从18篇研究论文中比较了结果。</li>
+</ul>
+</li>
+<li><p><strong>实验分类</strong>：</p>
+<ul>
+<li><strong>一维装箱问题</strong>：涉及两组实例。</li>
+<li><strong>二维背包和装箱问题</strong>：涉及十组实例。</li>
+<li><strong>三维背包和装箱问题</strong>：涉及六组实例。</li>
+</ul>
+</li>
+</ol>
+<h3 id="结果概览："><a href="#结果概览：" class="headerlink" title="结果概览："></a>结果概览：</h3><h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><ul>
+<li><strong>一维装箱问题</strong>的结果显示，在大部分实例中没有明显改进，甚至有些情况下效果更差。</li>
+<li><strong>二维和三维背包问题</strong>的结果则表现出在某些实例中显著的改进，尤其是Ep340实例在三维背包问题中改进了13.0%。</li>
+</ul>
+<p>这些实验表明，在更高维度的问题中，可能通过优化算法和策略来获得更好的改进效果。这些数据提供了深入了解不同维度问题解决策略效率的基础，并可以用于进一步的研究和算法开发。</p>
+<img src="/images/AIM/lec08/57.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了遗传编程（GP）超启发式在装箱问题中的应用，特别是它如何为一维（1D）、二维（2D）和三维（3D）的装箱和背包问题提供一种更通用的解决方法。</p>
+<h3 id="GP超启发式在装箱问题中的应用："><a href="#GP超启发式在装箱问题中的应用：" class="headerlink" title="GP超启发式在装箱问题中的应用："></a>GP超启发式在装箱问题中的应用：</h3><ol>
+<li><p><strong>通用方法</strong>：</p>
+<ul>
+<li>GP超启发式为不同维度的装箱和背包问题提供了一种统一的方法。这种方法的优势在于它能够适用于多种问题类型，而无需为每种问题单独设计或调整算法。</li>
+</ul>
+</li>
+<li><p><strong>保持解决方案质量</strong>：</p>
+<ul>
+<li>尽管方法具有高度的通用性，但它能够在不牺牲解决方案质量的前提下，实现这一点。这意味着在解决各种问题时，可以保持或甚至提高解决方案的效率和有效性。</li>
+</ul>
+</li>
+</ol>
+<h3 id="优势分析："><a href="#优势分析：" class="headerlink" title="优势分析："></a>优势分析：</h3><ul>
+<li><strong>灵活性</strong>：能够处理各种大小和复杂度的问题，不受限于特定的问题结构。</li>
+<li><strong>效率</strong>：通过遗传算法的演化机制，能够在较大的解空间中快速寻找到高质量的解决方案。</li>
+<li><strong>可扩展性</strong>：适用于从简单的一维问题到复杂的三维问题，这种扩展性使得GP超启发式特别适合处理实际应用中的多变和复杂需求。</li>
+</ul>
+<p>这种方法的成功展示了遗传编程在解决具有高度复杂性和变异性问题时的强大潜力。通过自然选择和遗传机制来不断优化解决策略，GP超启发式为解决各种装箱和背包问题提供了一种高效的工具。</p>
+<img src="/images/AIM/lec08/58.png" width="50%" height="50%">
+
+<img src="/images/AIM/lec08/59.png" width="50%" height="50%">
+
+<p>这两张幻灯片提供了关于超启发式和遗传编程超启发式的总结，特别是它们在搜索策略和性能影响方面的应用。</p>
+<h3 id="第一部分：超启发式总结"><a href="#第一部分：超启发式总结" class="headerlink" title="第一部分：超启发式总结"></a>第一部分：超启发式总结</h3><ol>
+<li><p><strong>搜索方法的多样性</strong>：</p>
+<ul>
+<li>搜索方法由不同的组件、算法配置或参数设置组成，这些元素的不同组合常常导致性能表现的差异。</li>
+</ul>
+</li>
+<li><p><strong>元启发式与超启发式</strong>：</p>
+<ul>
+<li>元启发式在解空间中搜索解决方案。</li>
+<li>超启发式（可能本身是一种元启发式）在低级启发式的空间中进行搜索。</li>
+</ul>
+</li>
+<li><p><strong>超启发式的选择</strong>：</p>
+<ul>
+<li>可以使用选择性超启发式来混合扰动型和构建型低级启发式。</li>
+</ul>
+</li>
+</ol>
+<h3 id="第二部分：遗传编程超启发式总结"><a href="#第二部分：遗传编程超启发式总结" class="headerlink" title="第二部分：遗传编程超启发式总结"></a>第二部分：遗传编程超启发式总结</h3><ol>
+<li><p><strong>低级启发式的选择</strong>：</p>
+<ul>
+<li>在超启发式框架中使用的低级启发式的选择显著影响其性能。</li>
+</ul>
+</li>
+<li><p><strong>遗传编程超启发式</strong>：</p>
+<ul>
+<li>用于构建启发式或启发式组件。</li>
+<li>这些通常以训练和测试的方式操作。</li>
+<li>在选定的样本实例上训练可能需要较长时间，而在未见实例上的应用通常较快。</li>
+</ul>
+</li>
+<li><p><strong>性能评估</strong>：</p>
+<ul>
+<li>通过遗传编程生成的每棵树可以使用指标评估，该指标显示其在构建高质量解决方案方面的效果，如样本问题实例上解决方案的平均质量。</li>
+</ul>
+</li>
+</ol>
+<p>这些总结强调了超启发式在解决复杂问题中的实用性，尤其是遗传编程超启发式如何有效地生成和优化解决策略。通过这种方法，可以提高算法在各种情境下的适应性和效率，特别是在处理大规模和多变问题时。这种灵活性和高效性使得超启发式特别适用于需要动态调整和优化算法性能的领域。</p>
 
         
       </div>
