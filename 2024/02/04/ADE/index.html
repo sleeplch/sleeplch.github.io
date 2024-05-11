@@ -151,8 +151,29 @@
 <meta property="og:image" content="http://example.com/images/ADE/lec11/09.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec11/10.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec11/11.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/00.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/01.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/02.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/03.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/04.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/05.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/06.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/07.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/08.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/09.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/10.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/11.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/12.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/13.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/14.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/15.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/16.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/17.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/18.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/19.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec15/20.png">
 <meta property="article:published_time" content="2024-02-04T00:48:54.000Z">
-<meta property="article:modified_time" content="2024-03-18T01:52:54.216Z">
+<meta property="article:modified_time" content="2024-05-11T12:15:35.680Z">
 <meta property="article:author" content="Caihao">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/ADE/lec01/01.png">
@@ -402,7 +423,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            3.4k words 
+            6.3k words 
           </div>
         </div>
         
@@ -704,7 +725,210 @@
 
 <img src="/images/ADE/lec11/11.png" width="50%" height="50%">
 
-<h1 id="Lecture14-The-Vector-Data-Type-and-Amortised-Analysis"><a href="#Lecture14-The-Vector-Data-Type-and-Amortised-Analysis" class="headerlink" title="Lecture14 (The Vector Data Type, and Amortised Analysis)"></a>Lecture14 (The Vector Data Type, and Amortised Analysis)</h1>
+<h1 id="Lecture14-The-Vector-Data-Type-and-Amortised-Analysis"><a href="#Lecture14-The-Vector-Data-Type-and-Amortised-Analysis" class="headerlink" title="Lecture14 (The Vector Data Type, and Amortised Analysis)"></a>Lecture14 (The Vector Data Type, and Amortised Analysis)</h1><h1 id="Lecture15-Priority-Queues-Heaps"><a href="#Lecture15-Priority-Queues-Heaps" class="headerlink" title="Lecture15 (Priority Queues &amp; Heaps)"></a>Lecture15 (Priority Queues &amp; Heaps)</h1><img src="/images/ADE/lec15/00.png" width="50%" height="50%">
+
+<ol>
+<li><p><strong>抽象数据类型（ADT）</strong>：</p>
+<ul>
+<li>抽象数据类型是关于定义数据类型的接口而不涉及实现细节的概念。</li>
+<li>它关注的是数据类型对外展现的行为，也就是从外部看到的功能和行为。</li>
+<li>抽象数据类型定义了所提供的方法，并可能对这些方法的复杂度有要求，比如某个操作必须在O(n)的时间复杂度内完成。</li>
+</ul>
+</li>
+<li><p><strong>具体数据类型（CDT）</strong>：</p>
+<ul>
+<li>具体数据类型则涉及到数据结构和算法的具体实现。</li>
+<li>它关注的是从内部看到的行为，也就是数据类型的内部逻辑和实现方式。</li>
+</ul>
+</li>
+</ol>
+<p>总的来说，抽象数据类型提供了一个理论框架，定义了数据类型应该有的操作和性能要求，而具体数据类型则是这些理论在具体应用和编程中的实现。</p>
+<img src="/images/ADE/lec15/01.png" width="50%" height="50%">
+
+<p>这张图片解释了抽象数据类型（ADT）和具体数据类型（CDT）的实用性，以及它们在面向对象编程中的标准应用：</p>
+<ol>
+<li><p><strong>规范与实现的分离</strong>：</p>
+<ul>
+<li>这一原则帮助将数据类型的“规范”（即接口）与其“实现细节”分开。这意味着可以独立于实现来定义接口的行为。</li>
+</ul>
+</li>
+<li><p><strong>允许不同的CDT实现同一个ADT</strong>：</p>
+<ul>
+<li>这种分离使得可以为同一个ADT探索不同的CDT实现。例如，一个列表（List）的ADT可以通过数组或链表的CDT来实现。</li>
+</ul>
+</li>
+<li><p><strong>快速替换或改进CDT而无需更改ADT的使用者代码</strong>：</p>
+<ul>
+<li>由于ADT的定义与CDT的具体实现无关，因此可以在不影响使用已有ADT代码的情况下，更换或优化其背后的CDT。</li>
+</ul>
+</li>
+<li><p><strong>需要注意的是ADT和CDT的命名差异</strong>：</p>
+<ul>
+<li>在实际应用中，ADT和CDT可能有不同的命名方式，开发者在使用和实现时需要区分这些名称，以避免混淆。</li>
+</ul>
+</li>
+</ol>
+<p>这些特点体现了在面向对象设计中，抽象和具体实现分离的重要性，旨在提高代码的灵活性、可扩展性和可维护性。</p>
+<img src="/images/ADE/lec15/02.png" width="50%" height="50%">
+
+<p>这张图片介绍了优先队列抽象数据类型（Priority Queue ADT）的特点和操作方法：</p>
+<ol>
+<li><p><strong>优先队列的结构</strong>：</p>
+<ul>
+<li>优先队列存储一个条目集合，每个条目是一对键值对（key, value）。</li>
+</ul>
+</li>
+<li><p><strong>主要方法</strong>：</p>
+<ul>
+<li><code>insert(k, v)</code>：插入一个带有键 k 和值 v 的条目。</li>
+<li><code>removeMin()</code>：移除并返回键最小的条目。注意，与Map不同，优先队列通常不需要一个查找特定键的<code>find(k)</code>方法。</li>
+</ul>
+</li>
+<li><p><strong>附加方法</strong>：</p>
+<ul>
+<li><code>min()</code>：返回但不移除键最小的条目。</li>
+<li><code>size()</code>：返回队列中的条目数量。</li>
+<li><code>isEmpty()</code>：检查队列是否为空。</li>
+</ul>
+</li>
+<li><p><strong>应用场景</strong>：</p>
+<ul>
+<li>待命乘客（例如在航空公司的候补登机名单中）</li>
+<li>拍卖中的出价排序</li>
+<li>股票市场中的订单优先处理</li>
+<li>打印队列管理</li>
+</ul>
+</li>
+</ol>
+<p>优先队列是一种常用的数据结构，适用于需要按特定顺序处理条目的场景，其中条目的处理优先级由键值决定。</p>
+<img src="/images/ADE/lec15/03.png" width="50%" height="50%">
+
+<p>这张图片介绍了两种简单的优先队列具体数据类型（CDT）的实现方式，即使用未排序列表和使用已排序列表的实现方式，以及各自的性能特点：</p>
+<ol>
+<li><p><strong>使用未排序列表实现</strong>：</p>
+<ul>
+<li><strong>结构</strong>：元素在列表中的位置是随机的，例如列表 [4, 5, 2, 3, 1]。</li>
+<li><strong>性能</strong>：<ul>
+<li><code>insert(k, v)</code>：插入操作可以在 O(1) 时间内完成，因为可以直接将元素添加到列表的头部或尾部。</li>
+<li><code>removeMin()</code> 和 <code>min()</code>：需要遍历整个列表以找到键最小的元素，因此这两个操作的时间复杂度为 O(n)。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>使用已排序列表实现</strong>：</p>
+<ul>
+<li><strong>结构</strong>：元素按键值排序存放，例如列表 [1, 2, 3, 4, 5]。</li>
+<li><strong>性能</strong>：<ul>
+<li><code>insert(k, v)</code>：插入操作需要 O(n) 时间，因为需要找到适当的位置来保持列表的排序。</li>
+<li><code>removeMin()</code> 和 <code>min()</code>：由于最小元素总是在列表的头部，这两个操作可以在 O(1) 时间内完成。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>图片最后还提出了一个练习问题，探讨在实现时使用单链表是否足够，或者是否需要双链表。这个问题的答案取决于具体的应用需求和对操作效率的要求。使用双链表可能会简化某些操作，如在列表中间插入或删除节点，但同时也会增加额外的空间复杂度。</p>
+<h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><img src="/images/ADE/lec15/04.png" width="50%" height="50%">
+
+<p>这张图片解释了堆（Heaps）的基本概念，这是一种特殊的二叉树，用于在计算机科学中管理优先队列：</p>
+<ol>
+<li><p><strong>堆的定义</strong>：</p>
+<ul>
+<li>堆是一种存储键值对的二叉树。</li>
+<li>每个节点的键值都大于或等于其父节点的键值，这称为堆的顺序属性（Heap-Order）。</li>
+</ul>
+</li>
+<li><p><strong>完全二叉树</strong>：</p>
+<ul>
+<li>堆是一种完全二叉树，这意味着除了最后一层外，其他每层都被完全填满，且所有节点都向左对齐。</li>
+<li>对于堆的任何给定深度 <code>i</code>，该深度将有 <code>2^i</code> 个节点（直至最后一层）。</li>
+</ul>
+</li>
+<li><p><strong>堆的结构特征</strong>：</p>
+<ul>
+<li>最后一个节点是堆中深度为 <code>h</code>（堆的高度）的最右侧节点。</li>
+</ul>
+</li>
+</ol>
+<p>堆通常用于实现优先队列，因为它允许快速的访问、删除最小元素（或最大元素，具体取决于堆的类型），同时也能高效地插入新元素。如图中所示，堆确保了在 <code>O(log n)</code> 的时间复杂度内完成插入和删除最小元素的操作，这是由其树状结构和堆属性共同保证的。</p>
+<img src="/images/ADE/lec15/05.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/06.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/07.png" width="50%" height="50%">
+
+<p>这张图片提供了一个关于堆高度的定理及其证明，这是理解堆性能的关键：</p>
+<p><strong>定理</strong>：</p>
+<ul>
+<li>一个存储 ( n ) 个键的堆具有高度 ( O(\log n) )。</li>
+</ul>
+<p><strong>证明</strong>：</p>
+<ul>
+<li>假设堆的高度为 ( h )。</li>
+<li>完美二叉树的定义是每一层都被完全填满的二叉树。一个高度为 ( h-1 ) 的完美二叉树将有 ( 2^h - 1 ) 个节点。</li>
+<li>由于堆是一种完全二叉树，所以在高度 ( h ) 的堆至少还有一个节点（最少情况是堆的最后一层只有一个节点），因此 ( n ) 至少等于 ( 2^h )。</li>
+<li>根据这种关系，可以得出 ( h \leq \log n )。</li>
+</ul>
+<p>图片中的图示显示了各个深度层的节点数，其中每个深度 ( i )（从0到 ( h-1 )）的节点数是 ( 2^i )，并且在深度 ( h ) 至少有一个节点。这个视觉表现帮助理解堆的结构以及如何快速推导出它的高度。</p>
+<p>这个定理说明了堆的高效性，特别是在执行插入或删除操作时，因为这些操作通常涉及到沿树的路径移动，其复杂度与树的高度直接相关。由于堆的高度是对数级的，所以相关操作也能在对数时间内完成，这是堆数据结构在多种应用中非常有价值的原因之一。</p>
+<h3 id="Insertion-into-a-Heap"><a href="#Insertion-into-a-Heap" class="headerlink" title="Insertion into a Heap"></a>Insertion into a Heap</h3><img src="/images/ADE/lec15/08.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/09.png" width="50%" height="50%">
+
+<h3 id="Removal-from-a-Heap"><a href="#Removal-from-a-Heap" class="headerlink" title="Removal from a Heap"></a>Removal from a Heap</h3><img src="/images/ADE/lec15/10.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/11.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/12.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/13.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/14.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/15.png" width="50%" height="50%">
+
+<h2 id="Array-Heap-Implementation"><a href="#Array-Heap-Implementation" class="headerlink" title="Array Heap Implementation"></a>Array Heap Implementation</h2><img src="/images/ADE/lec15/16.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/17.png" width="50%" height="50%">
+
+<p>这两张图片介绍了如何使用数组来实现堆的数据结构：</p>
+<ol>
+<li><p><strong>数组表示法</strong>：</p>
+<ul>
+<li>可以用一个数组（或向量）来表示一个堆，数组的长度是 ( n+1 )，其中 ( n ) 是堆中的元素数量。</li>
+<li>节点间的链接不是显式存储的。而是通过数组的索引来隐式表示节点之间的关系。</li>
+</ul>
+</li>
+<li><p><strong>节点位置关系</strong>：</p>
+<ul>
+<li>对于数组中的任何位置 ( i )：<ul>
+<li>左子节点的索引是 ( 2i )。</li>
+<li>右子节点的索引是 ( 2i+1 )。</li>
+<li>父节点的索引是 ( i&#x2F;2 )（整除）。</li>
+</ul>
+</li>
+<li>索引 0 通常不被使用，这是为了使索引计算更加方便和快捷。</li>
+</ul>
+</li>
+<li><p><strong>操作的数组实现</strong>：</p>
+<ul>
+<li>插入操作：新元素被插入到数组的末尾（即索引 ( n+1 )）。</li>
+<li>删除最小元素（<code>removeMin</code>）：通常涉及将数组的第一个元素（根元素）与最后一个元素交换，然后在数组的开始部分重构堆结构。</li>
+<li>上浮（<code>up-heap</code>）和下沉（<code>down-heap</code>）操作：通过在数组中适当交换元素来维护堆的性质。</li>
+</ul>
+</li>
+<li><p><strong>效率</strong>：</p>
+<ul>
+<li>由于数组的连续存储方式和堆的结构特性，数组实现的堆非常高效。这种没有“间隙”的实现使得堆操作非常迅速，是实现堆的标准方法之一。</li>
+</ul>
+</li>
+</ol>
+<p>这种实现方式不仅节省了存储空间（因为不需要额外的指针或链接存储），而且由于内存的连续使用，也能提高缓存的效率。因此，数组实现的堆在实际应用中非常普遍，特别是在需要优先队列的数据结构中。</p>
+<img src="/images/ADE/lec15/18.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/19.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec15/20.png" width="50%" height="50%">
+
         
       </div>
 
