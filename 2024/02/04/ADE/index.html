@@ -182,6 +182,7 @@
 <meta property="og:image" content="http://example.com/images/ADE/lec16/07.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec16/08.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec16/09.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec17/00.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec19/00.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec19/01.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec19/02.png">
@@ -190,8 +191,28 @@
 <meta property="og:image" content="http://example.com/images/ADE/lec19/05.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec19/06.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec19/07.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/00.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/01.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/02.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/03.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/04.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/05.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/06.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/07.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/08.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/09.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/10.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/11.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/12.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec20/13.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec21/00.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec21/01.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec21/02.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec21/03.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec21/04.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec21/05.png">
 <meta property="article:published_time" content="2024-02-04T00:48:54.000Z">
-<meta property="article:modified_time" content="2024-05-11T17:10:27.455Z">
+<meta property="article:modified_time" content="2024-05-12T12:15:46.230Z">
 <meta property="article:author" content="Caihao">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/ADE/lec01/01.png">
@@ -441,7 +462,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            9.1k words 
+            12k words 
           </div>
         </div>
         
@@ -1095,7 +1116,9 @@
 <p>总的来说，列表基础的映射实现简单易于理解，但由于其性能限制，主要适用于小规模数据集。对于需要高效查找、频繁更新或大规模数据处理的应用，更复杂的数据结构如哈希表或平衡二叉搜索树（例如 AVL 树、红黑树）可能更为适合。</p>
 <img src="/images/ADE/lec16/09.png" width="50%" height="50%">
 
-<h1 id="Lecture17-Map-ADT-and-hashtables"><a href="#Lecture17-Map-ADT-and-hashtables" class="headerlink" title="Lecture17 (Map ADT and hashtables)"></a>Lecture17 (Map ADT and hashtables)</h1><h1 id="Lecture19-Binary-Search-Trees"><a href="#Lecture19-Binary-Search-Trees" class="headerlink" title="Lecture19 (Binary Search Trees)"></a>Lecture19 (Binary Search Trees)</h1><p>BST 即二叉搜索树（Binary Search Tree），是一种特殊的二叉树，用于快速查找、插入、删除数据的数据结构。二叉搜索树具有以下基本特性：</p>
+<h1 id="Lecture17-Map-ADT-and-hashtables"><a href="#Lecture17-Map-ADT-and-hashtables" class="headerlink" title="Lecture17 (Map ADT and hashtables)"></a>Lecture17 (Map ADT and hashtables)</h1><img src="/images/ADE/lec17/00.png" width="50%" height="50%">
+
+<h1 id="Lecture19-Binary-Search-Trees"><a href="#Lecture19-Binary-Search-Trees" class="headerlink" title="Lecture19 (Binary Search Trees)"></a>Lecture19 (Binary Search Trees)</h1><p>BST 即二叉搜索树（Binary Search Tree），是一种特殊的二叉树，用于快速查找、插入、删除数据的数据结构。二叉搜索树具有以下基本特性：</p>
 <ol>
 <li><strong>节点的排列</strong>：每个节点包含一个键及其关联的值，并且每个节点都有两个区分的子节点，通常称为左子节点和右子节点。</li>
 <li><strong>有序性</strong>：<ul>
@@ -1133,6 +1156,164 @@
 
 
 <img src="/images/ADE/lec19/07.png" width="50%" height="50%">
+
+<h1 id="Lecture20-Brute-force-D-C-heuristics-and-“Dynamic-Programming”"><a href="#Lecture20-Brute-force-D-C-heuristics-and-“Dynamic-Programming”" class="headerlink" title="Lecture20 (Brute force, D&amp;C, heuristics and “Dynamic Programming”)"></a>Lecture20 (Brute force, D&amp;C, heuristics and “Dynamic Programming”)</h1><h2 id="Dynamic-Programming-DP"><a href="#Dynamic-Programming-DP" class="headerlink" title="Dynamic Programming (DP)"></a>Dynamic Programming (DP)</h2><img src="/images/ADE/lec20/00.png" width="50%" height="50%">
+
+
+
+<img src="/images/ADE/lec20/01.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec20/02.png" width="50%" height="50%">
+
+<p>这张图片介绍了一个使用动态规划（DP）解决子集和问题的具体方法。这个方法用一个布尔数组来追踪可能达到的子集和。这里是具体的说明：</p>
+<h3 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a>动态规划算法</h3><ul>
+<li><strong>算法概念</strong>：考虑集合中的每个数一次，同时跟踪到目前为止哪些子集和是可能的。</li>
+<li><strong>操作步骤</strong>：对于集合中的每个数，更新布尔数组，以反映包含这个数后可能达到的新的和。</li>
+</ul>
+<h3 id="主要数据结构"><a href="#主要数据结构" class="headerlink" title="主要数据结构"></a>主要数据结构</h3><ul>
+<li><strong>布尔数组 Y</strong>：这个数组的大小为 ( K+1 )（其中 ( K ) 是目标和），用于存储布尔值。<ul>
+<li><code>Y[m] = true</code> 表示存在一个子集，其元素和正好为 ( m )。</li>
+<li>数组的索引对应于可能的和，从 0 到 ( K )。</li>
+</ul>
+</li>
+</ul>
+<h3 id="更新布尔数组的方法"><a href="#更新布尔数组的方法" class="headerlink" title="更新布尔数组的方法"></a>更新布尔数组的方法</h3><ol>
+<li><strong>初始化</strong>：<code>Y[0]</code> 设置为 <code>true</code>，因为和为0总是可以通过不取任何元素来实现。</li>
+<li><strong>遍历集合中的每个数</strong>：对于集合中的每个数 ( x )，从 ( K ) 向下到 ( x ) 遍历数组 <code>Y</code>。</li>
+<li><strong>更新数组</strong>：如果 <code>Y[j - x]</code> 是 <code>true</code>（这意味着存在一个子集其和为 ( j-x )），那么设置 <code>Y[j]</code> 为 <code>true</code>。这反映了加上当前考虑的数 ( x ) 后，可以达到和为 ( j ) 的新子集。</li>
+</ol>
+<h3 id="算法的效果"><a href="#算法的效果" class="headerlink" title="算法的效果"></a>算法的效果</h3><p>通过这种方式，当处理完所有的数后，<code>Y[K]</code> 的值如果为 <code>true</code>，则表示存在一个子集，其元素之和为目标和 ( K )；如果为 <code>false</code>，则表示不存在这样的子集。</p>
+<p>这种动态规划方法有效地利用了空间和时间，能够比较高效地解决问题的大小和目标和适中的子集和问题。不过，需要注意的是，这种方法的空间复杂度为 ( O(K) )，如果 ( K ) 很大，可能需要较大的内存空间。</p>
+<img src="/images/ADE/lec20/03.png" width="50%" height="50%">
+
+<p>这张图片描述了子集和问题的另一种动态规划解法，称为 <strong>DP for Subset Sum 2</strong>。此方法同样使用布尔数组追踪可达成的和，但强调了如何在已知较小子集和的基础上，逐步添加元素以探索更大子集和的策略。</p>
+<h3 id="方法概述"><a href="#方法概述" class="headerlink" title="方法概述"></a>方法概述</h3><ul>
+<li><strong>基本思想</strong>：假设已经找到了所有由元素 <code>x[0]</code> 到 <code>x[i-1]</code> 组成的子集和的可能性。现在的目标是考虑加入 <code>x[i]</code> 后，如何影响这些和。</li>
+<li><strong>递推策略</strong>：如果已知某个和 <code>m</code> 可以由 <code>x[0]</code> 到 <code>x[i-1]</code> 的某个子集得到，那么显然，通过添加 <code>x[i]</code>，可以得到新的和 <code>m + x[i]</code>。</li>
+</ul>
+<h3 id="步骤详解"><a href="#步骤详解" class="headerlink" title="步骤详解"></a>步骤详解</h3><ol>
+<li><strong>迭代每个元素</strong>：对于集合中的每个元素 <code>x[i]</code>，更新可能达到的和。</li>
+<li><strong>更新可能和</strong>：<ul>
+<li>遍历所有可能的和 <code>m</code> 从大到小（重要，以避免在同一迭代中重复使用相同元素）。</li>
+<li>如果 <code>dp[m]</code> 为 <code>true</code>（表示可以通过之前的元素组合得到和为 <code>m</code>），则将 <code>dp[m + x[i]]</code> 设置为 <code>true</code>。</li>
+</ul>
+</li>
+</ol>
+<h3 id="为何从大到小更新"><a href="#为何从大到小更新" class="headerlink" title="为何从大到小更新"></a>为何从大到小更新</h3><p>从大到小更新是为了确保每个元素在每一轮中只被计算一次。这样可以防止一个元素被重复加入，影响结果的正确性。例如，如果我们从小到大更新，那么在处理到较大的 <code>m</code> 时，可能会错误地使用了在当前迭代已更新的 <code>dp</code> 值，从而导致某些和被错误地认为是可达的。</p>
+<h3 id="应用和效果"><a href="#应用和效果" class="headerlink" title="应用和效果"></a>应用和效果</h3><ul>
+<li>这种方法在逻辑上直接且易于实现，特别适合处理问题规模较小或中等的子集和问题。</li>
+<li>它通过递归地添加新元素，并更新可能的和，使得我们可以构建出一个完整的可能和的图景。</li>
+<li>尽管在最坏情况下，时间复杂度仍然是指数级（因为必须考虑集合的所有可能子集），但动态规划提供了一种相对高效的方法来探索和记录解决方案的路径，特别是当和 <code>K</code> 较小或数据规模适中时。</li>
+</ul>
+<img src="/images/ADE/lec20/04.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec20/05.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec20/06.png" width="50%" height="50%">
+
+<p>这两张图片介绍了动态规划方法解决子集和问题的时间复杂度，并对其进行了比较分析。</p>
+<h3 id="Complexity-1"><a href="#Complexity-1" class="headerlink" title="Complexity 1"></a>Complexity 1</h3><ul>
+<li><strong>外层循环</strong>：遍历每个元素，复杂度为 (O(n))。</li>
+<li><strong>内层循环</strong>：遍历布尔数组 (Y)，长度为 (K+1)，复杂度为 (O(K))。</li>
+<li><strong>总体复杂度</strong>：由于每个元素的添加需要遍历整个数组 (Y)，所以总体复杂度是 (O(nK))。</li>
+<li><strong>与 (O(2^n)) 比较</strong>：动态规划的复杂度 (O(nK)) 比穷举法的 (O(2^n)) 要好很多。穷举法需要检查每个可能的子集，而子集的数量随集合大小指数增长。</li>
+</ul>
+<h3 id="Complexity-2"><a href="#Complexity-2" class="headerlink" title="Complexity 2"></a>Complexity 2</h3><ul>
+<li><strong>隐藏的指数</strong>：虽然表面上复杂度是 (O(nK))，但如果 (K) 非常大（尤其是在 (K) 是输入大小的多项式时），这个复杂度实际上隐含了指数性质。</li>
+<li><strong>输入大小</strong>：如果 (K) 用二进制表示，需要的比特数 (B) 是 (O(\log K))。</li>
+<li><strong>实际复杂度</strong>：考虑到 (K) 的二进制表示，复杂度可以重新表示为 (O(n 2^B))，这是一个伪多项式时间复杂度，因为它依赖于数字 (K) 的大小，而非其比特数。</li>
+<li><strong>伪多项式时间</strong>：这种复杂度虽然比 (O(2^n)) 好，但仍然依赖于 (K) 的实际值，而不仅仅是其大小，这在某些情况下可以接近指数复杂度。</li>
+</ul>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>动态规划方法为子集和问题提供了一种相对有效的解决策略，特别是当 (K) 不是极端大的值时。然而，这种方法的复杂度随 (K) 的大小而变化，特别是在 (K) 很大时，可能仍然需要显著的计算资源。因此，虽然它比简单的穷举方法有效，但在处理大规模问题时仍需谨慎。</p>
+<h2 id="Min-Coins-version"><a href="#Min-Coins-version" class="headerlink" title="Min-Coins version"></a>Min-Coins version</h2><img src="/images/ADE/lec20/07.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec20/08.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec20/09.png" width="50%" height="50%">
+
+<p>这张图片进一步讨论了动态规划方法在最少硬币找零问题中的应用，特别是“DP for Min-Change-Giving 2”。这个方法的核心在于累积到目前为止的最佳解答，并在此基础上考虑新的硬币如何影响已有的解答。</p>
+<h3 id="方法概述-1"><a href="#方法概述-1" class="headerlink" title="方法概述"></a>方法概述</h3><ul>
+<li><strong>基本思想</strong>：假设已经找到了使用硬币 <code>x[0], ..., x[i-1]</code> 的最优解。现在，引入新的硬币 <code>x[i]</code>，并探讨其如何影响能达到的总金额及使用的硬币数量。</li>
+</ul>
+<h3 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h3><ol>
+<li><strong>已知解</strong>：如果已知某金额 <code>m</code> 可以用 <code>x[0]</code> 到 <code>x[i-1]</code> 的组合达到，并且用了 <code>c</code> 枚硬币。</li>
+<li><strong>添加新硬币</strong>：通过考虑新的硬币 <code>x[i]</code>，可以尝试形成新的金额 <code>m + x[i]</code>。<ul>
+<li>如果使用硬币 <code>x[i]</code> 后可以形成新金额，则更新该金额所需的最少硬币数量为 <code>min(current, c + 1)</code>，其中 <code>current</code> 是不使用 <code>x[i]</code> 时的硬币数。</li>
+</ul>
+</li>
+</ol>
+<h3 id="实现逻辑"><a href="#实现逻辑" class="headerlink" title="实现逻辑"></a>实现逻辑</h3><ul>
+<li>使用一个数组，通常命名为 <code>dp</code>，其中 <code>dp[j]</code> 表示达到金额 <code>j</code> 所需的最小硬币数。</li>
+<li>初始时，<code>dp[0]</code> 设置为 0（因为金额0不需要硬币），其他金额设置为一个很大的数（如无穷大），表示尚未找到有效的硬币组合。</li>
+<li>对于每个硬币 <code>x[i]</code> 和每个可能的金额 <code>j</code>（从硬币值 <code>x[i]</code> 到总金额 <code>K</code>），更新 <code>dp[j]</code>。</li>
+</ul>
+<h3 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h3><ul>
+<li><strong>时间复杂度</strong>：依然是 (O(nK))，其中 <code>n</code> 是硬币种类数，<code>K</code> 是目标金额。</li>
+<li><strong>空间复杂度</strong>：(O(K))，需要一个大小为 <code>K+1</code> 的数组来存储中间结果。</li>
+</ul>
+<h3 id="算法的优点"><a href="#算法的优点" class="headerlink" title="算法的优点"></a>算法的优点</h3><ul>
+<li><strong>灵活性</strong>：可以灵活处理各种硬币和金额组合，适用于多种变化的金额和硬币种类。</li>
+<li><strong>精确性</strong>：能够准确找到达成特定金额所需的最小硬币数。</li>
+</ul>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>这种动态规划策略非常适合于需要精确控制资源使用的场合，例如自动售货机的找零系统、金融应用中的最优资金配置等。</p>
+<img src="/images/ADE/lec20/10.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec20/11.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec20/12.png" width="50%" height="50%">
+
+<p>i是索引，x[i]是i索引上的面值</p>
+<img src="/images/ADE/lec20/13.png" width="50%" height="50%">
+
+<p>• Y[m] &#x3D; true iff some subset has been found that sums to m</p>
+<h1 id="Lecture21-Minimum-Spanning-Trees"><a href="#Lecture21-Minimum-Spanning-Trees" class="headerlink" title="Lecture21 (Minimum Spanning Trees)"></a>Lecture21 (Minimum Spanning Trees)</h1><img src="/images/ADE/lec21/00.png" width="50%" height="50%">
+
+
+
+<img src="/images/ADE/lec21/01.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec21/02.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec21/03.png" width="50%" height="50%">
+
+<h2 id="Prim’s-algorithm"><a href="#Prim’s-algorithm" class="headerlink" title="Prim’s algorithm"></a>Prim’s algorithm</h2><img src="/images/ADE/lec21/04.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec21/05.png" width="50%" height="50%">
+
+<p>这张图片介绍了普里姆算法（Prim’s Algorithm），这是一种用于构造最小生成树（MST）的著名算法。最小生成树是一种在给定图中包含所有顶点且边的总权重最小的树形结构。</p>
+<h3 id="普里姆算法的步骤如下："><a href="#普里姆算法的步骤如下：" class="headerlink" title="普里姆算法的步骤如下："></a>普里姆算法的步骤如下：</h3><ol>
+<li><p><strong>选择起始顶点</strong>：</p>
+<ul>
+<li>从图中选择任意一个顶点作为起始点 ( M )。</li>
+</ul>
+</li>
+<li><p><strong>选择最短边</strong>：</p>
+<ul>
+<li>从顶点 ( M ) 出发，找到连接 ( M ) 和图中任何其他未包含在当前最小生成树中的顶点 ( N ) 的最短边。</li>
+</ul>
+</li>
+<li><p><strong>添加边到 MST</strong>：</p>
+<ul>
+<li>将找到的最短边 ( (M, N) ) 添加到最小生成树中。</li>
+</ul>
+</li>
+<li><p><strong>重复选择和添加边</strong>：</p>
+<ul>
+<li>继续选择当前最小生成树中任一顶点到任一非树顶点的最短边，重复这个过程，直到图中所有顶点都被包含在最小生成树中。</li>
+</ul>
+</li>
+<li><p><strong>处理多个最短边的情况</strong>：</p>
+<ul>
+<li>如果存在多条具有相同长度的最短边，可以选择其中任意一条进行添加。</li>
+</ul>
+</li>
+</ol>
+<h3 id="算法特点："><a href="#算法特点：" class="headerlink" title="算法特点："></a>算法特点：</h3><ul>
+<li><strong>贪心算法</strong>：普里姆算法是一种贪心算法，它在每一步都选择当前看起来最优的选择（即最短的边），以期达到全局最优的解决方案。</li>
+<li><strong>复杂度</strong>：算法的时间复杂度依赖于实现方式，常见的实现如使用优先队列可以达到 (O(E \log V))，其中 (E) 是边的数量，(V) 是顶点的数量。</li>
+<li><strong>适用性</strong>：适用于稠密图，因为其对边的选择是全局性的，每次都需要从大量的边中选择最小边。</li>
+</ul>
+<p>普里姆算法广泛应用于网络设计、电路布局设计等领域，其中需要最小化布线长度或者构建成本。</p>
 
         
       </div>
