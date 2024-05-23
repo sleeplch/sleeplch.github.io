@@ -211,8 +211,50 @@
 <meta property="og:image" content="http://example.com/images/ADE/lec21/03.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec21/04.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec21/05.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/00.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/01.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/02.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/03.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/04.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/05.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/06.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/07.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/08.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/09.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/10.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/11.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/12.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/13.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec22/14.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/00.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/01.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/02.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/03.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/04.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/05.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/06.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/07.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/08.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/09.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/10.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/11.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/12.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/13.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/14.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/15.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/16.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/17.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/18.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/19.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/20.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/21.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/22.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/23.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/24.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/25.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec23/26.png">
 <meta property="article:published_time" content="2024-02-04T00:48:54.000Z">
-<meta property="article:modified_time" content="2024-05-12T12:15:46.230Z">
+<meta property="article:modified_time" content="2024-05-23T20:54:24.485Z">
 <meta property="article:author" content="Caihao">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/ADE/lec01/01.png">
@@ -462,7 +504,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            12k words 
+            23k words 
           </div>
         </div>
         
@@ -1314,6 +1356,488 @@
 <li><strong>适用性</strong>：适用于稠密图，因为其对边的选择是全局性的，每次都需要从大量的边中选择最小边。</li>
 </ul>
 <p>普里姆算法广泛应用于网络设计、电路布局设计等领域，其中需要最小化布线长度或者构建成本。</p>
+<h1 id="Lecture22"><a href="#Lecture22" class="headerlink" title="Lecture22"></a>Lecture22</h1><img src="/images/ADE/lec22/00.png" width="50%" height="50%">
+
+<p>这张图片介绍了二叉搜索树（Binary Search Tree, BST）的基本概念。二叉搜索树是一种具有键值对节点的二叉树，满足以下“搜索树”属性：</p>
+<ul>
+<li>对于树中的任何节点（不仅限于根节点），其左子树中的所有节点的键都严格小于该节点的键。</li>
+<li>其右子树中的所有节点的键都严格大于该节点的键。</li>
+</ul>
+<p>因此，对二叉搜索树进行中序遍历（in-order traversal）时，可以按照键的增序访问所有键。这意味着遍历首先访问左子树，然后是当前节点，最后是右子树，这样可以得到一个有序的键序列。</p>
+<img src="/images/ADE/lec22/01.png" width="50%" height="50%">
+
+<p>这张图片描述了二叉搜索树（BST）中的不平衡问题。图片中展示了两棵具有相同内容但结构不同的二叉搜索树，它们的中序遍历结果都是1,2,3,4,5，但树的高度不同。</p>
+<ul>
+<li>左边的树呈现为一条线，高度为4，因为每个节点（除最后一个外）都只有一个右子节点。</li>
+<li>右边的树更加平衡，其高度为2，结构较为均衡，每个节点的左右子树的高度差不大。</li>
+</ul>
+<p>不平衡的二叉搜索树会影响其操作的效率，因为二叉搜索树的一些基本算法的时间复杂度依赖于树的高度。理想情况下，树的高度应该接近log(n)，其中n是树中节点的数量。当树高度接近于线性时（如左边的树），许多操作的效率会显著降低。</p>
+<p>为了解决这个问题，可以使用自平衡的二叉搜索树，例如AVL树或红黑树，它们通过旋转操作在插入和删除节点时保持树的平衡，从而保证树的高度大约是log(n)。这样可以确保树的操作效率更高，更加稳定。</p>
+<img src="/images/ADE/lec22/02.png" width="50%" height="50%">
+
+<p>这张图片探讨了自平衡二叉搜索树的一些问题和挑战。主要内容包括：</p>
+<ol>
+<li><p><strong>不平衡树的问题</strong>：</p>
+<ul>
+<li>如果一个搜索树非常不平衡，虽然总有可能重构成一个平衡的树，但这样的重构可能需要处理整棵树的所有节点，其时间复杂度为 (O(n))，这样的效率与理想的 (O(\log n)) 相比非常低。</li>
+</ul>
+</li>
+<li><p><strong>重平衡的需求</strong>：</p>
+<ul>
+<li>重平衡操作的理想时间复杂度应该是 (O(\log n)) 或 (O(\text{height}))，这意味着重平衡操作应该局限于影响到的路径，而不是整棵树。这样可以有效减少操作的复杂度，使树的维护更高效。</li>
+</ul>
+</li>
+<li><p><strong>重平衡的实现可能性</strong>：</p>
+<ul>
+<li>在不知道具体的实现机制之前，不一定显而易见可以仅通过修改最近变更节点的路径来实现树的重平衡。</li>
+</ul>
+</li>
+</ol>
+<p>这张图片的核心观点是，虽然理论上可以通过完全重建来平衡一个非常不平衡的搜索树，但这种方法效率低下。实际上，更高效的策略是通过局部调整（如旋转操作），仅在树的某个部分（通常是插入或删除节点后影响到的路径）进行调整，以实现快速有效的重平衡。这是自平衡树（如AVL树和红黑树）的基本工作原理。</p>
+<img src="/images/ADE/lec22/03.png" width="50%" height="50%">
+
+<p>这张图片进一步探讨了二叉搜索树（BST）不平衡问题的解决策略。主要内容概括如下：</p>
+<ol>
+<li><p><strong>总重建的问题</strong>：</p>
+<ul>
+<li>对于任何数量的节点，理论上总是存在一个平衡的二叉搜索树。完全重建一个树（即重新安排所有节点以形成一个平衡的二叉树）是一个可能的解决方案，但这需要 (O(n)) 时间，这与BST应有的 (O(\log n)) 效率相违背。</li>
+</ul>
+</li>
+<li><p><strong>小范围局部重建的目标</strong>：</p>
+<ul>
+<li>为了保持BST的效率，目标是在插入或删除操作时进行小范围的局部重建。这种方法意在通过只对受影响的局部区域进行调整，而不是对整个树进行重建，从而维持树的平衡。</li>
+</ul>
+</li>
+<li><p><strong>探讨小范围局部重建的可能性</strong>：</p>
+<ul>
+<li>本讲座的内容将围绕“我们可以做哪些小范围的局部重建？”这一问题展开，探讨在插入或删除节点时如何有效地调整树的结构，以避免大规模的重建，保持操作的高效性。</li>
+</ul>
+</li>
+</ol>
+<p>通过使用这种策略，可以避免在每次操作后都进行全树的重建，从而确保BST操作的时间复杂度理想地保持在 (O(\log n))。这种策略的实际应用包括AVL树和红黑树中的旋转操作，这些操作都是为了在局部范围内快速恢复树的平衡。</p>
+<img src="/images/ADE/lec22/04.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec22/05.png" width="50%" height="50%">
+
+<p>这两张图片解释了二叉搜索树（BST）的一个示例以及在其中进行的“旋转”操作的影响。</p>
+<h3 id="第一张图片-BST-示例"><a href="#第一张图片-BST-示例" class="headerlink" title="第一张图片 - BST 示例"></a>第一张图片 - BST 示例</h3><ul>
+<li>图中展示了一个包含节点<code>a</code>和<code>b</code>的BST，其中<code>a</code>是根节点，<code>b</code>是右子节点。</li>
+<li>该树包含三个子树：T1、T2和T3，它们每一个都是BST。</li>
+<li>树的高度计算为：<code>h(T) = max(1 + h(T1), 2 + h(T2), 2 + h(T3))</code>。</li>
+<li>中序遍历（In-order traversal）的结果是：<code>In(T1), a, In(T2), b, In(T3)</code>。</li>
+</ul>
+<h3 id="第二张图片-旋转操作示例"><a href="#第二张图片-旋转操作示例" class="headerlink" title="第二张图片 - 旋转操作示例"></a>第二张图片 - 旋转操作示例</h3><ul>
+<li>展示了对BST进行一次旋转操作前后的变化。在这个例子中，<code>b</code>被旋转到根的位置，而<code>a</code>则移动到了左子树的位置。</li>
+<li>旋转操作保持了树的中序遍历结果不变，仍然是：<code>In(T1), a, In(T2), b, In(T3)</code>。</li>
+<li>旋转后，<code>a</code>的深度下降了一层，而<code>b</code>上升到了根的位置。子树T1的位置下降一层，T3的位置上升一层。</li>
+</ul>
+<h3 id="旋转的意义"><a href="#旋转的意义" class="headerlink" title="旋转的意义"></a>旋转的意义</h3><ul>
+<li>旋转操作是自平衡二叉搜索树中一个关键的机制，它用于维持或改善树的平衡，从而保证操作的高效性，尤其是在插入或删除节点后。</li>
+<li>这种局部修改保持了整体结构的搜索效率，避免了进行全树的重建。</li>
+<li>此操作通常在AVL树或红黑树中看到，这些树种通过局部旋转自动保持或恢复平衡，以维持操作的最优时间复杂度 (O(\log n))。</li>
+</ul>
+<p>这些图示帮助理解BST在结构修改时如何通过局部变动维持全局效率和顺序，是理解自平衡机制的重要基础。</p>
+<img src="/images/ADE/lec22/06.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec22/07.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec22/08.png" width="50%" height="50%">
+
+<p>这三张图片进一步解释了二叉搜索树中旋转操作的细节和分类，特别是区分左旋和右旋。</p>
+<h3 id="第一张图片-旋转操作的描述"><a href="#第一张图片-旋转操作的描述" class="headerlink" title="第一张图片 - 旋转操作的描述"></a>第一张图片 - 旋转操作的描述</h3><ul>
+<li>这张图片描述了在二叉搜索树中进行的单一旋转操作，即节点<code>b</code>围绕节点<code>a</code>进行旋转。文中提到没有清晰的共识来确定这是左旋还是右旋，不同的来源可能会有不同的说法。例如，维基百科可能将其称为围绕节点<code>a</code>的“左旋”。</li>
+<li>图片建议更清晰的方式是直接指定需要旋转的边，因为这样旋转的方向就被固定了。</li>
+<li>在这次旋转后，树的根从<code>a</code>变为<code>b</code>。</li>
+</ul>
+<h3 id="第二张图片-反向旋转的示例"><a href="#第二张图片-反向旋转的示例" class="headerlink" title="第二张图片 - 反向旋转的示例"></a>第二张图片 - 反向旋转的示例</h3><ul>
+<li>展示了旋转操作的反向过程，即可以将旋转后的树恢复到旋转前的状态。这个操作说明了旋转是可逆的。</li>
+<li>反向旋转的效果是深度的相反变化：<code>a</code>和T1上升，而<code>b</code>和T3下降。</li>
+</ul>
+<h3 id="第三张图片-旋转操作的成本和影响"><a href="#第三张图片-旋转操作的成本和影响" class="headerlink" title="第三张图片 - 旋转操作的成本和影响"></a>第三张图片 - 旋转操作的成本和影响</h3><ul>
+<li>这张图片强调了旋转操作可以看作是在固定数量的节点和边上进行的操作，因此其成本是常数时间，即<code>O(1)</code>。</li>
+<li>图片还说明了旋转操作不仅可以应用于整个树，还可以应用于二叉搜索树的任何子树。这意味着无论在树的哪个部分，旋转都可以有效地用来调整子树的结构，而不影响整体的中序遍历结果。</li>
+</ul>
+<p>这一系列图片清晰地说明了BST中的旋转操作如何用于保持或恢复树的平衡，尤其是在插入或删除操作后，这是自平衡二叉搜索树（如AVL或红黑树）维持效率的关键机制。</p>
+<img src="/images/ADE/lec22/09.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec22/10.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec22/11.png" width="50%" height="50%">
+
+<p>这三张图片逐步说明了在二叉搜索树中旋转操作的不同情况，包括单一旋转和双重旋转，以及这些操作如何影响树的结构和高度。</p>
+<h3 id="第一张图片-简单例子：单一旋转"><a href="#第一张图片-简单例子：单一旋转" class="headerlink" title="第一张图片 - 简单例子：单一旋转"></a>第一张图片 - 简单例子：单一旋转</h3><ul>
+<li>展示了一个链式结构的二叉搜索树（最坏情况），节点<code>a</code>、<code>b</code>和<code>c</code>按照升序排列。</li>
+<li>通过将<code>b</code>旋转到根位置，将<code>a</code>下降到左子节点，而将<code>c</code>保持为右子节点，可以有效地减少树的高度，从2降到1。</li>
+<li>这种旋转被认为是有用的，因为<code>b</code>是中位数，理论上应该是根节点，这样可以最大化平衡。</li>
+</ul>
+<h3 id="第二张图片-更困难的例子：单一旋转失败"><a href="#第二张图片-更困难的例子：单一旋转失败" class="headerlink" title="第二张图片 - 更困难的例子：单一旋转失败"></a>第二张图片 - 更困难的例子：单一旋转失败</h3><ul>
+<li>在这个例子中，树的结构是<code>a</code>作为根，<code>c</code>作为右子节点，而<code>b</code>是<code>c</code>的左子节点，这种结构称为“摆动链”。</li>
+<li>尝试将<code>c</code>旋转到根位置的单一旋转，并没有实质性地改善树的平衡或减少高度，因为仍然存在一条直线型的结构。</li>
+<li>这说明单一旋转不总是足够解决平衡问题，特别是在摆动链这种特定配置中。</li>
+</ul>
+<h3 id="第三张图片-特定例子：双重旋转有效"><a href="#第三张图片-特定例子：双重旋转有效" class="headerlink" title="第三张图片 - 特定例子：双重旋转有效"></a>第三张图片 - 特定例子：双重旋转有效</h3><ul>
+<li>这个例子展示了需要两次旋转才能有效平衡树的情况。</li>
+<li>首先在<code>b-c</code>边进行旋转，没有立即改变高度，但是调整了<code>b</code>的位置。</li>
+<li>然后在<code>a-b</code>边进行第二次旋转，将<code>b</code>移至根位置，最终形成了一个平衡的二叉搜索树，有效地减少了高度。</li>
+<li>这种双重旋转被认为是有时必须的操作，因为单一旋转不能解决所有的平衡问题。</li>
+</ul>
+<p>这些图片清楚地演示了在二叉搜索树管理中，如何通过旋转操作来优化树的结构，特别是在面对不同结构配置的树时选择合适的旋转策略。</p>
+<img src="/images/ADE/lec22/12.png" width="50%" height="50%">
+
+<p>这张图片描述了在二叉搜索树中使用旋转操作的目的和方法。</p>
+<h3 id="主要内容："><a href="#主要内容：" class="headerlink" title="主要内容："></a>主要内容：</h3><ol>
+<li><p><strong>旋转的目标</strong>：</p>
+<ul>
+<li>使用旋转操作的主要目的是控制树的高度，通过减少树的总高度来提高操作的效率。</li>
+</ul>
+</li>
+<li><p><strong>旋转类型</strong>：</p>
+<ul>
+<li><strong>单一旋转</strong>：有时单一旋转就足以帮助改善树的平衡。</li>
+<li><strong>双重旋转</strong>：在某些情况下，需要进行双重旋转，即一对协调的单一旋转，以达到更好的平衡效果。</li>
+</ul>
+</li>
+<li><p><strong>旋转的选择</strong>：</p>
+<ul>
+<li>在小规模的例子中，可以通过观察直接决定使用哪种旋转。</li>
+<li>在一般情况下，需要能够通过算法自动选择合适的旋转，确保每次插入或删除操作后树都能维持或恢复平衡。</li>
+</ul>
+</li>
+</ol>
+<h3 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h3><p>这张图片强调了自平衡二叉搜索树的实际应用，如AVL树和红黑树，这些树种通过内置的旋转规则（算法）自动进行旋转选择，确保了高效的数据操作。这种算法化的旋转选择是现代数据库和内存管理系统中不可或缺的一部分，它允许高效地处理大量动态数据。</p>
+<img src="/images/ADE/lec22/13.png" width="50%" height="50%">
+
+<p>这张图片概述了自平衡二叉搜索树（BST）的解决方案和其目标。</p>
+<h3 id="自平衡的目标"><a href="#自平衡的目标" class="headerlink" title="自平衡的目标"></a>自平衡的目标</h3><ol>
+<li><p><strong>局部重构</strong>：</p>
+<ul>
+<li>不断地进行局部结构调整，以响应树中数据的变化（如插入或删除操作）。</li>
+</ul>
+</li>
+<li><p><strong>保持高度平衡</strong>：</p>
+<ul>
+<li>确保树的高度保持在对数级别相对于节点的数量，从而使树操作的时间复杂度稳定在 (O(\log n))。</li>
+</ul>
+</li>
+<li><p><strong>路径限定的旋转</strong>：</p>
+<ul>
+<li>仅在执行BST操作期间遇到的路径上执行旋转，这样可以减少对整体结构的干扰，并优化旋转的效率。</li>
+</ul>
+</li>
+<li><p><strong>性能保障</strong>：</p>
+<ul>
+<li>由于保持了树的高度平衡，树的基本操作（搜索、插入、删除）的性能始终是对数时间的，保证了高效的数据访问和管理。</li>
+</ul>
+</li>
+</ol>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>自平衡树的实现通常涉及一些特定的数据结构，如AVL树和红黑树：</p>
+<ul>
+<li><strong>AVL树</strong>：通过在每个节点存储平衡因子（左子树高度与右子树高度的差），并在插入或删除后通过旋转操作维持树的平衡。（不考的）</li>
+<li><strong>红黑树</strong>：通过维持节点颜色的特定规则和在操作过程中调整颜色和进行旋转，确保树的平衡和操作的效率。</li>
+</ul>
+<p>这种方法的核心在于通过智能化的结构调整策略，减少维护成本和提高操作性能，使得自平衡二叉搜索树在计算机科学和现代软件工程中广泛应用，特别是在实现数据库和内存管理系统中。</p>
+<img src="/images/ADE/lec22/14.png" width="50%" height="50%">
+
+<h1 id="Lecture23-Shortest-Paths-Floyd-Warshall-FW"><a href="#Lecture23-Shortest-Paths-Floyd-Warshall-FW" class="headerlink" title="Lecture23 (Shortest Paths: Floyd-Warshall (FW))"></a>Lecture23 (Shortest Paths: Floyd-Warshall (FW))</h1><img src="/images/ADE/lec23/00.png" width="50%" height="50%">
+
+<p>这张图片解释了在图论中计算所有点对的最短路径问题及其不同解决方法。</p>
+<h3 id="图片内容总结"><a href="#图片内容总结" class="headerlink" title="图片内容总结"></a>图片内容总结</h3><ul>
+<li><strong>问题定义</strong>：寻找图中所有起点和终点节点对的最短路径（SP）。</li>
+<li><strong>Dijkstra 算法</strong>：该算法能够找到从单一起始节点到所有其他节点的最短路径。其复杂度为 (O(|V| \log(|V|) + |E|))，其中 (|V|) 是顶点数，(|E|) 是边数。</li>
+<li><strong>运行 Dijkstra 的方案</strong>：可以从每个节点作为起点运行 Dijkstra 算法来解决所有点对最短路径问题，但这样做的复杂度会提高到 (O(|V|^2 \log(|V|) + |V||E|))，因为需要对每个节点重复执行算法。</li>
+<li><strong>Floyd-Warshall 算法</strong>：作为一种更适合解决所有点对最短路径问题的算法，Floyd-Warshall 算法将被用于处理，它的时间复杂度为 (O(|V|^3))，适用于处理图中所有节点对的最短路径计算。</li>
+</ul>
+<h3 id="解释与应用"><a href="#解释与应用" class="headerlink" title="解释与应用"></a>解释与应用</h3><ul>
+<li>图中讨论的是解决方案选择：虽然可以通过从每个节点运行 Dijkstra 算法来解决问题，但这种方法在处理大型图时可能效率不高。</li>
+<li>Floyd-Warshall 算法提供了一种时间复杂度稳定的替代方案，尤其适用于顶点数量不是特别大的情况，因为其算法复杂度与图的密度无关，只与节点数量有关。</li>
+<li>这种方法的优势在于它不仅计算所有顶点对之间的最短路径，还能处理负权边的情况（只要图中没有负权环）。</li>
+</ul>
+<p>这张图片有效地概述了在图论算法中针对不同场景选择最合适算法的思考过程，突出了算法效率和适用性的重要性。</p>
+<img src="/images/ADE/lec23/01.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/02.png" width="50%" height="50%">
+
+<p>这两张图片介绍了Floyd-Warshall（FW）算法在计算所有点对最短路径问题上的应用方法及其数据结构。</p>
+<h3 id="第一张图片-FW算法的基本方法"><a href="#第一张图片-FW算法的基本方法" class="headerlink" title="第一张图片 - FW算法的基本方法"></a>第一张图片 - FW算法的基本方法</h3><ul>
+<li><strong>方法类比</strong>：FW算法的基本方法与给零钱的方法有相似之处。就像是从一组硬币中建立最佳答案，然后逐个添加硬币的效果一样，FW算法从一组节点开始建立最优解，然后逐个添加其他节点的影响。</li>
+<li><strong>逐步构建</strong>：算法通过使用部分节点集逐步构建最优解，然后一次添加一个节点的影响，最终得到所有节点对的最短路径。</li>
+</ul>
+<h3 id="第二张图片-FW算法的数据结构"><a href="#第二张图片-FW算法的数据结构" class="headerlink" title="第二张图片 - FW算法的数据结构"></a>第二张图片 - FW算法的数据结构</h3><ul>
+<li><strong>主数据结构</strong>：定义为 <code>d(i, j, k)</code>，表示使用节点集 <code>&#123;1, ..., k&#125;</code> 作为可能的中间节点时，从节点 <code>i</code> 到节点 <code>j</code> 的最短距离。</li>
+<li><strong>示例解释</strong>：例如，<code>d(2, 5, 3)</code> 表示从节点2到节点5，只使用节点 <code>&#123;n1, n2, n3&#125;</code> 作为潜在的中间点的最短距离。</li>
+<li><strong>节点使用</strong>：使用这些中间节点不是强制性的，但不能使用其他未指定的节点，如 <code>n4</code> 等。</li>
+</ul>
+<h3 id="FW算法的工作原理"><a href="#FW算法的工作原理" class="headerlink" title="FW算法的工作原理"></a>FW算法的工作原理</h3><ul>
+<li><strong>初始化</strong>：最初，<code>d(i, j, 0)</code> 直接设为节点 <code>i</code> 和 <code>j</code> 之间的边权重（如果存在直接连接的边），否则为无穷大（表示无连接）。</li>
+<li><strong>迭代更新</strong>：对于每个中间节点 <code>k</code>，算法更新所有节点对 <code>(i, j)</code> 的最短距离，考虑通过节点 <code>k</code> 作为中间点是否可以缩短已知的最短路径。更新公式为 <code>d(i, j, k) = min(d(i, j, k-1), d(i, k, k-1) + d(k, j, k-1))</code>。</li>
+<li><strong>最终结果</strong>：完成所有节点的迭代后，<code>d(i, j, n)</code>（其中 <code>n</code> 是节点总数）给出了从节点 <code>i</code> 到节点 <code>j</code> 的最短路径长度。</li>
+</ul>
+<p>通过这种方法，FW算法能够有效处理包括负权边的图，但必须保证没有负权回路。这种算法特别适合于节点数量较少的密集图，其中需要频繁查询任意两点间的最短路径。</p>
+<img src="/images/ADE/lec23/03.png" width="50%" height="50%">
+
+<p>这张图片描述了在使用Floyd-Warshall算法计算图中所有节点对的最短路径时如何初始化数据结构。</p>
+<h3 id="数据结构初始化细节："><a href="#数据结构初始化细节：" class="headerlink" title="数据结构初始化细节："></a>数据结构初始化细节：</h3><ul>
+<li><strong>定义</strong>：<code>d(i, j, 0)</code> 表示节点i和节点j之间在不使用任何中间节点的情况下的最佳距离。</li>
+<li><strong>边的权重</strong>：如果节点i和节点j之间存在一条直接的边，那么 <code>d(i, j, 0)</code> 就是这条边的权重 <code>w(i, j)</code>。</li>
+<li><strong>无直接连接</strong>：如果节点i和节点j之间没有直接连接，则 <code>d(i, j, 0)</code> 设为无穷大（Inf），这表示两点之间没有直接路径。</li>
+</ul>
+<h3 id="Inf-的实现方式："><a href="#Inf-的实现方式：" class="headerlink" title="Inf 的实现方式："></a><code>Inf</code> 的实现方式：</h3><ul>
+<li>无穷大（Inf）通常用来表示图中两个节点之间不存在可行路径。</li>
+<li>在计算机程序中，这可以通过设置一个特殊的值或一个非常大的数字来实现，确保它大于图中任何其他可能的路径长度。</li>
+</ul>
+<h3 id="算法的重要性："><a href="#算法的重要性：" class="headerlink" title="算法的重要性："></a>算法的重要性：</h3><ul>
+<li>正确的初始化是Floyd-Warshall算法正确执行的关键，因为它设置了算法的基线，即所有节点对最初的已知最短路径。</li>
+<li>在算法的后续迭代中，这些初始值将被逐步更新，以考虑通过一个或多个中间节点可能实现的更短路径。</li>
+</ul>
+<p>这种初始化方式确保了算法从最简单的情况开始，逐步通过添加中间节点来探索和更新所有可能的路径，从而有效地解决了图中的所有对最短路径问题。</p>
+<img src="/images/ADE/lec23/04.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/05.png" width="50%" height="50%">
+
+<p>这两张图片详细描述了Floyd-Warshall（FW）算法中添加新节点到已有节点集的迭代过程，并展示了如何更新所有节点对的最短路径。</p>
+<h3 id="第一张图片-添加第一个中间节点的过程"><a href="#第一张图片-添加第一个中间节点的过程" class="headerlink" title="第一张图片 - 添加第一个中间节点的过程"></a>第一张图片 - 添加第一个中间节点的过程</h3><ul>
+<li><strong>描述</strong>：算法现在考虑包括节点 <code>n1</code> 作为可能的中间节点，即 <code>k = 1</code>。</li>
+<li><strong>路径更新公式</strong>：对于任意两个节点 <code>i</code> 和 <code>j</code>，新的最短路径 <code>d(i, j, 1)</code> 是下列两个值中的最小值：<ul>
+<li>直接从 <code>i</code> 到 <code>j</code> 的距离 <code>d(i, j, 0)</code>（不通过任何中间节点）。</li>
+<li>通过节点 <code>n1</code> 的路径长度，即 <code>d(i, n1, 0) + d(n1, j, 0)</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="第二张图片-添加任意中间节点的一般化过程"><a href="#第二张图片-添加任意中间节点的一般化过程" class="headerlink" title="第二张图片 - 添加任意中间节点的一般化过程"></a>第二张图片 - 添加任意中间节点的一般化过程</h3><ul>
+<li><strong>描述</strong>：算法继续迭代，现在考虑包括新的节点 <code>k+1</code> 作为中间节点。</li>
+<li><strong>路径更新公式</strong>：更新公式变得更为一般化，用于任意阶段添加新的中间节点 <code>k+1</code>。新的最短路径 <code>d(i, j, k+1)</code> 是以下两个值中的最小值：<ul>
+<li>仅使用前 <code>k</code> 个节点作为中间节点的最短路径 <code>d(i, j, k)</code>。</li>
+<li>经过新的节点 <code>k+1</code> 的路径长度，即 <code>d(i, k+1, k) + d(k+1, j, k)</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Floyd-Warshall算法的核心原理"><a href="#Floyd-Warshall算法的核心原理" class="headerlink" title="Floyd-Warshall算法的核心原理"></a>Floyd-Warshall算法的核心原理</h3><ul>
+<li><strong>动态规划</strong>：FW算法是一个典型的动态规划问题，它逐步构建解决方案，每一步都基于之前的计算结果。</li>
+<li><strong>迭代更新</strong>：通过逐步引入每一个节点作为潜在的中间节点，算法逐渐找到所有可能的最短路径。</li>
+<li><strong>全局最优解</strong>：通过局部最优的决策（在每一步选择最短的路径），最终达到全局最优的解决方案，即图中任意两点间的最短路径。</li>
+</ul>
+<p>这些图片非常有效地说明了FW算法的实现细节和逻辑，这对于理解和应用该算法至关重要，特别是在需要处理复杂网络中多点间交互的场景。</p>
+<img src="/images/ADE/lec23/06.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/07.png" width="50%" height="50%">
+
+<p>这两张图片进一步详细解释了Floyd-Warshall (FW) 算法的核心方程和它们在动态规划中的应用。</p>
+<h3 id="第一张图片-FW-算法的方程"><a href="#第一张图片-FW-算法的方程" class="headerlink" title="第一张图片 - FW 算法的方程"></a>第一张图片 - FW 算法的方程</h3><ul>
+<li><strong>初始化</strong>：<ul>
+<li><code>d(i, j, 0)</code> 是节点 <code>i</code> 到节点 <code>j</code> 的直接距离，如果 <code>i</code> 和 <code>j</code> 之间存在边，则为边的权重 <code>w(i, j)</code>；如果不存在，则为无穷大 <code>Inf</code>。</li>
+</ul>
+</li>
+<li><strong>递归更新</strong>：<ul>
+<li><code>d(i, j, k+1)</code> 是在只考虑通过前 <code>k</code> 个节点作为中间节点时，从 <code>i</code> 到 <code>j</code> 的最短路径。这通过比较直接路径 <code>d(i, j, k)</code> 和通过新节点 <code>k+1</code> 的路径 <code>d(i, k+1, k) + d(k+1, j, k)</code> 来更新。</li>
+</ul>
+</li>
+</ul>
+<h3 id="第二张图片-关于-k-的注释"><a href="#第二张图片-关于-k-的注释" class="headerlink" title="第二张图片 - 关于 k 的注释"></a>第二张图片 - 关于 <code>k</code> 的注释</h3><ul>
+<li><strong>变量 <code>k</code> 的角色</strong>：<ul>
+<li><code>k</code> 在这里作为一个哑变量，代表了算法考虑的中间节点的数量。方程 <code>d(i, j, k) = min(d(i, j, k-1), d(i, k, k-1) + d(k, j, k-1))</code> 表示每增加一个中间节点，就尝试更新路径。</li>
+</ul>
+</li>
+<li><strong>实际实现时的注意事项</strong>：<ul>
+<li>在实现时，必须注意 <code>k</code> 的取值范围，确保它正确地代表了逐步增加的中间节点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="FW-算法的动态规划应用"><a href="#FW-算法的动态规划应用" class="headerlink" title="FW 算法的动态规划应用"></a>FW 算法的动态规划应用</h3><ul>
+<li><strong>方程的本质</strong>：<ul>
+<li>这些方程是贝尔曼方程的一种形式，用于动态规划解决最短路径问题。通过递归地解决子问题（较小的 <code>k</code> 值），并在此基础上构建解决更大问题的答案（较大的 <code>k</code> 值）。</li>
+</ul>
+</li>
+<li><strong>解决方法</strong>：<ul>
+<li>从 <code>k=0</code> 开始（无中间节点），逐步增加 <code>k</code>，利用之前的计算结果来更新所有节点对 <code>(i, j)</code> 的最短路径长度。</li>
+</ul>
+</li>
+</ul>
+<p>这种方法允许算法不仅计算直接连接的最短路径，还考虑通过一个或多个其他节点的潜在路径，从而提供一种非常强大的方式来处理复杂的图结构，包括那些具有负权边的图（只要不存在负权重环）。</p>
+<img src="/images/ADE/lec23/08.png" width="50%" height="50%">
+
+<p>这张图片讨论了在Floyd-Warshall（FW）算法中处理自环（self-edges）的情况，特别是在初始化数据结构时如何定义节点到自身的最短路径距离。</p>
+<h3 id="主要内容解释"><a href="#主要内容解释" class="headerlink" title="主要内容解释"></a>主要内容解释</h3><ul>
+<li><strong>自环的假设</strong>：<ul>
+<li>FW算法的标准格式并没有明确指定如何处理节点到其自身的距离，即 <code>d(i, i)</code>。</li>
+<li>为了简化计算和保持与Dijkstra算法的一致性，通常会假设从任何节点到它自身的距离为0，即 <code>d(i, i) = 0</code>。这反映了从一个节点到自己不需要任何成本。</li>
+</ul>
+</li>
+</ul>
+<h3 id="为什么这样假设"><a href="#为什么这样假设" class="headerlink" title="为什么这样假设"></a>为什么这样假设</h3><ul>
+<li><strong>简化计算</strong>：<ul>
+<li>假设 <code>d(i, i) = 0</code> 可以简化FW算法的实现，因为它消除了需要特殊处理节点自环的需求。</li>
+</ul>
+</li>
+<li><strong>一致性</strong>：<ul>
+<li>与Dijkstra算法保持一致，后者通常也假设从节点到其自身的距离为0。这样做有助于在理解和应用这两种算法时保持概念上的统一。</li>
+</ul>
+</li>
+</ul>
+<h3 id="实际影响"><a href="#实际影响" class="headerlink" title="实际影响"></a>实际影响</h3><ul>
+<li>在实际应用中，这种假设意味着算法可以直接在初始化阶段为每个节点的 <code>d(i, i)</code> 赋值为0，无需进一步的条件检查或修改。</li>
+<li>这也确保了在更新路径距离时，通过自身节点作为中间节点不会产生任何额外成本，因此不会错误地影响其他节点对的最短路径计算。</li>
+</ul>
+<p>通过这种方式，Floyd-Warshall算法能够高效地计算图中所有节点对的最短路径，同时避免了在处理自环时可能引入的复杂性或不一致性。</p>
+<img src="/images/ADE/lec23/09.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/10.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/11.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/12.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/13.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/14.png" width="50%" height="50%">
+
+<p>这些图片展示了Floyd-Warshall (FW) 算法在计算所有节点对的最短路径过程中如何逐步添加中间节点并更新距离矩阵。</p>
+<h3 id="初始阶段：d-i-j-0"><a href="#初始阶段：d-i-j-0" class="headerlink" title="初始阶段：d(i, j, 0)"></a>初始阶段：d(i, j, 0)</h3><ul>
+<li>图中节点n1、n2、n3、n4，初始化的距离矩阵 <code>d(i, j, 0)</code> 代表直接边的距离。</li>
+<li>若节点间有直接边，则填入边的权重，无直接边则填入无穷大（Inf）。</li>
+<li>例如，n1到n2的直接距离是8，而n3到n2没有直接边，故为Inf。</li>
+</ul>
+<h3 id="添加第一个中间节点：d-i-j-1"><a href="#添加第一个中间节点：d-i-j-1" class="headerlink" title="添加第一个中间节点：d(i, j, 1)"></a>添加第一个中间节点：d(i, j, 1)</h3><ul>
+<li>以n1作为唯一中间节点更新矩阵。</li>
+<li>更新公式：<code>d(i, j, 1) = min(d(i, j, 0), d(i, n1, 0) + d(n1, j, 0))</code>。</li>
+<li>例如，d(n3, n2, 1) 是通过n1的路径和直接路径中较短的一个，计算结果为10。</li>
+</ul>
+<h3 id="添加第二个中间节点：d-i-j-2"><a href="#添加第二个中间节点：d-i-j-2" class="headerlink" title="添加第二个中间节点：d(i, j, 2)"></a>添加第二个中间节点：d(i, j, 2)</h3><ul>
+<li>以n1和n2作为中间节点更新矩阵。</li>
+<li>更新公式：<code>d(i, j, 2) = min(d(i, j, 1), d(i, n2, 1) + d(n2, j, 1))</code>。</li>
+<li>例如，d(n4, n1, 2) 更新后为9。</li>
+</ul>
+<h3 id="添加第三个中间节点：d-i-j-3"><a href="#添加第三个中间节点：d-i-j-3" class="headerlink" title="添加第三个中间节点：d(i, j, 3)"></a>添加第三个中间节点：d(i, j, 3)</h3><ul>
+<li>以n1, n2, 和n3作为中间节点更新矩阵。</li>
+<li>更新公式：<code>d(i, j, 3) = min(d(i, j, 2), d(i, n3, 2) + d(n3, j, 2))</code>。</li>
+<li>例如，d(n4, n1, 3) 更新后为5。</li>
+</ul>
+<h3 id="最终阶段：d-i-j-4"><a href="#最终阶段：d-i-j-4" class="headerlink" title="最终阶段：d(i, j, 4)"></a>最终阶段：d(i, j, 4)</h3><ul>
+<li>以所有节点n1, n2, n3, 和n4作为中间节点。</li>
+<li>此时的矩阵表示考虑所有节点作为潜在中间节点的最短路径。</li>
+<li>例如，d(n1, n2, 4) 最终计算结果是通过n4和n3的组合路径长度6，比直接路径8短。</li>
+</ul>
+<p>这些示例明确说明了FW算法是如何通过逐步考虑更多的中间节点来优化所有节点对之间的最短路径。这种方法确保了算法能够系统地探索通过可能的所有路径组合，从而找到真正的最短路径。</p>
+<img src="/images/ADE/lec23/15.png" width="50%" height="50%">
+
+<p>这张图片介绍了Floyd-Warshall算法的代码结构和其时间复杂度。</p>
+<h3 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h3><ul>
+<li><p><strong>代码结构</strong>：</p>
+<ul>
+<li>算法的主循环结构包括三个嵌套的循环。外层循环遍历所有可能的中间节点 (k)，中层循环遍历所有起点 (i)，内层循环遍历所有终点 (j)。</li>
+<li>更新公式是：<code>d(i, j, k+1) = min(d(i, j, k), d(i, k+1, k) + d(k+1, j, k))</code>，用于计算考虑到中间节点直到 (k+1) 的情况下，从 (i) 到 (j) 的最短路径。</li>
+</ul>
+</li>
+<li><p><strong>复杂度分析</strong>：</p>
+<ul>
+<li>由于三个循环都遍历整个顶点集 (V)，算法的时间复杂度为 (O(|V|^3))。</li>
+<li>这种立方的时间复杂度适用于顶点数量相对较小的密集图。在这种图中，几乎每一对顶点之间都存在边。</li>
+</ul>
+</li>
+<li><p><strong>对比其他算法</strong>：</p>
+<ul>
+<li>当图是稀疏的，即边的数量 (|E|) 远小于 (|V|^2) 时，使用从每个顶点出发的Dijkstra算法可能更有效，因为Dijkstra算法针对单源最短路径的复杂度通常是 (O(|V| \log |V| + |E|))。</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码实现的注意事项"><a href="#代码实现的注意事项" class="headerlink" title="代码实现的注意事项"></a>代码实现的注意事项</h3><ul>
+<li><strong>外层循环的重要性</strong>：<ul>
+<li>外层循环 (k) 必须是最外层，因为每次迭代需要在前一次的基础上更新路径长度，确保每次增加的中间节点可以被后续的迭代利用。</li>
+</ul>
+</li>
+<li><strong>初始化</strong>：<ul>
+<li>在进入主循环之前，需要正确初始化距离矩阵，为直接连接的节点对设置具体的边权重，未直接连接的设置为无穷大。</li>
+</ul>
+</li>
+</ul>
+<p>这张图片为理解Floyd-Warshall算法的计算过程和其在不同类型的图中应用提供了基础，特别是在分析其效率和适用条件时。</p>
+<img src="/images/ADE/lec23/16.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/17.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/18.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/19.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/20.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/21.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/22.png" width="50%" height="50%">
+
+<p>这些图片逐步展示了Floyd-Warshall (FW) 算法在有向图上的应用，具体演示了如何通过逐步增加中间节点来更新所有节点对的最短路径。</p>
+<h3 id="初始状态：d-i-j-0"><a href="#初始状态：d-i-j-0" class="headerlink" title="初始状态：d(i, j, 0)"></a>初始状态：d(i, j, 0)</h3><ul>
+<li>图中节点包括n1, n2, n3, n4，初始距离矩阵 <code>d(i, j, 0)</code> 只考虑直接的边。</li>
+<li>每个节点到自己的距离设为0，直接连接的节点显示具体的边权重，未直接连接的节点对的距离设为无穷大。</li>
+</ul>
+<h3 id="过程展示："><a href="#过程展示：" class="headerlink" title="过程展示："></a>过程展示：</h3><ol>
+<li><p><strong>添加中间节点n1 (d(i, j, 1))</strong>:</p>
+<ul>
+<li>以n1作为中间节点，更新路径。例如，d(n2, n3, 1) 被更新为通过n1的路径长度8+2&#x3D;10，因为直接路径不存在（即无穷大）。</li>
+</ul>
+</li>
+<li><p><strong>添加中间节点n2 (d(i, j, 2))</strong>:</p>
+<ul>
+<li>加入n2作为中间节点后，继续更新。例如，d(n4, n1, 2) 被更新为通过n2的路径长度1+8&#x3D;9。</li>
+</ul>
+</li>
+<li><p><strong>添加中间节点n3 (d(i, j, 3))</strong>:</p>
+<ul>
+<li>将n3纳入考虑作为中间节点，更新相关路径。例如，d(n4, n1, 3) 更新为通过n3的路径长度3+2&#x3D;5。</li>
+</ul>
+</li>
+<li><p><strong>添加中间节点n4 (d(i, j, 4))</strong>:</p>
+<ul>
+<li>最后添加n4作为中间节点。此时，所有节点都被考虑作为潜在的中间节点。例如，d(n2, n1, 4) 被更新为通过n4的路径长度1+5&#x3D;6。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>每个步骤的计算都基于之前步骤的结果，通过比较直接路径和通过新加入的中间节点的路径长度，选取较小值更新矩阵。这一系列更新逐步优化了矩阵中的值，最终得到各节点对的最短路径。</p>
+<p>这些图片清楚地演示了FW算法在处理有向图中如何有效地计算所有节点对的最短路径，同时也说明了算法对于有向和无向图都适用，只是在有向图中，初始的距离矩阵可能不是对称的。这种方法确保了算法能够全面地评估所有可能的路径选择，从而找到最短的路径解决方案。</p>
+<img src="/images/ADE/lec23/23.png" width="50%" height="50%">
+
+<p>这张图片介绍了Floyd-Warshall（FW）算法在处理包含负权边的图时的一些关键注意事项。</p>
+<h3 id="关键点概述"><a href="#关键点概述" class="headerlink" title="关键点概述"></a>关键点概述</h3><ul>
+<li><p><strong>负权边的处理</strong>：</p>
+<ul>
+<li>FW算法能够处理包含负权边的图，这使得它适用于更广泛的场景，比如路由策略、经济模型等领域，其中成本或距离可能会有负值。</li>
+</ul>
+</li>
+<li><p><strong>负权环的问题</strong>：</p>
+<ul>
+<li>关键的限制是图中不能存在总权重为负的环。这是因为存在负权环会导致算法陷入无限循环，不断通过环路减小路径长度，从而永远无法确定最短路径。</li>
+</ul>
+</li>
+<li><p><strong>示例变更</strong>：</p>
+<ul>
+<li>提供了一个练习，建议将之前的例子中n4到n3的边权重从+3改为-1，并检查更新后的路径长度计算。这种改变是在没有形成负权环的条件下进行的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法的数学基础"><a href="#算法的数学基础" class="headerlink" title="算法的数学基础"></a>算法的数学基础</h3><ul>
+<li>在没有负权环的条件下，FW算法利用动态规划的方法逐步构建解决方案，每一步都在尝试找到更短的路径。即使存在负权边，只要保证不形成负权环，算法仍然能够有效地计算出所有节点对之间的最短路径。</li>
+</ul>
+<h3 id="算法应用的实际意义"><a href="#算法应用的实际意义" class="headerlink" title="算法应用的实际意义"></a>算法应用的实际意义</h3><ul>
+<li>在实际应用中，如经济学模型、交通流分析等领域，路径的成本可能因为某些策略调整或补贴而出现负值。在这些情况下，能够处理负权值的FW算法特别有用。</li>
+</ul>
+<h3 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a>结论</h3><p>通过对FW算法的理解和应用，可以更好地处理复杂网络中的路径优化问题，特别是在涉及复杂成本结构时。此外，这也显示了算法设计时考虑异常或特殊情况的重要性，确保算法的鲁棒性和广泛的适用性。</p>
+<img src="/images/ADE/lec23/24.png" width="50%" height="50%">
+
+<p>这张图片回顾了Floyd-Warshall (FW) 算法的核心思想，特别强调了其在动态规划方面的应用。</p>
+<h3 id="核心思想概述"><a href="#核心思想概述" class="headerlink" title="核心思想概述"></a>核心思想概述</h3><ul>
+<li><strong>最短路径的分解性</strong>：FW算法利用了最短路径的一个重要特性，即如果一条路径 ( P(A, B) ) 是从点 ( A ) 到点 ( B ) 的最短路径，并且这条路径经过一个中间点 ( M )，那么子路径 ( P(A, M) ) 必须是从 ( A ) 到 ( M ) 的最短路径，同时 ( P(M, B) ) 必须是从 ( M ) 到 ( B ) 的最短路径。</li>
+</ul>
+<h3 id="动态规划的应用"><a href="#动态规划的应用" class="headerlink" title="动态规划的应用"></a>动态规划的应用</h3><ul>
+<li><strong>路径更新</strong>：在每一步迭代中，算法都会尝试通过新增的中间节点来更新所有节点对之间的最短路径估计。这个过程反复利用前一步的结果来改进当前步的结果，典型的动态规划方法。</li>
+<li><strong>递归式的更新</strong>：更新公式 ( d(i, j, k+1) &#x3D; \min(d(i, j, k), d(i, k+1, k) + d(k+1, j, k)) ) 就是基于上述分解性质的动态规划递归式。它表示如果考虑到节点 ( k+1 ) 作为可能的中间点可以获得更短的路径，则更新当前的最短路径估计。</li>
+</ul>
+<h3 id="算法设计的深刻洞见"><a href="#算法设计的深刻洞见" class="headerlink" title="算法设计的深刻洞见"></a>算法设计的深刻洞见</h3><ul>
+<li>通过逐步引入新的中间节点，并基于已有的最短路径信息来更新路径，FW算法展示了如何系统地通过局部最优决策来达到全局最优的复杂问题解决策略。这种方法不仅适用于理论计算，也广泛应用于网络路由优化、社交网络分析、供应链管理等多个领域。</li>
+</ul>
+<p>这张图片有效地总结了FW算法的计算机科学基础，特别是它如何巧妙地将图论问题转化为可以通过动态规划有效解决的问题。这种理解对于深入掌握算法设计和分析至关重要。</p>
+<img src="/images/ADE/lec23/25.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec23/26.png" width="50%" height="50%">
+
 
         
       </div>
