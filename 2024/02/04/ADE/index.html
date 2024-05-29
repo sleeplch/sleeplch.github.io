@@ -151,6 +151,34 @@
 <meta property="og:image" content="http://example.com/images/ADE/lec11/09.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec11/10.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec11/11.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/00.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/01.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/02.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/03.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/04.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/05.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/06.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/07.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/08.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/09.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/10.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/11.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/12.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/13.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/14.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/15.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/16.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/17.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/18.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/19.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/20.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/21.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/22.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/23.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/24.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/25.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/26.png">
+<meta property="og:image" content="http://example.com/images/ADE/lec14/27.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec15/00.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec15/01.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec15/02.png">
@@ -254,7 +282,7 @@
 <meta property="og:image" content="http://example.com/images/ADE/lec23/25.png">
 <meta property="og:image" content="http://example.com/images/ADE/lec23/26.png">
 <meta property="article:published_time" content="2024-02-04T00:48:54.000Z">
-<meta property="article:modified_time" content="2024-05-23T20:54:24.485Z">
+<meta property="article:modified_time" content="2024-05-29T03:55:03.125Z">
 <meta property="article:author" content="Caihao">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/ADE/lec01/01.png">
@@ -504,7 +532,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            23k words 
+            33k words 
           </div>
         </div>
         
@@ -806,7 +834,409 @@
 
 <img src="/images/ADE/lec11/11.png" width="50%" height="50%">
 
-<h1 id="Lecture14-The-Vector-Data-Type-and-Amortised-Analysis"><a href="#Lecture14-The-Vector-Data-Type-and-Amortised-Analysis" class="headerlink" title="Lecture14 (The Vector Data Type, and Amortised Analysis)"></a>Lecture14 (The Vector Data Type, and Amortised Analysis)</h1><h1 id="Lecture15-Priority-Queues-Heaps"><a href="#Lecture15-Priority-Queues-Heaps" class="headerlink" title="Lecture15 (Priority Queues &amp; Heaps)"></a>Lecture15 (Priority Queues &amp; Heaps)</h1><img src="/images/ADE/lec15/00.png" width="50%" height="50%">
+<h1 id="Lecture14-The-Vector-Data-Type-and-Amortised-Analysis"><a href="#Lecture14-The-Vector-Data-Type-and-Amortised-Analysis" class="headerlink" title="Lecture14 (The Vector Data Type, and Amortised Analysis)"></a>Lecture14 (The Vector Data Type, and Amortised Analysis)</h1><img src="/images/ADE/lec14/00.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了“向量”（Vector）这一抽象数据类型（ADT）。向量是对数组概念的一种泛化，其中的“数组”是具体的数据类型（CDT）。幻灯片的核心思想是，数组中某个元素的索引可以被视为在它之前的元素数量，即在数组 A 中，A[2] 前面有两个元素 A[0] 和 A[1]。在这些讲座中，这种索引被称为“排名”（rank）。</p>
+<p>此外，幻灯片指出“排名”的概念可以比简单的索引更为一般化，不一定需要像 C 语言那样通过指针来实现，即数组的索引不必直接通过地址偏移来获取。这样的表述有助于理解在不同编程环境下如何灵活地实现和理解向量或数组的结构。</p>
+<img src="/images/ADE/lec14/01.png" width="50%" height="50%">
+
+<p>这张幻灯片进一步详细介绍了向量抽象数据类型（ADT）的基本特性和操作。向量是基于数组的具体数据类型（CDT），可以存储一系列任意对象。向量中的元素可以通过其“排名”进行访问、插入或移除，这里的“排名”指的是该元素之前的元素数量。如果指定了错误的排名（例如负数排名），则会抛出异常。</p>
+<p>此外，幻灯片列出了向量的主要操作，包括：</p>
+<ol>
+<li>**elemAtRank(r)**：返回排名为 r 的元素，但不移除它。</li>
+<li>**replaceAtRank(r, o)**：将排名为 r 的元素替换为对象 o，并返回原先的元素。</li>
+<li>**insertAtRank(r, o)**：在排名为 r 的位置插入一个新元素 o。</li>
+<li>**removeAtRank(r)**：移除并返回排名为 r 的元素。</li>
+</ol>
+<p>还提到了其他一些操作，如 <strong>size()</strong> 和 **isEmpty()**，用以返回向量的大小和检查向量是否为空。这些操作使得向量在使用时更加灵活和强大。</p>
+<img src="/images/ADE/lec14/02.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了如何将向量作为栈（Stack）使用。在栈的数据结构中，元素的添加和移除通常发生在同一端，即遵循“后进先出”（LIFO）的原则。</p>
+<p>幻灯片中描述的具体操作包括：</p>
+<ol>
+<li>**push(o)**：相当于调用 <code>insertAtRank(size(), o)</code>，将新元素插入向量的末尾。这里的 <code>size()</code> 函数返回当前向量的大小，即最大排名值，因此新元素总是被放在现有元素之后。</li>
+<li>**pop()**：相当于调用 <code>removeAtRank(size() - 1)</code>，从向量的末尾移除元素。这里使用 <code>size() - 1</code> 是因为排名是从 0 开始计算的，所以最后一个元素的排名是当前大小减一。</li>
+</ol>
+<p>此外，幻灯片还提到使用向量作为栈在特定情境下非常有用，如从文件中读取未知数量的元素时。这是因为栈允许在不知道元素总数的情况下灵活地添加和移除元素。</p>
+<img src="/images/ADE/lec14/03.png" width="50%" height="50%">
+
+<p>这张幻灯片探讨了向量的应用场景，突出了向量与传统固定大小数组的区别和优势。向量的一个主要特点是没有自动的存储大小限制，这使得它们比固定大小的数组更加灵活和适用于更广泛的场景。</p>
+<p><strong>直接应用</strong>：</p>
+<ul>
+<li><strong>有序对象集合</strong>：向量可以用来存储和管理有序的对象集合，例如在基本数据库中使用。这种用法利用了向量动态调整大小的特性，便于实现元素的插入和删除操作。</li>
+</ul>
+<p><strong>间接应用</strong>：</p>
+<ul>
+<li><strong>辅助数据结构</strong>：在许多算法中，向量常用作辅助数据结构，比如用来存储额外的信息或临时数据。</li>
+<li><strong>其他数据结构的组件</strong>：向量还可以作为更复杂数据结构的组成部分，例如用于构建图的邻接列表等。</li>
+</ul>
+<p>通过这些应用，可以看出向量不仅仅是一种简单的数据存储方式，它的灵活性和扩展性使其成为实现复杂数据管理和处理任务的理想选择。</p>
+<img src="/images/ADE/lec14/04.png" width="50%" height="50%">
+
+<p>这张幻灯片详细介绍了基于数组的向量实现方式。在这种实现中，向量是通过一个固定大小的数组 V 来实现的，数组的大小为 N。这种向量实现还涉及到一个变量 n，用于追踪向量当前存储的元素数量，即向量的实际大小。</p>
+<p><strong>关键操作</strong>：</p>
+<ul>
+<li>**elemAtRank(r)**：该操作允许在 O(1) 时间复杂度内通过简单地返回数组索引 V[r] 来访问排名为 r 的元素。这种实现利用了数组的随机访问能力，即直接通过索引访问任意位置的元素。</li>
+</ul>
+<p>幻灯片下方的图表显示了数组 V 的结构，其中从 0 到 n-1 的索引部分表示向量当前存储的元素，而 n 到 N-1 的部分则为空（未使用）。这样的视觉表示帮助理解向量如何在数组的基础上动态调整其内容的存储。这种实现虽然依赖于数组的固定大小，但通过管理变量 n，向量能够有效地提供动态添加或删除元素的功能。</p>
+<img src="/images/ADE/lec14/05.png" width="50%" height="50%">
+
+<p><strong>插入操作</strong>：</p>
+<ul>
+<li>当在向量中的特定排名 <code>r</code> 处插入一个新元素 <code>o</code> 时，需要首先为新元素腾出空间。这是通过将从排名 <code>r</code> 到 <code>n-1</code> 的元素向前移动一位来实现的，其中 <code>n</code> 是插入前向量中的元素数量。</li>
+<li>在最坏的情况下（即 <code>r=0</code>），需要移动整个数组的所有元素，因此这种插入操作的时间复杂度是 O(n)。</li>
+</ul>
+<img src="/images/ADE/lec14/06.png" width="50%" height="50%">
+
+<p><strong>删除操作</strong>：</p>
+<ul>
+<li>删除操作中，当从排名 <code>r</code> 处移除一个元素时，需要通过将从排名 <code>r+1</code> 到 <code>n-1</code> 的元素向后移动一位来填补被移除元素留下的空位。</li>
+<li>同样，在最坏的情况下（<code>r=0</code>），需要移动整个数组的所有元素，因此删除操作的时间复杂度也是 O(n)。</li>
+</ul>
+<p>在幻灯片的图示中，你可以看到具体的元素如何在数组中移动以完成插入和删除操作。这些操作虽然在单个操作层面上可能较为耗时，但它们是向量灵活性的基础，允许向量在任何位置进行元素的增加或删除。对于频繁进行这类操作的应用场景，可能需要考虑其他更优化的数据结构来降低操作成本。</p>
+<img src="/images/ADE/lec14/07.png" width="50%" height="50%">
+
+<p>这张幻灯片总结了基于数组的向量实现在性能方面的关键特点。</p>
+<p><strong>空间和时间复杂度</strong>：</p>
+<ul>
+<li>数据结构使用的空间为 O(n)，其中 n 是数组的大小。</li>
+<li><code>size</code>、<code>isEmpty</code>、<code>elemAtRank</code> 和 <code>replaceAtRank</code> 这些操作的时间复杂度为 O(1)，因为它们可以直接通过数组索引来访问或替换元素，不需要遍历或移动其他元素。</li>
+<li><code>insertAtRank</code> 和 <code>removeAtRank</code> 操作的时间复杂度为 O(n)，因为这两种操作可能需要移动从插入或删除点开始的所有后续元素，以保持元素的连续性。</li>
+</ul>
+<p><strong>栈操作性能</strong>：</p>
+<ul>
+<li><code>push</code> 和 <code>pop</code> 操作通常具有 O(1) 的时间复杂度，因为它们只涉及在数组的末端添加或移除元素，不需要移动数组中的其他元素。<ul>
+<li>但是，如果在执行 <code>push</code> 操作时数组空间不足，需要对数组进行扩容（即分配更大的数组并复制现有元素到新数组），这时 <code>push</code> 的时间复杂度将依赖于数组的当前大小。</li>
+</ul>
+</li>
+<li><code>pop</code> 操作在不需要调整数组大小的情况下始终为 O(1)。</li>
+</ul>
+<p><strong>动态调整数组大小</strong>：</p>
+<ul>
+<li>在执行 <code>insertAtRank</code> 操作时，如果数组已满，幻灯片提到不会抛出异常，而是选择将数组替换为一个更大的数组。这种动态调整大小的策略有助于向量适应不断变化的数据需求，虽然在扩容时会有较大的时间成本，但可以避免因固定大小限制而无法添加更多元素的问题。</li>
+</ul>
+<p>这些性能特点和设计决策都体现了基于数组的向量在处理动态数据集时的灵活性与效率，特别是在频繁进行末端操作（如栈操作）的应用场景中。</p>
+<img src="/images/ADE/lec14/08.png" width="50%" height="50%">
+
+<p>这张幻灯片详细介绍了基于数组的向量在空间不足时如何增长（动态调整大小），以及相关的策略和考虑因素。</p>
+<p><strong>动态扩容策略</strong>：</p>
+<ul>
+<li>当进行 <code>push</code> 操作（相当于 <code>insertAtRank(n)</code>）时，如果数组已满（即 <code>n</code> 等于 <code>V.length - 1</code>），则需要扩大数组以容纳更多元素。这种情况下，不会抛出异常，而是创建一个更大的数组。</li>
+<li>扩容的操作涉及将所有现有元素从旧数组复制到新数组，这个过程的时间复杂度为 O(n)，因为需要逐个复制所有元素。</li>
+</ul>
+<p><strong>新数组的大小策略</strong>：</p>
+<ul>
+<li><strong>增量策略</strong>（Incremental Strategy）：每次扩容时增加一个常数 c。这种策略可以根据具体需要逐步增加空间，但可能导致频繁的扩容操作和较高的长期复制成本。</li>
+<li><strong>加倍策略</strong>（Doubling Strategy）：每次需要扩容时将数组大小加倍。这种策略虽然在每次扩容时需要移动更多的数据，但减少了扩容的频率，通常在多次操作中平均下来会更高效。</li>
+</ul>
+<p><strong>扩容算法实现示例</strong>：</p>
+<ul>
+<li>如果数组已满（<code>n</code> 等于数组长度减一），则创建一个新的更大的数组 <code>A</code>。</li>
+<li>将旧数组 <code>V</code> 的所有元素复制到新数组 <code>A</code>。</li>
+<li>更新指向数组的引用，使 <code>V</code> 指向新数组 <code>A</code>。</li>
+<li>将新元素 <code>o</code> 插入到数组的末尾（索引 <code>t</code> 处）。</li>
+<li>更新当前元素计数 <code>n</code>。</li>
+</ul>
+<p>这种基于数组的可增长向量实现提供了灵活的数据结构选择，适应不同的应用需求，同时也考虑了性能和空间效率的平衡。</p>
+<img src="/images/ADE/lec14/09.png" width="50%" height="50%">
+
+<p>这张幻灯片探讨了在基于数组的向量中，针对动态扩容采取的两种策略——增量策略和加倍策略——的比较。</p>
+<p><strong>策略比较</strong>：</p>
+<ul>
+<li>幻灯片中分析了在进行一系列 <code>n</code> 次推入（push）操作时，这两种策略所需的总时间 ( T(n) )。这里的“推入”指的是在数组的末尾添加一个元素，将数组视作一个栈。</li>
+<li>假设初始时从一个空栈开始，该栈由一个大小为1的数组表示。</li>
+</ul>
+<p><strong>摊销时间</strong>：</p>
+<ul>
+<li>摊销时间是对一系列操作中每次操作的平均时间进行计算。在这里，摊销时间定义为 ( \frac{T(n)}{n} )，即对 ( n ) 次操作的总时间 ( T(n) ) 进行平均。</li>
+</ul>
+<p>摊销分析帮助我们理解在重复执行相同操作时，某些成本高昂的操作（如数组扩容）的平均成本是如何随着操作次数的增加而变得相对较小的。对于增量策略，由于每次只增加固定的大小，当元素填满时需要频繁扩容，因此可能会有较高的摊销成本。对于加倍策略，尽管单次扩容的成本较高，但由于扩容的频率降低，使得整体摊销成本相对较低。</p>
+<p>通过比较这些策略，可以更好地理解不同场景下选择合适的动态数组策略的重要性，以及如何平衡操作的即时性能与长期效率。</p>
+<img src="/images/ADE/lec14/10.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec14/11.png" width="50%" height="50%">
+
+<p>这张幻灯片进一步讨论了在摊销分析中对操作序列的处理及其意义：</p>
+<p><strong>分析摊销成本</strong>：</p>
+<ul>
+<li>假设某个单独的操作，如 <code>push</code>，在最坏情况下需要时间 T。</li>
+<li>如果执行一系列的 s 个这样的操作，那么最坏情况下的总时间是 sT，这是时间上的一个上限。</li>
+</ul>
+<p><strong>摊销时间的重要性</strong>：</p>
+<ul>
+<li>尽管 sT 是可能的总时间上限，但实际上这种最坏情况可能并不会发生。因此，总时间 ( T_s ) 可能实际上远小于 sT，即可能是 o(sT)，这里的“o”表示小于但不是渐进严格小于。</li>
+<li>实际中更关注的是每次操作的平均时间 ( \frac{T_s}{s} )，这反映了在给定操作序列中，每次操作的平均成本。</li>
+</ul>
+<p><strong>实际应用示例</strong>：</p>
+<ul>
+<li>例如，在需要将长序列的元素推入向量的情况下，如从文件中读取数据，单次操作的摊销成本提供了对操作效率的更实际的评估。</li>
+</ul>
+<p>通过摊销分析，我们能够更准确地理解在连续多次操作中，由于扩容等高成本操作的偶发性，平均每次操作的成本实际上可能远低于单次独立操作的最坏情况成本。这种理解有助于开发者在设计数据结构和算法时做出更合理的选择和优化。</p>
+<img src="/images/ADE/lec14/12.png" width="50%" height="50%">
+
+<p>这张幻灯片提出了一个问题：“摊销分析与平均情况分析有什么不同？” 并给出了解释：</p>
+<p><strong>摊销分析与平均情况分析的区别</strong>：</p>
+<ol>
+<li><p><strong>摊销分析</strong>：</p>
+<ul>
+<li>摊销分析关注的是一系列操作的总成本，并将这个成本平均分摊到每个操作上。这种分析方法考虑的是特定操作序列中的依赖性，通常是在最坏情况下的一长串实际操作。</li>
+<li>摊销分析特别适用于评估那些偶尔需要大量资源（如时间或空间）的操作，但在整个操作序列中这种高成本操作不频繁发生。</li>
+</ul>
+</li>
+<li><p><strong>平均情况分析</strong>：</p>
+<ul>
+<li>平均情况分析评估所有可能操作的平均表现。它通常假设每个操作的发生概率相同，或者依据特定的概率分布来计算。</li>
+<li>这种分析忽略了操作之间的依赖性，每个操作被视为独立的。</li>
+</ul>
+</li>
+</ol>
+<p><strong>核心区别</strong>：</p>
+<ul>
+<li>摊销分析提供了在特定情况下，特定操作序列总体上的性能评估。它不考虑操作的独立性，而是作为一个整体来看待。</li>
+<li>平均情况分析则考虑每个操作独立发生的平均效果，适用于操作独立且概率已知的场景。</li>
+</ul>
+<p>简而言之，摊销分析和平均情况分析都试图提供操作成本的一个有效估计，但摊销分析着重于实际操作序列的整体成本，而平均情况分析则着重于理论上每个操作的平均表现。这两种方法在数据结构和算法的设计与评估中各有其适用场景。</p>
+<img src="/images/ADE/lec14/13.png" width="50%" height="50%">
+
+<p>这张幻灯片解释了如何用大O记号描述摊销成本，并澄清了一些常见的误解：</p>
+<p><strong>大O记号的应用</strong>：</p>
+<ul>
+<li>大O记号常用于描述算法的时间复杂度，它不仅仅局限于描述算法的最坏情况。大O记号可以用来描述任何函数，包括算法的平均情况、最好情况或任何特定情况的复杂度。</li>
+</ul>
+<p><strong>摊销成本的描述</strong>：</p>
+<ul>
+<li>在摊销分析中，大O记号同样适用。这里的关键区别在于，我们关注的是操作序列的整体成本而非单个操作。</li>
+<li>我们可以区分两种成本度量：<ul>
+<li><strong>序列操作的最坏情况成本</strong>：指整个操作序列中每个操作的平均最坏情况成本，这种成本考虑了整个操作序列。</li>
+<li><strong>单个操作的最坏情况成本</strong>：传统的方法，通常考虑单一操作在最坏情况下的成本。</li>
+</ul>
+</li>
+</ul>
+<p><strong>摊销成本的实际意义</strong>：</p>
+<ul>
+<li>通过摊销分析，我们可以更合理地评估数据结构或算法在长期运行中的性能。例如，在使用动态数组时，尽管单次扩容可能很耗时，但平均到每次操作（如添加元素），成本可能相对较低。</li>
+<li>使用大O记号描述这些成本可以帮助我们更好地理解和预测程序的行为，尤其是在处理复杂和连续操作的场景中。</li>
+</ul>
+<p>总之，摊销成本的描述使我们能够从更宏观的角度评估和理解算法或数据结构在实际使用中的表现，而大O记号为这种分析提供了一个清晰和统一的方法论。</p>
+<img src="/images/ADE/lec14/14.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec14/15.png" width="50%" height="50%">
+
+<p>这两张幻灯片通过一个具体的例子说明了增量策略下向量扩容的摊销成本分析：</p>
+<p><strong>增量策略示例</strong>：</p>
+<ul>
+<li>起始容量为3，每次容量增加3（即 ( c &#x3D; 3 )）。在这个示例中，我们可以观察到每当数组满时，就进行扩容操作，新增的容量为3。</li>
+<li>每次扩容操作的成本为复制所有现有元素的成本（即 n 的值），加上插入新元素的成本。</li>
+</ul>
+<p><strong>具体的操作和成本</strong>：</p>
+<ul>
+<li>在幻灯片中，对一系列的 <code>push(0)</code> 操作进行了详细说明。对于每次操作，都标明了当前的数组状态、数组大小 ( n ) 和具体的操作成本。</li>
+<li>在这个例子中，每次 <code>push</code> 操作的基本成本为1（即插入操作本身的成本）。当数组需要扩容时，成本会突增，例如：<ul>
+<li>第4次 <code>push</code> 操作需要将数组容量从3增加到6，操作成本为 ( 3（复制成本）+ 1（插入成本） &#x3D; 4 )。</li>
+<li>第7次 <code>push</code> 操作将容量从6增加到9，操作成本为 ( 6（复制成本）+ 1（插入成本） &#x3D; 7 )。</li>
+</ul>
+</li>
+</ul>
+<p><strong>成本分析</strong>：</p>
+<ul>
+<li>根据增量策略，大约有1&#x2F;3的 <code>push</code> 操作需要进行扩容（每次扩容后，可以进行额外的两次 <code>push</code> 操作而无需扩容）。</li>
+<li>因此，虽然大多数 <code>push</code> 操作的成本为1，但扩容操作的成本很高，导致每次 <code>push</code> 操作的平均成本为 ( O(n) )。</li>
+</ul>
+<p>这个示例很好地说明了增量策略的问题：尽管扩容不是每次操作都会发生，但当发生时其成本非常高，从而提高了整体操作的平均成本。这也突出了为什么在实际应用中，例如实现动态数组时，其他策略（如加倍策略）可能更受青睐，因为它们可以更有效地分摊高成本操作，降低平均成本。</p>
+<img src="/images/ADE/lec14/16.png" width="50%" height="50%">
+
+<p>这张幻灯片进一步详细地分析了增量策略下的时间复杂度，提供了一个数学模型来计算摊销成本。</p>
+<p><strong>增量策略分析</strong>：</p>
+<ul>
+<li>在增量策略下，假设每次数组扩容都增加固定数量 ( c ) 的容量，数组将被替换 ( k &#x3D; \frac{n}{c} ) 次，其中 ( n ) 是总的操作数。</li>
+<li>每次替换的成本等于当前数组的大小，因此总成本是 ( n + c + 2c + 3c + \ldots + kc )。</li>
+</ul>
+<p><strong>成本的计算</strong>：</p>
+<ul>
+<li>上述序列可以重新写作 ( n + c(1 + 2 + 3 + \ldots + k) )。</li>
+<li>利用求和公式 ( 1 + 2 + 3 + \ldots + k &#x3D; \frac{k(k + 1)}{2} )，我们得到 ( n + c\frac{k(k + 1)}{2} )。</li>
+<li>因为 ( k &#x3D; \frac{n}{c} )，所以 ( n + c\frac{k(k + 1)}{2} ) 可以进一步简化为与 ( n^2 ) 成正比的形式。</li>
+</ul>
+<p><strong>时间复杂度</strong>：</p>
+<ul>
+<li>因此，整个操作序列的总时间 ( T(n) ) 是 ( O(n^2) )，这反映了随着操作数量的增加，总成本的平方级增长。</li>
+<li>摊销时间，即平均每次操作的成本，则为 ( O(n) )，这远高于不需要扩容时每次 <code>push</code> 的 ( O(1) ) 成本。</li>
+</ul>
+<p><strong>总结</strong>：</p>
+<ul>
+<li>增量策略虽然简单，但由于每次扩容的成本与当前数组大小成正比，导致在操作数较多时效率低下。</li>
+<li>这种策略在需要频繁扩容的应用场景下表现不佳，因为它会显著增加每次操作的平均成本，尤其是在大量数据操作时。</li>
+</ul>
+<p>幻灯片通过数学分析清晰地表明了为什么在设计具有动态大小的数据结构时，可能需要考虑更高效的扩容策略，例如加倍策略，以优化性能和成本。</p>
+<img src="/images/ADE/lec14/17.png" width="50%" height="50%">
+
+<p>这张幻灯片通过一个实例解释了在动态数组中使用加倍策略的摊销成本计算。加倍策略意味着每当数组满时，其容量将加倍，这是一种常用于动态数组扩容的高效策略。</p>
+<p><strong>加倍策略示例</strong>：</p>
+<ul>
+<li>初始容量为3，每次数组满时容量加倍。成本模式如下：普通 <code>push</code> 操作成本为1，每次扩容时的成本为当前数组的大小。</li>
+<li>在此示例中，成本序列为：1, 1, 1, 3+1, 1, 1, 6+1, 1, 1, 1, 1, 1, 12+1, 等等。</li>
+<li>扩容成本依次为3, 6, 12…等等，每次都是上一次容量的两倍。</li>
+</ul>
+<p><strong>摊销成本分析</strong>：</p>
+<ul>
+<li>每次扩容的成本随着数组大小线性增加，但由于容量加倍，扩容的频率迅速降低。在每次扩容后，更多的 <code>push</code> 操作可以以常数成本执行，直到下一次扩容。</li>
+<li>因此，随着操作数 ( n ) 的增加，需要扩容的 <code>push</code> 操作占总操作的比例呈指数级减少。</li>
+</ul>
+<p><strong>平均成本计算</strong>：</p>
+<ul>
+<li>初始 ( n ) 次 <code>push</code> 的总成本是一个由常数和每次扩容成本组成的序列。考虑到扩容成本是前一次容量的大小，每次加倍意味着总成本是 ( 3 + 3 \times 2 + 6 \times 2 + \ldots )，即每次扩容前容量的总和。</li>
+<li>摊销成本可以近似计算为 ( \frac{T(n)}{n} )，其中 ( T(n) ) 是总成本。因为扩容的频率随 ( n ) 的增加而减少，随着 ( n ) 的增加，摊销成本逐渐趋近于常数 ( O(1) )。</li>
+</ul>
+<p>这个示例展示了加倍策略相较于增量策略的优势：虽然每次扩容的成本更高，但由于加倍后可容纳更多元素，使得扩容频率降低，从而在大量操作下显著降低了平均成本。这种策略非常适合那些元素数量动态增长的场景，如在处理不确定数量的数据输入时。</p>
+<img src="/images/ADE/lec14/18.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec14/19.png" width="50%" height="50%">
+
+<p>这两张幻灯片进一步展示了在使用加倍策略时对于摊销成本的分析和解释，特别是如何将扩容成本均摊到单个操作上。</p>
+<p><strong>加倍策略的具体成本分析</strong>：</p>
+<ul>
+<li>起始容量为2，每次数组满时容量加倍。成本序列包括每次推入操作的基本成本（1）和每次扩容操作的额外成本（例如第二次操作的成本是2+1，第四次操作的成本是4+1）。</li>
+<li>这些成本序列显示，虽然扩容操作的成本较高（因为它包括复制现有所有元素的成本），但这些高成本的操作随着操作序列的推进变得越来越稀疏。</li>
+</ul>
+<p><strong>摊销成本的计算</strong>：</p>
+<ul>
+<li>每次扩容操作后，因为容量加倍，可以进行更多的 <code>push</code> 操作而不需要再次扩容，从而使得之后的多次 <code>push</code> 操作的成本保持在常数级别（O(1)）。</li>
+<li>第二张幻灯片通过一个视觉示例展示了如何将扩容的成本均摊到随后的每个 <code>push</code> 操作上。红色成本表示已经被摊销的部分，这表明扩容的成本可以被视为在随后的许多操作中均摊。</li>
+</ul>
+<p><strong>摊销成本的效果</strong>：</p>
+<ul>
+<li>由于加倍策略允许在每次扩容后进行大量的操作，因此即使扩容本身的成本高，摊销后的平均成本仍然是O(1)。</li>
+<li>这种策略的优势在于，尽管初期和每次扩容时成本较高，长远来看，整体的操作成本逐渐趋于常数，提高了操作效率。</li>
+</ul>
+<p>总的来说，加倍策略在动态数组的实现中是高效的，因为它减少了扩容的频率并优化了摊销成本，从而使得平均每次操作的成本降低，这对于处理大规模数据非常有利。</p>
+<img src="/images/ADE/lec14/20.png" width="50%" height="50%">
+
+<p>这张幻灯片进一步分析了使用加倍策略时的摊销成本，具体考察了对于 ( n ) 次 <code>push</code> 操作，数组增长的次数及总的时间复杂度。</p>
+<p><strong>加倍策略的核心分析</strong>：</p>
+<ul>
+<li>在这个分析中，假设 ( n ) 是2的幂次方。这种假设简化了计算，因为每次数组容量加倍时，都是从更小的2的幂次方增长到下一个2的幂次方。</li>
+<li>在这种情况下，数组被替换的次数 ( k ) 将是 ( \log_2 n )。这是因为每次加倍都相当于数组容量的指数增长。</li>
+</ul>
+<p><strong>操作的总时间 ( T(n) )</strong>：</p>
+<ul>
+<li>总时间包括每次 <code>push</code> 的基本成本和每次扩容时复制元素的成本。</li>
+<li>如果考虑到每次扩容，我们有 ( 1 + 2 + 4 + 8 + \ldots + 2^{k-1} ) 的成本序列，其中 ( 2^{k-1} ) 是最后一次扩容时的容量，恰好小于 ( n )。</li>
+<li>这个序列是一个等比数列，其和可以通过公式 ( 2^k - 1 ) 计算，其中 ( k &#x3D; \log_2 n )，因此序列的和是 ( n - 1 )。</li>
+</ul>
+<p><strong>总的摊销成本</strong>：</p>
+<ul>
+<li>因此，整个操作序列的总时间 ( T(n) ) 大致为 ( n + (n - 1) &#x3D; 2n - 1 )，简化为 ( O(n) )。</li>
+<li>这意味着平均每次 <code>push</code> 操作的摊销成本是 ( O(1) )，即使考虑到所有的扩容成本，每次操作的平均成本仍然保持常数。</li>
+</ul>
+<p>通过这种方式，加倍策略不仅简化了管理动态数组的复杂性，而且通过有效分摊较高的扩容成本，确保了整体操作效率的提升，这使得加倍策略成为实现动态数组时一种非常高效的策略。</p>
+<img src="/images/ADE/lec14/21.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec14/22.png" width="50%" height="50%">
+
+<p>这两张幻灯片进一步说明了加倍策略的具体例子和动态数组的增长过程。</p>
+<p><strong>第一张幻灯片：加倍次数示例</strong></p>
+<ul>
+<li>这张幻灯片展示了当 ( n ) 是1, 2, 和4时，数组需要加倍的次数和对应的 ( \log_2 n ) 的值。</li>
+<li>例如：<ul>
+<li>当 ( n &#x3D; 1 ) 时，不需要加倍，( \log_2 1 &#x3D; 0 )。</li>
+<li>当 ( n &#x3D; 2 ) 时，需要加倍一次，( \log_2 2 &#x3D; 1 )。</li>
+<li>当 ( n &#x3D; 4 ) 时，需要加倍两次，( \log_2 4 &#x3D; 2 )。</li>
+</ul>
+</li>
+<li>这些例子很好地说明了加倍策略中数组容量增长的对数关系。</li>
+</ul>
+<p><strong>第二张幻灯片：动态数组操作示例</strong></p>
+<ul>
+<li>这张幻灯片通过 ( n &#x3D; 4 ) 的具体示例详细描述了动态数组在加倍策略下如何操作。<ul>
+<li>起始时，容量为1，大小为0。</li>
+<li>第一次 <code>push(A)</code>，不需要扩容。</li>
+<li>第二次 <code>push(B)</code>，容量不足，进行一次加倍（扩容到2），需要复制1个元素。</li>
+<li>第三次 <code>push(C)</code>，再次容量不足，进行加倍（扩容到4），需要复制2个元素。</li>
+<li>第四次 <code>push(D)</code>，此时无需扩容，直接添加。</li>
+</ul>
+</li>
+<li>这个过程演示了每次达到容量限制时如何进行加倍和元素复制。</li>
+</ul>
+<p>这些例子有助于理解加倍策略在实际操作中如何执行，以及每次操作的成本如何被计算。通过观察每次加倍后新的空间如何允许更多的 <code>push</code> 操作而无需立即再次扩容，可以清晰地看到摊销成本分析的实际应用。这种策略虽然在短期内可能看起来成本较高，但长远来看，由于加倍的效率，整体成本是非常合理的。</p>
+<img src="/images/ADE/lec14/23.png" width="50%" height="50%">
+
+<img src="/images/ADE/lec14/24.png" width="50%" height="50%">
+
+<p>这张幻灯片进一步深入解释了使用加倍策略时的时间复杂度分析。</p>
+<p><strong>分析摘要</strong>：</p>
+<ul>
+<li>在加倍策略中，每次数组容量满时加倍，如果假设 ( n ) 是操作总数并且每次操作都可能触发加倍，则总加倍次数 ( k ) 是 ( \log_2 n )。</li>
+<li>每次加倍的成本是当前数组的大小，所以成本序列是 ( 1, 2, 4, \ldots, 2^{k-1} )。</li>
+</ul>
+<p><strong>总时间 ( T(n) )</strong>：</p>
+<ul>
+<li>计算所有操作的总成本（包括每次 <code>push</code> 操作和扩容成本），可以得出总时间 ( T(n) ) 等于基本 <code>push</code> 操作的成本 ( n ) 加上每次扩容的成本之和 ( 1 + 2 + 4 + \ldots + 2^{k-1} )。</li>
+<li>根据等比数列求和公式，( 2^{k-1} ) 的求和结果是 ( 2^k - 1 )，其中 ( 2^k &#x3D; 2^{\log_2 n} &#x3D; n )，所以求和结果是 ( n - 1 )。</li>
+<li>因此，总时间 ( T(n) ) 为 ( n + (n - 1) &#x3D; 2n - 1 )，简化后得到 ( O(n) )。</li>
+</ul>
+<p><strong>摊销成本</strong>：</p>
+<ul>
+<li>摊销每次 <code>push</code> 操作的成本，即平均每次操作的成本，为 ( \frac{T(n)}{n} )，简化得 ( O(1) )。这说明尽管有时需要进行成本较高的扩容操作，平均到每个 <code>push</code> 上的成本仍然保持常数级别。</li>
+<li>这表明，在考虑所有必要的内存分配时，单次 <code>push</code> 的摊销成本与预先分配所有所需内存的成本相当。</li>
+</ul>
+<p><strong>结论</strong>：</p>
+<ul>
+<li>使用加倍策略的动态数组，即使考虑到最坏情况下的扩容成本，其摊销操作成本也是 ( O(1) )，使得它在实践中非常高效。</li>
+<li>大O记号隐藏了由于扩容造成的常数倍的额外成本，但即便如此，这种策略因其高效的摊销成本而被广泛采用。</li>
+</ul>
+<img src="/images/ADE/lec14/25.png" width="50%" height="50%">
+
+<p>这张幻灯片提出了一些用于讨论或作为练习的问题，旨在探讨不同的数组增长策略及其适用场景。</p>
+<h3 id="讨论问题与练习："><a href="#讨论问题与练习：" class="headerlink" title="讨论问题与练习："></a>讨论问题与练习：</h3><ol>
+<li><p><strong>何时可能更愿意使用增量增长而非加倍增长？</strong></p>
+<ul>
+<li>在某些场景下，如果内存资源较为有限或昂贵，使用增量增长策略可能更为合适。这是因为加倍策略虽然减少了扩容次数，但每次扩容时可能会浪费更多的内存，尤其是在数组元素数量巨大时。</li>
+<li>此外，如果数组增长的预测非常稳定或增长速度较慢，增量增长可以避免过度分配未使用的内存空间，从而更加节约资源。</li>
+</ul>
+</li>
+<li><p><strong>为什么是加倍而不是三倍或其他常数因子增长？</strong></p>
+<ul>
+<li>加倍增长是一种平衡了扩容次数和每次扩容代价的策略。如果使用三倍或更大的增长因子，虽然可以进一步减少扩容的频率，但这会在每次扩容时创建更多未使用的空间，可能导致内存使用效率降低。</li>
+<li>从理论上分析，加倍策略（因子为2）提供了一个折中的选择，既能有效减少扩容操作的次数，又能控制因大量未使用空间造成的内存浪费。</li>
+</ul>
+</li>
+<li><p><strong>尝试用任意增长因子 ( b ) 重新进行分析</strong></p>
+<ul>
+<li>分析不同的增长因子 ( b ) 对摊销成本和内存效率的影响。这个练习可以帮助理解不同增长策略在长期操作成本和内存使用效率上的权衡。</li>
+<li>例如，可以计算当增长因子为 ( b ) 时，总的摊销成本如何随着 ( b ) 的变化而变化，并探讨在什么条件下，某个特定的 ( b ) 值可能比加倍策略更优。</li>
+</ul>
+</li>
+</ol>
+<h3 id="实践建议："><a href="#实践建议：" class="headerlink" title="实践建议："></a>实践建议：</h3><ul>
+<li>对于这些讨论问题和练习，实际编写和测试代码实现不同的数组增长策略将是非常有益的。通过实际应用，可以更直观地观察到不同策略在性能和资源利用上的差异，从而为选择最适合特定应用需求的策略提供数据支持。</li>
+</ul>
+<img src="/images/ADE/lec14/26.png" width="50%" height="50%">
+
+<p>这张幻灯片提供了一些关于在 C 或 C++ 中实现动态数组（向量）扩容策略时的技术建议。</p>
+<p><strong>优化动态数组扩容策略</strong>：</p>
+<ol>
+<li><p>**使用 <code>realloc</code> 而不是 <code>malloc</code> 或 <code>new</code>**：</p>
+<ul>
+<li>在 C&#x2F;C++ 中，动态数组的扩容可以通过 <code>realloc</code> 函数来优化。<code>realloc</code> 试图调整已分配内存块的大小，它有可能直接在现有内存块的后面扩展空间，避免了复制整个数组到新位置的需要。</li>
+<li>相比之下，使用 <code>malloc</code> 或 <code>new</code> 分配一个新的更大的内存块后，通常需要手动复制旧数组的内容到新内存块，然后释放旧内存块，这增加了复制的开销。</li>
+</ul>
+</li>
+<li><p><strong>使用 <code>memcpy</code> 进行数据复制</strong>：</p>
+<ul>
+<li>如果 <code>realloc</code> 需要移动内存块（当无法在原地扩展时），使用 <code>memcpy</code> 可以直接复制整个内存块，这比逐个复制数组元素更快。</li>
+<li><code>memcpy</code> 是直接操作内存的方式，它通常由底层优化实现，可以提供比循环逐一复制元素更高效的数据复制性能。</li>
+</ul>
+</li>
+</ol>
+<p><strong>技术选择的影响</strong>：</p>
+<ul>
+<li><strong>性能提升</strong>：使用 <code>realloc</code> 和 <code>memcpy</code> 可以显著提高动态数组在扩容时的性能，尤其是在元素数量较多的情况下。</li>
+<li><strong>内存管理</strong>：这种方法简化了内存管理，减少了内存碎片，因为它尽量在原地扩展内存，减少了内存分配和释放的次数。</li>
+</ul>
+<p>通过这些优化，可以使 C&#x2F;C++ 中的动态数组扩容更加高效，从而提升整体应用程序的性能。这种优化对于实现需要高效内存使用和快速响应时间的系统（如大数据处理和实时系统）尤为重要。</p>
+<img src="/images/ADE/lec14/27.png" width="50%" height="50%">
+
+<h1 id="Lecture15-Priority-Queues-Heaps"><a href="#Lecture15-Priority-Queues-Heaps" class="headerlink" title="Lecture15 (Priority Queues &amp; Heaps)"></a>Lecture15 (Priority Queues &amp; Heaps)</h1><img src="/images/ADE/lec15/00.png" width="50%" height="50%">
 
 <ol>
 <li><p><strong>抽象数据类型（ADT）</strong>：</p>
