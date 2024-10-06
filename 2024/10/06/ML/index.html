@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>Caihao&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="Lecture4  这张幻灯片讨论了特征选择（Feature Selection, FS）和降维（Dimensionality Reduction, DR）的目标。 主要目标包括：  减少维度诅咒（Curse of Dimensionality）的影响：在高维数据中，数据稀疏性和计算复杂度增加会导致模型表现不佳。 删除冗余特征以提高模型性能：剔除无关或重复的特征可以让模型更加准确和高效。 提高计算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Caihao&#39;s Blog">
+<meta property="og:url" content="http://example.com/2024/10/06/ML/index.html">
+<meta property="og:site_name" content="Caihao&#39;s Blog">
+<meta property="og:description" content="Lecture4  这张幻灯片讨论了特征选择（Feature Selection, FS）和降维（Dimensionality Reduction, DR）的目标。 主要目标包括：  减少维度诅咒（Curse of Dimensionality）的影响：在高维数据中，数据稀疏性和计算复杂度增加会导致模型表现不佳。 删除冗余特征以提高模型性能：剔除无关或重复的特征可以让模型更加准确和高效。 提高计算">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/ML/lec04/00.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/01.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/02.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/03.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/04.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/05.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/06.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/07.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/08.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/09.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/10.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/11.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/12.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/13.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/14.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/15.png">
+<meta property="og:image" content="http://example.com/images/ML/lec04/16.png">
+<meta property="article:published_time" content="2024-10-06T16:13:09.562Z">
+<meta property="article:modified_time" content="2024-10-06T16:59:50.006Z">
+<meta property="article:author" content="Caihao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/ML/lec04/00.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Caihao's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/logo.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/images/bg-mew.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Caihao's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS Feed">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS Feed">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/images/me.jpg></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Caihao </div>
+      <div class="dot"></div>
+      <div class="subtitle">男生自用笔记 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://www.instagram.com/sleeplch/" title="Twitter"><i class="fa-brands fa-instagram"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/205009805?spm_id_from=333.1007.0.0" title="Steam"><i class="fa-brands fa-bilibili"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/sleeplch" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/Y3-S2/">
+                Y3-S2
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Daily/">
+                Daily
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Tags</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/AIM/" rel="tag">AIM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LAC/" rel="tag">LAC</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/UE5/" rel="tag">UE5</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/food/" rel="tag">food</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/garlic/" rel="tag">garlic</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Archives</h3>
+      
+      
+        <a class="archive-link" href="/archives/2024/10 ">
+          October 2024 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/02 ">
+          February 2024 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/01 ">
+          January 2024 
+          <div class="archive-count">5 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Recent Posts</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2024/10/06/ML/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/02/12/UE5/" title="UE5" >
+            <div class="recent-link-text">
+              UE5
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/02/04/ADE/" title="ADE" >
+            <div class="recent-link-text">
+              ADE
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/01/30/LAC/" title="LAC" >
+            <div class="recent-link-text">
+              LAC
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/01/30/AIM/" title="AIM" >
+            <div class="recent-link-text">
+              AIM
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-ML" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        Untitled
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-10-06T16:13:09.562Z" itemprop="datePublished">2024-10-06</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    Uncategorized 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            9.5k words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="Lecture4"><a href="#Lecture4" class="headerlink" title="Lecture4"></a>Lecture4</h1><img src="/images/ML/lec04/00.png" width="50%" height="50%">
+
+<p>这张幻灯片讨论了<strong>特征选择（Feature Selection, FS）</strong>和<strong>降维（Dimensionality Reduction, DR）</strong>的目标。</p>
+<p>主要目标包括：</p>
+<ul>
+<li>减少<strong>维度诅咒</strong>（Curse of Dimensionality）的影响：在高维数据中，数据稀疏性和计算复杂度增加会导致模型表现不佳。</li>
+<li>删除冗余特征以提高模型性能：剔除无关或重复的特征可以让模型更加准确和高效。</li>
+<li>提高计算效率：减少特征数量可以加快训练和预测的速度。</li>
+<li>降低新数据获取的成本：减少特征数量也可能减少数据收集的复杂性和成本。</li>
+</ul>
+<p><strong>特征选择（FS）</strong>和<strong>降维（DR）</strong>的区别：</p>
+<ul>
+<li><p><strong>特征选择（FS）</strong>：保留原始特征中的一个子集。例如，使用方法如过滤器（Filter）、包装器（Wrapper）或嵌入式方法（Embedded）来选择有用特征。</p>
+</li>
+<li><p><strong>降维（DR）</strong>：生成一组新的、更紧凑的特征集合，这些特征可能不保留原始特征的含义。例如，主成分分析（PCA）和线性判别分析（LDA）等方法会将原始特征映射到新的特征空间。</p>
+</li>
+</ul>
+<img src="/images/ML/lec04/01.png" width="50%" height="50%">
+
+<p>这张幻灯片列出了在使用<strong>特征选择（Feature Selection, FS）</strong>和<strong>降维（Dimensionality Reduction, DR）</strong>时需要考虑的因素：</p>
+<ul>
+<li><p><strong>目标维度</strong>：确定想要减少到的目标特征数量或维度。</p>
+</li>
+<li><p><strong>可解释性</strong>：特征选择保留了原始特征，因而通常可解释；而降维生成新的特征，可能无法直接解释。</p>
+</li>
+<li><p><strong>特征相关性&#x2F;依赖性</strong>：需要考虑特征之间的相关性或依赖关系，尤其是在选择或组合特征时。</p>
+</li>
+<li><p><strong>特征的可靠性和重复性</strong>：选出的特征或降维后的特征应在不同的数据集或实验中保持一致和可靠。</p>
+</li>
+<li><p><strong>方法</strong>：不同的方法可能会选择不同的特征或生成不同的特征。例如，不同的特征选择算法或降维算法可能导致不同的结果。</p>
+</li>
+</ul>
+<img src="/images/ML/lec04/02.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了几种常见的<strong>特征选择（Feature Selection, FS）方法</strong>：</p>
+<ol>
+<li><p><strong>包装方法（Wrapper methods）</strong>：</p>
+<ul>
+<li>这种方法通过搜索最优的特征子集来最大化模型的决策性能。</li>
+<li>常用方法包括递归特征消除（Recursive Feature Elimination）和序列特征选择（Sequential Feature Selection）。</li>
+</ul>
+</li>
+<li><p><strong>嵌入方法（Embedded methods）</strong>：</p>
+<ul>
+<li>将特征选择过程集成到模型学习过程中，这意味着特征选择在模型训练时一并完成。</li>
+<li>常用方法包括岭回归（Ridge Regression，ElasticNet）、套索回归（Lasso）、随机森林（Random Forest，特征排序）。</li>
+</ul>
+</li>
+<li><p><strong>过滤方法（Filter-based methods）</strong>：</p>
+<ul>
+<li>这种方法基于特征之间的关系或统计指标来进行选择，而不是依赖模型性能。</li>
+<li>常用方法包括单变量分析（ANOVA）、卡方检验（Chi-Square）、相关性分析和方差分析。</li>
+</ul>
+</li>
+</ol>
+<p>这些方法各有优缺点，选择具体方法时应根据问题的实际情况而定。</p>
+<img src="/images/ML/lec04/03.png" width="50%" height="50%">
+
+<p>这张幻灯片解释了<strong>前向特征选择（Forward Feature Selection）</strong>，这是一种包装方法（Wrapper Method）的一种。前向特征选择通过逐步添加特征来找到最优特征子集。具体步骤如下：</p>
+<ol>
+<li><p><strong>初始设置</strong>：</p>
+<ul>
+<li>( X \leftarrow \emptyset )：开始时，选定的特征集是空集。</li>
+</ul>
+</li>
+<li><p><strong>循环直到所有特征都已选择（while ( X \neq F )）</strong>：</p>
+<ul>
+<li>( B \leftarrow 0 )：初始化最优评估值为0。</li>
+<li>( Y \leftarrow \emptyset )：初始化当前选择的特征集为空集。</li>
+</ul>
+</li>
+<li><p><strong>遍历每个未被选择的特征</strong>：</p>
+<ul>
+<li>对于每个 ( X_i \in F \setminus X ) （即未选择的特征），将其加入到当前选择的特征集中，并计算新的评估指标 ( M(X \cup {X_i}) )。</li>
+</ul>
+</li>
+<li><p><strong>更新最优特征集</strong>：</p>
+<ul>
+<li>如果该评估指标优于当前的最佳指标 ( B )，则更新 ( B ) 和 ( Y )，使 ( Y &#x3D; X \cup {X_i} )。</li>
+</ul>
+</li>
+<li><p><strong>判断是否终止</strong>：</p>
+<ul>
+<li>如果当前的评估指标 ( M(X) ) 大于 ( B )，则终止并返回当前的特征集 ( X )。</li>
+<li>否则，更新 ( X \leftarrow Y )，继续循环。</li>
+</ul>
+</li>
+</ol>
+<h3 id="重要变量解释："><a href="#重要变量解释：" class="headerlink" title="重要变量解释："></a>重要变量解释：</h3><ul>
+<li><strong>X</strong>：最终选择的特征集。</li>
+<li><strong>B</strong>：存储的最佳评估指标值。</li>
+<li><strong>Y</strong>：每次迭代中选择的特征集。</li>
+<li><strong>M</strong>：评估指标，如熵（Entropy）、分类准确率（Classification Rate）或回归误差（Regression Error）。</li>
+</ul>
+<p>此外，幻灯片还提到<strong>递归特征消除（Recursive Feature Elimination）</strong>，其过程类似，但从全特征集开始，通过逐步消除特征来达到最优解。</p>
+<p>该方法适合寻找能最大化模型性能的特征集，但由于需要多次训练模型，计算成本较高。</p>
+<img src="/images/ML/lec04/04.png" width="50%" height="50%">
+
+<p>这张幻灯片解释了<strong>LASSO</strong>（最小绝对收缩与选择算子，Least Absolute Shrinkage and Selection Operator），这是一种<strong>嵌入式方法（Embedded Method）</strong>。</p>
+<p>LASSO 的主要特点包括：</p>
+<ul>
+<li>LASSO 添加了一个 <strong>L1 正则化项</strong>，这个正则化项会惩罚模型中的大权重，从而减少不重要特征的权重。</li>
+<li>通过这个正则化，LASSO 使得某些特征的权重变为0，从而在实际中减少了有效特征的数量，实现特征选择和降维的效果。</li>
+</ul>
+<h3 id="目标函数："><a href="#目标函数：" class="headerlink" title="目标函数："></a>目标函数：</h3><p>LASSO 的目标是最小化以下损失函数：<br>[<br>\min_{x} \left( | Xw - y |^2 + \lambda | w |_1 \right)<br>]<br>其中：</p>
+<ul>
+<li>( | Xw - y |^2 )：最小二乘项，用于拟合模型。</li>
+<li>( \lambda | w |_1 )：L1正则化项，惩罚特征权重（权重 (w) 的L1范数）。</li>
+<li>( \lambda ) 是正则化参数，控制特征选择的强度。</li>
+</ul>
+<h3 id="正则化参数-lambda-的作用："><a href="#正则化参数-lambda-的作用：" class="headerlink" title="正则化参数 ( \lambda ) 的作用："></a>正则化参数 ( \lambda ) 的作用：</h3><ul>
+<li><strong>较大的 ( \lambda )</strong> 会使一些特征的权重 ( w ) 变为0，从而减少模型的维度。</li>
+<li><strong>较小的 ( \lambda )</strong> 则对特征的惩罚较弱，可能会保留更多特征。</li>
+</ul>
+<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><p>假设有多个特征 ( x_1, x_2, x_3 )，目标是通过调整权重 ( w_1, w_2, w_3 ) 来拟合目标值 ( y )。如果选择较大的 ( \lambda )，某些权重（例如 ( w_2 )）会变为0，这样就可以减少对无用特征 ( x_2 ) 的依赖，进而减少维度。</p>
+<h3 id="优化："><a href="#优化：" class="headerlink" title="优化："></a>优化：</h3><p>由于损失函数中包含L1正则化项，它不可导，因此通常使用<strong>次梯度法（Sub-gradient methods）</strong>或<strong>最小角回归（Least-angle Regression）</strong>等方法来优化。</p>
+<p>LASSO 的优势在于它不仅可以进行回归分析，还可以有效地减少特征数量，提高模型的可解释性和泛化能力。</p>
+<img src="/images/ML/lec04/05.png" width="50%" height="50%">
+
+<p>这张幻灯片比较了几种用于特征选择的<strong>过滤方法（Filter Methods）</strong>：卡方检验（Chi-Square）、T检验（T-test）和方差分析（ANOVA），并介绍了这些方法的应用场景。</p>
+<h3 id="1-单变量特征选择（Univariate-Feature-Selection）："><a href="#1-单变量特征选择（Univariate-Feature-Selection）：" class="headerlink" title="1. 单变量特征选择（Univariate Feature Selection）："></a>1. <strong>单变量特征选择（Univariate Feature Selection）</strong>：</h3><ul>
+<li>假设各个特征是独立的，分别评估每个特征与目标变量之间的关系。</li>
+</ul>
+<h3 id="2-卡方检验（Chi-Square）："><a href="#2-卡方检验（Chi-Square）：" class="headerlink" title="2. 卡方检验（Chi-Square）："></a>2. <strong>卡方检验（Chi-Square）</strong>：</h3><ul>
+<li>用于检验预测变量（特征）与结果事件（目标变量）之间的独立性。</li>
+<li>适合处理<strong>分类特征</strong>和<strong>分类目标变量</strong>。即用于分类变量之间的关联性测试。</li>
+</ul>
+<h3 id="3-T检验（T-test）："><a href="#3-T检验（T-test）：" class="headerlink" title="3. T检验（T-test）："></a>3. <strong>T检验（T-test）</strong>：</h3><ul>
+<li>比较两个组（通常是二元类）的统计差异。</li>
+<li>用于<strong>连续特征</strong>的比较，判断两个组的均值是否有显著差异。</li>
+</ul>
+<h3 id="4-方差分析（ANOVA）："><a href="#4-方差分析（ANOVA）：" class="headerlink" title="4. 方差分析（ANOVA）："></a>4. <strong>方差分析（ANOVA）</strong>：</h3><ul>
+<li>使用方差来测试<strong>分类变量</strong>与<strong>连续结果变量</strong>之间的关系。</li>
+<li>例如，用性别或年龄组来预测考试成绩（连续变量）。</li>
+</ul>
+<h3 id="5-相关性检验（Correlation-Test）："><a href="#5-相关性检验（Correlation-Test）：" class="headerlink" title="5. 相关性检验（Correlation Test）："></a>5. <strong>相关性检验（Correlation Test）</strong>：</h3><ul>
+<li>用于测试预测变量和结果变量均为<strong>连续变量</strong>时的相关性。</li>
+</ul>
+<h3 id="6-假设检验（Null-Hypothesis-Testing）："><a href="#6-假设检验（Null-Hypothesis-Testing）：" class="headerlink" title="6. 假设检验（Null-Hypothesis Testing）："></a>6. <strong>假设检验（Null-Hypothesis Testing）</strong>：</h3><ul>
+<li>这些统计检验基于<strong>原假设</strong>（即变量之间没有显著关系）。</li>
+<li>通过计算p值来决定是否<strong>拒绝原假设</strong>，p值越小，表示越有可能拒绝原假设，通常当p值小于0.01时认为存在显著差异。</li>
+</ul>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li>卡方检验适合分类变量。</li>
+<li>T检验适合连续变量的二元类比较。</li>
+<li>ANOVA 适合分类变量与连续结果之间的关系分析。</li>
+<li>相关性检验用于连续变量之间的关系分析。</li>
+</ul>
+<img src="/images/ML/lec04/06.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了<strong>卡方检验（Chi-Square Test）</strong>的原理，用于检测<strong>分类预测变量</strong>与<strong>分类结果变量</strong>之间的关联性。</p>
+<h3 id="主要内容："><a href="#主要内容：" class="headerlink" title="主要内容："></a>主要内容：</h3><ul>
+<li><p><strong>卡方检验的公式</strong>：<br>[<br>X^2 &#x3D; \sum \frac{(O - E)^2}{E}<br>]<br>其中：</p>
+<ul>
+<li>( O ) 是观察到的频率（实际值）。</li>
+<li>( E ) 是期望的频率（理论值，根据假设计算的值）。</li>
+<li>( \Sigma ) 表示对所有类别求和。</li>
+</ul>
+</li>
+<li><p><strong>原假设（Null Hypothesis）</strong>：</p>
+<ul>
+<li>卡方检验的原假设是两个分类变量之间<strong>相互独立</strong>，即它们没有关联性。如果卡方统计量的值较大，表示观察到的频率与期望的频率差异较大，可能拒绝原假设，说明两个变量之间有显著的关联。</li>
+</ul>
+</li>
+</ul>
+<h3 id="图示说明："><a href="#图示说明：" class="headerlink" title="图示说明："></a>图示说明：</h3><ul>
+<li>图表显示了两个分类变量的示例：癌症（Cancer）与非癌症（Noncancer），以及两个特征 ( F1 ) 和 ( F2 ) 的频数分布。</li>
+<li>通过比较实际观测值与期望值，卡方检验可以判断这两个特征（( F1 ) 和 ( F2 )）是否与癌症或非癌症的分类结果相关。</li>
+</ul>
+<p>卡方检验主要用于<strong>分类数据</strong>的相关性分析，特别是在特征选择过程中，能够帮助识别哪些分类特征对分类目标有显著影响。</p>
+<img src="/images/ML/lec04/07.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了<strong>T检验（T-test）</strong>，用于比较两个组的均值是否存在显著差异。</p>
+<h3 id="主要内容：-1"><a href="#主要内容：-1" class="headerlink" title="主要内容："></a>主要内容：</h3><ul>
+<li><p><strong>T检验的用途</strong>：比较两个组的均值，判断它们是否显著不同。例如，测试癌症组与非癌症组在某个特征值上的差异。</p>
+</li>
+<li><p><strong>T检验公式</strong>：</p>
+<ul>
+<li><p>( S ) 代表方差的标准误差，计算公式为：<br>[<br>S &#x3D; \sqrt{\frac{s^2_{x_1} - s^2_{x_2}}{2}}<br>]<br>其中 ( s^2_{x_1} ) 和 ( s^2_{x_2} ) 分别是两组的方差。</p>
+</li>
+<li><p>T统计量的计算公式为：<br>[<br>t &#x3D; \frac{\bar{x}_1 - \bar{x}_2}{S \sqrt{\frac{2}{n}}}<br>]<br>其中：</p>
+<ul>
+<li>( \bar{x}_1 ) 和 ( \bar{x}_2 ) 分别是两组的均值。</li>
+<li>( n ) 是样本的数量。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>图示说明</strong>：</p>
+<ul>
+<li>图中展示了癌症组（Cancer）和非癌症组（non-Cancer）特征值的分布。两组的均值不同，表现为两条虚线之间的距离。</li>
+<li>通过T检验，可以计算出两组均值的差异是否显著。</li>
+</ul>
+</li>
+<li><p><strong>原假设（Null Hypothesis）</strong>：</p>
+<ul>
+<li>原假设是两组的均值<strong>相同</strong>，即没有显著差异。如果T统计量足够大，可以拒绝原假设，认为两组均值显著不同。</li>
+</ul>
+</li>
+<li><p><strong>p值</strong>：</p>
+<ul>
+<li>T检验的结果通常通过<strong>p值</strong>来评估。p值越小，表示拒绝原假设的证据越强。当p值低于某个显著性水平（例如0.01或0.05）时，通常认为两个组之间存在显著差异。</li>
+</ul>
+</li>
+</ul>
+<p>总结来说，T检验是用于二元分类特征的均值比较工具，能够判断两个组之间是否存在统计学上的显著差异。</p>
+<img src="/images/ML/lec04/08.png" width="50%" height="50%">
+
+<p>这张幻灯片解释了<strong>方差分析（ANOVA，Analysis of Variance）</strong>的概念，用于比较<strong>分类特征</strong>（Categorical Feature）与<strong>连续响应变量</strong>（Continuous Response）之间的关系。</p>
+<h3 id="主要内容：-2"><a href="#主要内容：-2" class="headerlink" title="主要内容："></a>主要内容：</h3><ul>
+<li><p><strong>ANOVA 检验</strong>：方差分析用于检查不同分类组之间的方差是否显著不同。即它比较组间方差和组内方差，判断分类变量（如A、B、C、D、E等）是否对连续变量的结果有显著影响。</p>
+</li>
+<li><p><strong>方差分析的应用</strong>：</p>
+<ul>
+<li>该方法适用于分类特征（如性别、年龄组等）与连续响应变量（如考试成绩、收入等）之间的关系分析。</li>
+<li>通过方差分析可以检验不同组别（如A、B、C、D、E）的连续响应是否存在显著差异。</li>
+</ul>
+</li>
+</ul>
+<h3 id="图示说明：-1"><a href="#图示说明：-1" class="headerlink" title="图示说明："></a>图示说明：</h3><ul>
+<li><p>图表展示了五个分类组（A、B、C、D、E）的<strong>连续响应</strong>值分布（箱线图）。</p>
+<ul>
+<li>不同组的方差（数值波动范围）存在差异。例如，E组的响应值分布较高，而A组较低。</li>
+</ul>
+</li>
+<li><p><strong>原假设（Null Hypothesis）</strong>：</p>
+<ul>
+<li>ANOVA 的原假设是：<strong>各组之间的方差相等</strong>，即各组之间没有显著差异。</li>
+<li>如果方差分析结果显示组间方差显著不同，可能拒绝原假设，认为不同组之间存在显著差异。</li>
+</ul>
+</li>
+</ul>
+<h3 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h3><p>ANOVA 是一种强大的工具，用于分析分类特征对连续响应变量的影响，适用于多组间均值的比较。通过检验组间方差，方差分析可以帮助识别哪些分类特征对连续结果有显著影响。</p>
+<img src="/images/ML/lec04/09.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了<strong>相关性分析（Correlation）</strong>，用于分析<strong>连续预测变量</strong>与<strong>连续结果变量</strong>之间的关系，通常使用<strong>皮尔逊相关系数（Pearson Correlation Coefficient）</strong>来衡量。</p>
+<h3 id="主要内容：-3"><a href="#主要内容：-3" class="headerlink" title="主要内容："></a>主要内容：</h3><ul>
+<li><p><strong>正相关（Positive Correlation）</strong>：</p>
+<ul>
+<li>当一个变量增加时，另一个变量也随之增加，称为正相关。</li>
+<li>皮尔逊相关系数接近1，表示两者强正相关。图中左侧的散点图展示了一个正相关的例子，数据点大致沿对角线向上排列。</li>
+</ul>
+</li>
+<li><p><strong>负相关（Negative Correlation）</strong>：</p>
+<ul>
+<li>当一个变量增加时，另一个变量减少，称为负相关。</li>
+<li>皮尔逊相关系数接近-1，表示两者强负相关。图中中间的散点图展示了一个负相关的例子，数据点沿对角线向下排列。</li>
+</ul>
+</li>
+<li><p><strong>无相关（No Correlation）</strong>：</p>
+<ul>
+<li>当两个变量之间没有明显的关系时，称为无相关。</li>
+<li>皮尔逊相关系数接近0，表示两者之间没有线性相关性。图中右侧的散点图显示了无相关的例子，数据点分布杂乱无章，没有明显的趋势。</li>
+</ul>
+</li>
+</ul>
+<h3 id="原假设（Null-Hypothesis）："><a href="#原假设（Null-Hypothesis）：" class="headerlink" title="原假设（Null Hypothesis）："></a>原假设（Null Hypothesis）：</h3><ul>
+<li>相关性检验的原假设是：<strong>两个变量之间没有相关性</strong>，即它们相互独立。</li>
+<li>通过相关系数和p值判断是否拒绝原假设。如果相关系数接近1或-1，且p值较低（如p &lt; 0.01），则表明两个变量之间存在显著相关性。</li>
+</ul>
+<p>相关性分析是一种常用的统计工具，适用于分析两个连续变量之间的线性关系。</p>
+<img src="/images/ML/lec04/10.png" width="50%" height="50%">
+
+<p>这张幻灯片列举了几种常见的<strong>降维方法（Dimensionality Reduction Methods）</strong>：</p>
+<ol>
+<li><p><strong>主成分分析（PCA, Principal Component Analysis）</strong>：</p>
+<ul>
+<li>一种线性降维方法，通过寻找数据中方差最大的方向，将高维数据投影到低维空间。PCA旨在减少维度的同时尽量保留数据的原始信息。</li>
+<li>常用于未标记的数据，适合用于探索性数据分析和数据可视化。</li>
+</ul>
+</li>
+<li><p><strong>线性判别分析（LDA, Linear Discriminant Analysis）</strong>：</p>
+<ul>
+<li>也是一种线性降维方法，但与PCA不同，LDA是有监督的。它通过最大化类间方差和最小化类内方差来实现降维，主要用于分类任务。</li>
+<li>适合用于已标记的数据集，尤其是在分类问题中用于提高分类器的性能。</li>
+</ul>
+</li>
+<li><p><strong>流形学习（Manifold Learning）</strong>：</p>
+<ul>
+<li>一种非线性降维方法，旨在保持数据的非线性结构，将高维数据映射到低维空间。流形学习假设数据位于一个嵌入的流形上，因此传统的线性方法如PCA和LDA无法捕捉其复杂性。</li>
+<li>常见的流形学习方法包括ISOMAP、t-SNE和局部线性嵌入（LLE）。</li>
+</ul>
+</li>
+</ol>
+<p>这些方法用于应对数据的“维度诅咒”，通过减少数据的维数，提升计算效率并避免过拟合问题。</p>
+<img src="/images/ML/lec04/11.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了<strong>主成分分析（PCA, Principal Component Analysis）</strong>的基本计算流程和原理。</p>
+<h3 id="主要内容：-4"><a href="#主要内容：-4" class="headerlink" title="主要内容："></a>主要内容：</h3><ol>
+<li><p><strong>PCA计算的两种方法</strong>：</p>
+<ul>
+<li><strong>最大方差法</strong>：选择主成分时，PCA寻找的是在新的坐标轴上具有最大方差的方向。</li>
+<li><strong>最小化平均投影误差</strong>：PCA也可以通过最小化数据点在新轴上的投影误差来进行。</li>
+</ul>
+<p>这两种方法都导向相同的PCA结果，即在保持最多信息的同时减少维度。</p>
+</li>
+<li><p><strong>PCA的计算步骤</strong>：</p>
+<ul>
+<li><strong>观测变量的均值</strong>：首先，计算每个变量的均值，以确保数据集中。</li>
+<li><strong>观测变量的协方差矩阵</strong>：计算协方差矩阵，描述不同变量之间的线性关系。</li>
+<li><strong>特征值和特征向量</strong>：通过计算协方差矩阵的特征值和特征向量来确定新的投影轴。特征向量定义了新坐标轴的方向，特征值代表了沿着该轴的方差大小。</li>
+</ul>
+</li>
+<li><p><strong>特征值和特征向量的计算</strong>：</p>
+<ul>
+<li>幻灯片提到了一个教学视频链接，介绍如何计算<strong>特征向量（Eigenvectors）</strong>和<strong>特征值（Eigenvalues）</strong>，这些是PCA的核心部分。</li>
+</ul>
+</li>
+<li><p><strong>图示说明</strong>：</p>
+<ul>
+<li>上方的散点图展示了原始特征的二维分布（Feature 1 和 Feature 2），数据呈现一定的线性关系。</li>
+<li>下方的散点图展示了PCA之后的结果，数据已经被投影到新特征轴（PCA Feature 1 和 PCA Feature 2）上，维度减少后特征的方差得以最大化。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结：-1"><a href="#总结：-1" class="headerlink" title="总结："></a>总结：</h3><p>PCA通过将高维数据投影到少数几个主要成分上，保留了大部分数据的方差信息，并有效地实现降维。这对于处理高维数据非常有用，能够提高计算效率并减少模型过拟合的风险。</p>
+<img src="/images/ML/lec04/12.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了<strong>线性判别分析（LDA, Linear Discriminant Analysis）</strong>，用于多分类问题的预测建模和降维。</p>
+<h3 id="主要内容：-5"><a href="#主要内容：-5" class="headerlink" title="主要内容："></a>主要内容：</h3><ol>
+<li><p><strong>LDA 是一种多分类预测建模算法</strong>：</p>
+<ul>
+<li>LDA 主要用于分类任务，通过投影训练数据集到一个可以最大化类间分离的低维空间，帮助分类器更好地区分不同的类。</li>
+</ul>
+</li>
+<li><p><strong>LDA 的降维功能</strong>：</p>
+<ul>
+<li>LDA 在降维时，通过找到一个能最优分离不同类别的投影方向，将原始高维数据投影到低维空间中。这不仅可以减少维度，还能保留不同类别之间的差异性，帮助分类。</li>
+</ul>
+</li>
+<li><p><strong>与 PCA 的对比</strong>：</p>
+<ul>
+<li><strong>PCA</strong> 是一种无监督学习方法，主要通过最大化方差来实现降维，它不考虑数据类别。</li>
+<li><strong>LDA</strong> 是一种有监督的学习方法，它在降维的同时会考虑数据类别，通过最大化类间方差与最小化类内方差来实现降维和分类。</li>
+</ul>
+</li>
+<li><p><strong>多分类问题</strong>：</p>
+<ul>
+<li>在处理多分类任务时，LDA 能够通过计算不同类别的均值和方差，找到最佳的投影方向，从而实现有效的类别区分。</li>
+</ul>
+</li>
+<li><p><strong>判别准则公式</strong>：</p>
+<ul>
+<li>LDA 的判别准则通过如下公式计算：<br>[<br>J(w) &#x3D; \frac{m_2 - m_1}{s_1^2 + s_2^2}<br>]<br>其中：<ul>
+<li>( m_1, m_2 ) 分别是两类的均值。</li>
+<li>( s_1^2, s_2^2 ) 分别是两类的方差。</li>
+<li>公式的目标是最大化类间均值的差异，同时最小化类内的方差，从而实现最优分类。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>图示说明</strong>：</p>
+<ul>
+<li>图中展示了两个类（红色圈和蓝色十字）的散点分布。通过LDA，数据将被投影到一个可以最优区分这两个类的方向上，从而实现更好的分类效果。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结：-2"><a href="#总结：-2" class="headerlink" title="总结："></a>总结：</h3><p>LDA 是一种有效的降维和分类方法，尤其适用于多分类问题。通过结合类别信息，它能够找到最有利于区分类别的投影方向，减少数据维度的同时提高模型的分类性能。</p>
+<img src="/images/ML/lec04/13.png" width="50%" height="50%">
+
+<p>这张幻灯片介绍了<strong>流形学习（Manifold Learning）</strong>的概念，并通过一个图像数据集的例子来解释其背后的直觉。</p>
+<h3 id="主要内容：-6"><a href="#主要内容：-6" class="headerlink" title="主要内容："></a>主要内容：</h3><ol>
+<li><p><strong>流形学习的直觉</strong>：</p>
+<ul>
+<li>高维数据集通常只由少数几个参数变化控制。尽管数据本身是高维的（例如64x64像素的图像），但这些高维数据实际上可以嵌入到一个低维空间中。</li>
+<li>流形学习旨在通过识别数据的低维流形结构来实现降维，捕捉数据中的重要信息。</li>
+</ul>
+</li>
+<li><p><strong>图像数据集示例</strong>：</p>
+<ul>
+<li>该示例是一个包含25张64x64像素图像的数据集，每张图像是一个雕像的不同角度或光照条件下的样本。</li>
+<li>虽然每张图像是4096维（64x64），但数据集中的变化实际上由少数几个参数控制。</li>
+</ul>
+</li>
+<li><p><strong>参数变化</strong>：</p>
+<ul>
+<li>数据集的变化由<strong>3个参数</strong>决定：<ul>
+<li>2个角度：雕像的旋转角度。</li>
+<li>1个光照条件：光照的方向或强度。</li>
+</ul>
+</li>
+<li>因此，尽管图像是高维的，但数据集的本质变化可以表示为一个3维的流形。</li>
+</ul>
+</li>
+<li><p><strong>数据的流形表示</strong>：</p>
+<ul>
+<li>虽然图像存在于4096维的空间中（因为每个图像有4096个像素），但由于数据的变化只由少数参数控制，它们可以被嵌入到一个低维的3维流形中。</li>
+</ul>
+</li>
+</ol>
+<h3 id="结论：-1"><a href="#结论：-1" class="headerlink" title="结论："></a>结论：</h3><p>流形学习是一种用于处理高维数据的非线性降维技术，它可以有效地发现和利用数据的低维结构，从而在保留数据核心信息的前提下减少维度。这在图像、文本等高维数据的处理和分析中具有广泛的应用。</p>
+<img src="/images/ML/lec04/14.png" width="50%" height="50%">
+
+<p>这张幻灯片进一步探讨了<strong>流形学习（Manifold Learning）</strong>，并用<strong>Swiss roll</strong>（瑞士卷）示例演示了流形学习在处理非线性数据中的作用。</p>
+<h3 id="主要内容：-7"><a href="#主要内容：-7" class="headerlink" title="主要内容："></a>主要内容：</h3><ol>
+<li><p><strong>流形学习的目标</strong>：</p>
+<ul>
+<li>流形学习旨在通过学习原始数据的潜在表示，将数据降维到低维空间中，保留数据的结构和关系。特别是在高维数据中，流形学习能够捕捉数据背后的非线性关系。</li>
+</ul>
+</li>
+<li><p><strong>PCA 和流形学习的对比</strong>：</p>
+<ul>
+<li><strong>PCA</strong> 是一种线性降维方法，它假设数据可以通过线性投影来简化。这在处理某些数据时有效，但对于复杂的非线性数据（如Swiss roll），PCA 的效果不佳，因为它不能捕捉数据的非线性结构。</li>
+<li>流形学习是一种非线性降维方法，适合用于处理具有复杂几何结构的数据。</li>
+</ul>
+</li>
+<li><p><strong>Swiss roll 示例</strong>：</p>
+<ul>
+<li><strong>左图</strong>展示了一个3维的瑞士卷数据集，数据点呈现出螺旋结构。</li>
+<li><strong>中图</strong>展示了该数据集的3D表示，通过PCA投影到2D时，无法解开数据的非线性结构。</li>
+<li><strong>右图</strong>展示了通过合适的非线性流形学习方法将数据成功展开到2D平面上，同时保留了数据点之间的拓扑结构和关系。</li>
+</ul>
+</li>
+<li><p><strong>最低维度问题</strong>：</p>
+<ul>
+<li>幻灯片中的问题：“<strong>数据的最小维度是什么？</strong>” 表明，Swiss roll 的数据实际上可以通过流形学习解开，并映射到二维平面。这表明尽管数据位于高维空间中，其本质上存在于低维的流形中。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结：-3"><a href="#总结：-3" class="headerlink" title="总结："></a>总结：</h3><p>流形学习是一种能够有效处理非线性数据的降维方法。与PCA等线性方法不同，流形学习能够在保持数据局部结构的同时，找到高维数据中的低维流形结构。Swiss roll 示例展示了流形学习在处理复杂几何结构数据中的强大能力。</p>
+<img src="/images/ML/lec04/15.png" width="50%" height="50%">
+
+<p>这张幻灯片展示了几种<strong>非线性流形学习方法（Nonlinear Manifold Learning Methods）</strong>，用于从高维数据中学习其低维表示，并强调了这些方法如何保留数据的<strong>局部邻域关系</strong>。</p>
+<h3 id="主要内容：-8"><a href="#主要内容：-8" class="headerlink" title="主要内容："></a>主要内容：</h3><ol>
+<li><p><strong>原始数据的3D表示</strong>：</p>
+<ul>
+<li>幻灯片顶部的图显示了一个三维数据集，这些数据分布在一个复杂的形状中（类似于卷曲的表面）。</li>
+<li>尽管数据存在于高维空间中，但它们的本质结构可以用低维表示来捕捉和描述。</li>
+</ul>
+</li>
+<li><p><strong>流形学习的目标</strong>：</p>
+<ul>
+<li>流形学习的目标是通过降维方法，将数据投影到低维空间中，同时保留数据点之间的局部关系。具体来说，它保留了原始高维数据中相邻点之间的几何关系。</li>
+</ul>
+</li>
+<li><p><strong>常见的非线性流形学习方法</strong>：</p>
+<ul>
+<li><strong>Isomap Embedding</strong>：基于测地线距离（即沿流形表面的最短路径）进行降维，有效保留局部结构。</li>
+<li><strong>多维尺度法（Multidimensional Scaling, MDS）</strong>：通过最小化原始数据点和低维投影点之间的距离差异来实现降维。</li>
+<li><strong>谱嵌入（Spectral Embedding）</strong>：通过计算图的拉普拉斯矩阵来发现数据的低维流形结构，特别适合处理非线性数据。</li>
+<li><strong>t-SNE（T-distributed Stochastic Neighbor Embedding）</strong>：通过保留高维空间中邻近点的概率分布，在低维空间中重现这种邻近关系，常用于可视化高维数据。</li>
+</ul>
+</li>
+<li><p><strong>学习后的2D流形表示</strong>：</p>
+<ul>
+<li>底部的四个图展示了通过上述非线性流形学习方法将数据降维到二维空间的结果。每个方法都能成功地将复杂的高维数据映射到二维空间，同时保留了数据局部邻域之间的关系。</li>
+<li>这些方法能够处理PCA等线性方法无法处理的复杂非线性结构，生成的2D表示可以帮助更直观地理解数据的潜在模式和分布。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结：-4"><a href="#总结：-4" class="headerlink" title="总结："></a>总结：</h3><p>非线性流形学习方法能够有效地捕捉和表示高维数据中的复杂非线性结构，并将其映射到低维空间，适用于可视化和分析高维数据中的模式。这些方法在高维数据降维问题上，比线性方法如PCA更具优势，尤其在保留局部邻域关系方面。</p>
+<img src="/images/ML/lec04/16.png" width="50%" height="50%">
+
+<p>这张幻灯片总结了整个内容的<strong>关键信息（Key Messages）</strong>，包括特征选择（FS）、降维（DR）以及相关的流形学习方法的核心知识点。以下是总结的主要内容：</p>
+<ol>
+<li><p><strong>理解特征选择（FS）与降维（DR）的区别</strong>：</p>
+<ul>
+<li>FS（特征选择）是从原始特征中选择一个子集，而 DR（降维）是通过变换来生成新的低维特征。</li>
+</ul>
+</li>
+<li><p><strong>了解何时使用FS和DR</strong>：</p>
+<ul>
+<li>在处理高维数据时，选择适当的特征选择或降维方法能够提高模型的性能和效率。</li>
+</ul>
+</li>
+<li><p><strong>理解关键特征选择方法的工作原理</strong>：</p>
+<ul>
+<li>学习几种常见的特征选择方法，如过滤方法、嵌入方法和包装方法，了解它们如何根据数据选择最优的特征子集。</li>
+</ul>
+</li>
+<li><p><strong>理解PCA和LDA的工作原理</strong>：</p>
+<ul>
+<li>PCA（主成分分析）用于无监督学习中的线性降维，LDA（线性判别分析）用于有监督学习中的线性降维和分类。</li>
+</ul>
+</li>
+<li><p><strong>理解流形学习的概念</strong>：</p>
+<ul>
+<li>流形学习是一种非线性降维方法，通过寻找高维数据中的低维流形结构，能够更好地表示数据。</li>
+</ul>
+</li>
+<li><p><strong>了解一些非线性流形学习方法</strong>：</p>
+<ul>
+<li>掌握几种常用的非线性流形学习方法，如Isomap、MDS、谱嵌入和t-SNE，它们能更好地保留数据局部邻域的几何结构。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结：-5"><a href="#总结：-5" class="headerlink" title="总结："></a>总结：</h3><p>幻灯片的主要目的是让你掌握特征选择和降维的基本原理，并理解何时以及如何使用这些技术，特别是如何选择合适的线性或非线性降维方法来处理复杂的高维数据。</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/02/12/UE5/"
+      title="UE5"
+     >
+
+    <p class="title-text">
+      
+        UE5
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2024 Caihao<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
